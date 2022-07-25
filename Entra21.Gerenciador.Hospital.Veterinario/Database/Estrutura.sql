@@ -1,4 +1,4 @@
-﻿CREATE TABLE veterinario(
+﻿CREATE TABLE veterinarios(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	idade TINYINT,
@@ -8,24 +8,24 @@
 	crmv_estado VARCHAR(2),
 	crmv_numero INTEGER);
 
-CREATE TABLE consulta(
+CREATE TABLE consultas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	data_consulta DATE,
 	hora_consulta TIME,
 	observação TEXT,
 
-	id_veterinario INTEGER,
-	id_pet INTEGER,
+	id_veterinarios INTEGER,
+	id_pets INTEGER,
 
-	FOREIGN KEY(id_veterinario) REFERENCES veterinario(id),
-	FOREIGN KEY(id_pet) REFERENCES pet(id));
+	FOREIGN KEY(id_veterinarios) REFERENCES veterinarios(id),
+	FOREIGN KEY(id_pets) REFERENCES pets(id));
 
-CREATE TABLE raca(
+CREATE TABLE racas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	especie VARCHAR(100),
 	nome VARCHAR(100));
 
-CREATE TABLE pet(
+CREATE TABLE pets(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	idade TINYINT,
@@ -33,21 +33,20 @@ CREATE TABLE pet(
 	altura DECIMAL(3,2),
 	genero CHAR,
 	
-	id_responsavel INTEGER,
-	id_raca INTEGER,
+	id_responsaveis INTEGER,
+	id_racas INTEGER,
 	
-	FOREIGN KEY(id_raca) REFERENCES raca(id),
-	FOREIGN KEY(id_responsavel) REFERENCES responsavel(id));
+	FOREIGN KEY(id_racas) REFERENCES racas(id),
+	FOREIGN KEY(id_responsaveis) REFERENCES responsaveis(id));
 
-CREATE TABLE responsavel(
+CREATE TABLE responsaveis(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	idade TINYINT,
 	cpf INTEGER,
-	telefone INTEGER,
-	endereco VARCHAR);
+	telefone INTEGER,);
 
-CREATE TABLE endereco(
+CREATE TABLE enderecos(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	cep INTEGER,
 	logradouro VARCHAR(100),
@@ -55,13 +54,13 @@ CREATE TABLE endereco(
 	cidade VARCHAR(100),
 	unidade_federativa VARCHAR(2),
 	
-	id_responsavel INTEGER,
+	id_responsaveis INTEGER,
 	
-	FOREIGN KEY(id_responsavel) REFERENCES responsavel(id));
+	FOREIGN KEY(id_responsaveis) REFERENCES responsaveis(id));
 
-SELECT * FROM veterinario;
-SELECT * FROM consulta;
-SELECT * FROM raca;
-SELECT * FROM pet;
-SELECT * FROM responsavel;
-SELECT * FROM endereco;
+SELECT * FROM veterinarios;
+SELECT * FROM consultas;
+SELECT * FROM racas;
+SELECT * FROM pets;
+SELECT * FROM responsaveis;
+SELECT * FROM enderecos;
