@@ -1,4 +1,4 @@
-﻿CREATE TABLE veterinarios(
+﻿CREATE TABLE Vets(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	idade TINYINT,
@@ -14,10 +14,10 @@ CREATE TABLE consultas(
 	hora_consulta TIME,
 	observação TEXT,
 
-	id_veterinarios INTEGER,
+	id_Vets INTEGER,
 	id_pets INTEGER,
 
-	FOREIGN KEY(id_veterinarios) REFERENCES veterinarios(id),
+	FOREIGN KEY(id_Vets) REFERENCES Vets(id),
 	FOREIGN KEY(id_pets) REFERENCES pets(id));
 
 CREATE TABLE racas(
@@ -58,7 +58,7 @@ CREATE TABLE enderecos(
 	
 	FOREIGN KEY(id_responsaveis) REFERENCES responsaveis(id));
 
-SELECT * FROM veterinarios;
+SELECT * FROM Vets;
 SELECT * FROM consultas;
 SELECT * FROM racas;
 SELECT * FROM pets;

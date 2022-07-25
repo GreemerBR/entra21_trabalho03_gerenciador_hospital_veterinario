@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace Entra21.Gerenciador.Hospital.Veterinario.Database
+namespace Entra21.Gerenciador.Hospital.Vet.Database
 {
     internal class Conexao
     {

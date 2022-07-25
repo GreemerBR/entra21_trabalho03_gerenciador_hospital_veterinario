@@ -1,4 +1,4 @@
-﻿namespace Entra21.Gerenciador.Hospital.Veterinario.Enums
+﻿namespace Entra21.Gerenciador.Hospital.Vet.Enums
 {
     internal enum VeterinarioListaFiltroStatus
     {

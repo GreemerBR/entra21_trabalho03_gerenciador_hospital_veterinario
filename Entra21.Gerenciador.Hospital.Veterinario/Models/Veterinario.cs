@@ -1,4 +1,4 @@
-﻿namespace Entra21.Gerenciador.Hospital.Veterinario.Models
+﻿namespace Entra21.Gerenciador.Hospital.Vet.Models
 {
     internal class Veterinario
     {

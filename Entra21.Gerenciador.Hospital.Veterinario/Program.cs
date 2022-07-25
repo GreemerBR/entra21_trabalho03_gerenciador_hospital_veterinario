@@ -1,4 +1,4 @@
-namespace Entra21.Gerenciador.Hospital.Veterinario
+namespace Entra21.Gerenciador.Hospital.Vet
 {
     internal static class Program
     {

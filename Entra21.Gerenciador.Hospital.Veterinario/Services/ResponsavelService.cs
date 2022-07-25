@@ -1,12 +1,12 @@
-﻿using Entra21.Gerenciador.Hospital.Veterinario.Database;
-using Entra21.Gerenciador.Hospital.Veterinario.Models;
+﻿using Entra21.Gerenciador.Hospital.Vet.Database;
+using Entra21.Gerenciador.Hospital.Vet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entra21.Gerenciador.Hospital.Veterinario.Services
+namespace Entra21.Gerenciador.Hospital.Vet.Services
 {
     internal class ResponsavelService : IResponsavelService
     {
