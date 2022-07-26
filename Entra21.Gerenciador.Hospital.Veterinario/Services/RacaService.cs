@@ -86,30 +86,28 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             var comando = conexao.CreateCommand();
 
             comando.CommandText = "SELECT id,especie, nome FROM raca WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID", id);
+           
 
             var tabelaEmMemoria = new DataTable();
 
             tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            if (tabelaEmMemoria.Rows.Count == 0)
-                return null;
+            var racas = new List<Raca>();
 
-            var registro = tabelaEmMemoria.Rows[0];
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
 
-            var raca = new Raca();
+                var raca = new Raca();
+                raca.Id = Convert.ToInt32(registro["id"]);
+                raca.Especie = registro["especie"].ToString();
+                raca.Nome = registro["nome"].ToString();
 
-            raca.Id = Convert.ToInt32(registro["id"]);
-            raca.Especie = registro["especie"].ToString();
-            raca.Nome = registro["nome"].ToString();
-            
-
+                racas.Add(raca);
+            }
             comando.Connection.Close();
 
-            return raca;
+            return racas;
         }
-        
-
-
     }
 }
