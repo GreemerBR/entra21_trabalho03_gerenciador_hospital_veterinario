@@ -11,8 +11,7 @@
 
 CREATE TABLE consultas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
-	data_consulta DATE NOT NULL,
-	hora_consulta TIME NOT NULL,
+	data_hora_consulta DATETIME2 NOT NULL,
 	observação TEXT,
 
 	id_veterinarios INTEGER NOT NULL,
