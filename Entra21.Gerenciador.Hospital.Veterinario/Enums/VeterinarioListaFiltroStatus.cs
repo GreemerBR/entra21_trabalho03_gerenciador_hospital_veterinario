@@ -1,10 +1,9 @@
 ﻿namespace Entra21.Gerenciador.Hospital.Vet.Enums
 {
-    internal enum VeterinarioListaFiltroStatus
+    internal enum VeterinarioListaStatus
     {
         Todos,
-        HorarioLivre,
-        HorarioAgendado,
-        EmAtendimento
+        Livre,
+        Ocupado
     }
 }
