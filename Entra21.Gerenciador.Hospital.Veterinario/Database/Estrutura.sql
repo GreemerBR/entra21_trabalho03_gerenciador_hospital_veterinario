@@ -49,7 +49,7 @@ CREATE TABLE responsaveis(
 
 CREATE TABLE enderecos(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
-	cep INTEGER,
+	cep CHAR(9),
 	logradouro VARCHAR(100) NOT NULL,
 	bairro VARCHAR(100) NOT NULL,
 	cidade VARCHAR(100) NOT NULL,
