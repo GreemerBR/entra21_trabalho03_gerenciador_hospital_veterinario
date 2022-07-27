@@ -7,7 +7,7 @@
 	especialidade VARCHAR(200) NOT NULL,
 	crmv_estado VARCHAR(2) NOT NULL,
 	crmv_numero INTEGER NOT NULL,
-	status_horario BIT NOT NULL);
+	--status_horario BIT NOT NULL);
 
 CREATE TABLE consultas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),

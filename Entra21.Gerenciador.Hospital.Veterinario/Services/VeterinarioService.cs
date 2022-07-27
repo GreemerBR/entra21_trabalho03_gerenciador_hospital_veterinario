@@ -28,8 +28,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"INSERT INTO veterinarios (nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero, status_horario)
-VALUES (@NOME, @IDADE, @TELEFONE, @CPF, @ESPECIALIDADE, @CRMV_ESTADO, @CRMV_NUMERO, @STATUS_HORARIO);";
+            comando.CommandText = @"INSERT INTO veterinarios (nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero)
+VALUES (@NOME, @IDADE, @TELEFONE, @CPF, @ESPECIALIDADE, @CRMV_ESTADO, @CRMV_NUMERO);";
 
             comando.Parameters.AddWithValue("@NOME", veterinario.Nome);
             comando.Parameters.AddWithValue("@IDADE", veterinario.Idade);
@@ -38,7 +38,6 @@ VALUES (@NOME, @IDADE, @TELEFONE, @CPF, @ESPECIALIDADE, @CRMV_ESTADO, @CRMV_NUME
             comando.Parameters.AddWithValue("@ESPECIALIDADE", veterinario.Especialidade);
             comando.Parameters.AddWithValue("@CRMV_ESTADO", veterinario.CrmvEstado);
             comando.Parameters.AddWithValue("@CRMV_NUMERO", veterinario.CrmvNumero);
-            comando.Parameters.AddWithValue("@STATUS_HORARIO", veterinario.StatusHorario);
 
             comando.ExecuteNonQuery();
 
@@ -51,7 +50,7 @@ VALUES (@NOME, @IDADE, @TELEFONE, @CPF, @ESPECIALIDADE, @CRMV_ESTADO, @CRMV_NUME
 
             var comando = conexao.CreateCommand();
             comando.CommandText = @"UPDATE veterinarios SET nome = @NOME, idade = @IDADE, telefone = @TELEFONE, cpf = @CPF, 
-especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_NUMERO, status_horario = @STATUS_HORARIO WHERE id = @ID";
+especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_NUMERO WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", veterinario.Id);
             comando.Parameters.AddWithValue("@NOME", veterinario.Nome);
@@ -61,7 +60,6 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             comando.Parameters.AddWithValue("@ESPECIALIDADE", veterinario.Especialidade);
             comando.Parameters.AddWithValue("@CRMV_ESTADO", veterinario.CrmvEstado);
             comando.Parameters.AddWithValue("@CRMV_NUMERO", veterinario.CrmvNumero);
-            comando.Parameters.AddWithValue("@STATUS_HORARIO", veterinario.StatusHorario);
 
             comando.ExecuteNonQuery();
 
@@ -74,7 +72,7 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero, status_horario FROM veterinarios WHERE id = @ID";
+            comando.CommandText = "SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero FROM veterinarios WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", id);
 
@@ -97,65 +95,64 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             veterinario.Especialidade = registro["especialidade"].ToString();
             veterinario.CrmvEstado = registro["crmv_estado"].ToString();
             veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
-            veterinario.StatusHorario = Convert.ToBoolean(registro["status_horario"]);
 
             comando.Connection.Close();
 
             return veterinario;
         }
 
-        public List<Veterinario> ObterTodosFiltrando(string nomeVet, VeterinarioListaStatus VetListaFiltroSatus)
-        {
-            var conexao = new Conexao().Conectar();
+//        public List<Veterinario> ObterTodosFiltrando(string nomeVet, VeterinarioListaStatus VetListaFiltroSatus)
+//        {
+//            var conexao = new Conexao().Conectar();
 
-            var comando = conexao.CreateCommand();
+//            var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero, status_horario FROM veterinarios
-WHERE nome LIKE @NOME";
+//            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero, status_horario FROM veterinarios
+//WHERE nome LIKE @NOME";
 
-            comando.Parameters.AddWithValue("@NOME", $"%{nomeVet}%");
+//            comando.Parameters.AddWithValue("@NOME", $"%{nomeVet}%");
 
-            if (VetListaFiltroSatus == VeterinarioListaStatus.Livre)
-            {
-                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
+//            if (VetListaFiltroSatus == VeterinarioListaStatus.Livre)
+//            {
+//                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
 
-                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Livre);
-            }
-            else if (VetListaFiltroSatus == VeterinarioListaStatus.Ocupado)
-            {
-                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
+//                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Livre);
+//            }
+//            else if (VetListaFiltroSatus == VeterinarioListaStatus.Ocupado)
+//            {
+//                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
 
-                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Ocupado);
-            }
+//                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Ocupado);
+//            }
 
-            var tabelaEmMemoria = new DataTable();
+//            var tabelaEmMemoria = new DataTable();
 
-            tabelaEmMemoria.Load(comando.ExecuteReader());
+//            tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            var veterinarios = new List<Veterinario>();
+//            var veterinarios = new List<Veterinario>();
 
-            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
-            {
-                var registro = tabelaEmMemoria.Rows[i];
+//            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+//            {
+//                var registro = tabelaEmMemoria.Rows[i];
 
-                var veterinario = new Veterinario();
+//                var veterinario = new Veterinario();
 
-                veterinario.Id = Convert.ToInt32(registro["id"]);
-                veterinario.Nome = registro["nome"].ToString();
-                veterinario.Idade = Convert.ToInt32(registro["idade"]);
-                veterinario.Telefone = Convert.ToInt32(registro["telefone"]);
-                veterinario.Cpf = registro["cpf"].ToString();
-                veterinario.Especialidade = registro["especialidade"].ToString();
-                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
-                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
-                veterinario.StatusHorario = Convert.ToBoolean(registro["status_horario"]);
+//                veterinario.Id = Convert.ToInt32(registro["id"]);
+//                veterinario.Nome = registro["nome"].ToString();
+//                veterinario.Idade = Convert.ToInt32(registro["idade"]);
+//                veterinario.Telefone = Convert.ToInt32(registro["telefone"]);
+//                veterinario.Cpf = registro["cpf"].ToString();
+//                veterinario.Especialidade = registro["especialidade"].ToString();
+//                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
+//                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
+//                veterinario.StatusHorario = Convert.ToBoolean(registro["status_horario"]);
 
-                veterinarios.Add(veterinario);
-            }
+//                veterinarios.Add(veterinario);
+//            }
 
-            comando.Connection.Close();
+//            comando.Connection.Close();
 
-            return veterinarios;
-        }
+//            return veterinarios;
+        //}
     }
 }

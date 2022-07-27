@@ -1,6 +1,6 @@
 ﻿namespace Entra21.Gerenciador.Hospital.Vet.Models
 {
-    internal class Veterinario
+    public class Veterinario
     {
         public int Id { get; set; }
         public int Idade { get; set; }
@@ -10,6 +10,6 @@
         public string CrmvEstado { get; set; }
         public string Especialidade { get; set; }
         public string Nome { get; set; }
-        public bool StatusHorario { get; set; }
+        //public bool StatusHorario { get; set; }
     }
 }
