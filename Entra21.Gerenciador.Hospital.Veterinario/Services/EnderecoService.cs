@@ -23,14 +23,14 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "id_responsaveis, cep, logradouro, bairro, cidade, unidade_federativa VALUES (@ID_RESPONSAVEIS, @CEP, @LOGRADOURO, @BAIRRO, @CIDADE, @UNIDADE_FEDERATIVA);";
+            comando.CommandText = "INSERT INTO enderecos (id_responsaveis, cep, logradouro, bairro, cidade, unidade_federativa) VALUES (@ID_RESPONSAVEIS, @CEP, @LOGRADOURO, @BAIRRO, @CIDADE, @UNIDADE_FEDERATIVA)";
 
             comando.Parameters.AddWithValue("@ID_RESPONSAVEIS", endereco.Responsavel.Id);
             comando.Parameters.AddWithValue("@CEP", endereco.Cep);
             comando.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             comando.Parameters.AddWithValue("@BAIRRO", endereco.Bairro);
-            comando.Parameters.AddWithValue("@CIDADE", endereco.Cidade);
-            comando.Parameters.AddWithValue("@UNIDADE_FEDERATIVA", endereco.UnidadeFederativa);
+            comando.Parameters.AddWithValue("@CIDADE", endereco.Localidade);
+            comando.Parameters.AddWithValue("@UNIDADE_FEDERATIVA", endereco.Uf);
 
             comando.ExecuteNonQuery();
 
@@ -41,25 +41,27 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "UPDADETE enderecos SET id_responsaveis = @ID_RESPONSAVEIS, cep = @CEP, logradouro = @LOGRADOURO, bairro = @BAIRRO, cidade = @CIDADE, unidade_federativa = @UNIDADE_FEDERATIVA, id = @ID";
+            comando.CommandText = "UPDATE enderecos SET id_responsaveis = @ID_RESPONSAVEIS, cep = @CEP, logradouro = @LOGRADOURO, bairro = @BAIRRO, cidade = @CIDADE, unidade_federativa = @UNIDADE_FEDERATIVA WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID_RESPONSAVEIS", endereco.Responsavel.Id);
             comando.Parameters.AddWithValue("@CEP", endereco.Cep);
             comando.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             comando.Parameters.AddWithValue("@BAIRRO", endereco.Bairro);
-            comando.Parameters.AddWithValue("@CIDADE", endereco.Cidade);
-            comando.Parameters.AddWithValue("@UNIDADE_FEDERATIVA", endereco.UnidadeFederativa);
+            comando.Parameters.AddWithValue("@CIDADE", endereco.Localidade);
+            comando.Parameters.AddWithValue("@UNIDADE_FEDERATIVA", endereco.Uf);
+            comando.Parameters.AddWithValue("@ID", endereco.Id);
 
             comando.ExecuteNonQuery();
 
             comando.Connection.Close();
         }
 
-        public Endereco ObterPorId()
+        public Endereco ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
             comando.CommandText = "SELECT id, id_responsaveis, cep, logradouro, bairro, cidade, unidade_federativa FROM enderecos WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
             dataTable.Load(comando.ExecuteReader());
@@ -71,13 +73,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             endereco.Id = Convert.ToInt32(registro["id"]);
 
             endereco.Responsavel = new Responsavel();
-            endereco.Responsavel.Id = Convert.ToInt32(registro["id_editora"]);
+            endereco.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
 
             endereco.Cep = registro["cep"].ToString();
             endereco.Logradouro = registro["logradouro"].ToString();
             endereco.Bairro = registro["bairro"].ToString();
-            endereco.Cidade = registro["cidade"].ToString();
-            endereco.UnidadeFederativa = registro["unidade_federativa"].ToString();
+            endereco.Localidade = registro["cidade"].ToString();
+            endereco.Uf = registro["unidade_federativa"].ToString();
 
             conexao.Close();
 
@@ -96,9 +98,9 @@ e.bairro AS 'bairro',
 e.cidade AS 'cidade',
 e.unidade_federativa AS 'unidade_federativa',
 r.id AS 'responsavel_id',
-r.nome AS 'responsavel_nome'
-r.idade AS 'responsavel_idade'
-r.cpf AS 'responsavel_cpf'
+r.nome AS 'responsavel_nome',
+r.idade AS 'responsavel_idade',
+r.cpf AS 'responsavel_cpf',
 r.telefone AS 'responsavel_telefone'
 FROM enderecos AS e
 INNER JOIN responsaveis AS r ON(e.id_responsaveis = r.id)";
@@ -116,15 +118,15 @@ INNER JOIN responsaveis AS r ON(e.id_responsaveis = r.id)";
                 endereco.Cep = registro["cep"].ToString();
                 endereco.Logradouro = registro["logradouro"].ToString();
                 endereco.Bairro = registro["bairro"].ToString();
-                endereco.Cidade = registro["cidade"].ToString();
-                endereco.UnidadeFederativa = registro["unidade_federativa"].ToString();
+                endereco.Localidade = registro["cidade"].ToString();
+                endereco.Uf = registro["unidade_federativa"].ToString();
 
                 endereco.Responsavel = new Responsavel();
-                endereco.Responsavel.Id = Convert.ToInt32(registro["id"]);
-                endereco.Responsavel.Nome = registro["nome"].ToString();
-                endereco.Responsavel.Idade = Convert.ToInt32(registro["idade"]);
-                endereco.Responsavel.Cpf = registro["cpf"].ToString();
-                endereco.Responsavel.Telefone = registro["telefone"].ToString();
+                endereco.Responsavel.Id = Convert.ToInt32(registro["responsavel_id"]);
+                endereco.Responsavel.Nome = registro["responsavel_nome"].ToString();
+                endereco.Responsavel.Idade = Convert.ToInt32(registro["responsavel_idade"]);
+                endereco.Responsavel.Cpf = registro["responsavel_cpf"].ToString();
+                endereco.Responsavel.Telefone = registro["responsavel_telefone"].ToString();
 
                 enderecos.Add(endereco);
             }
