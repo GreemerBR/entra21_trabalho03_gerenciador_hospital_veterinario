@@ -70,7 +70,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             responsavel.Nome = registro["nome"].ToString();
             responsavel.Idade = Convert.ToInt32(registro["idade"]);
             responsavel.Cpf = registro["cpf"].ToString();
-            responsavel.Telefone = Convert.ToInt32(registro["telefone"]);
+            responsavel.Telefone = registro["telefone"].ToString();
 
             conexao.Close();
 
@@ -99,7 +99,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
                 responsavel.Nome = linha["nome"].ToString();
                 responsavel.Idade = Convert.ToInt32(linha["idade"].ToString());
                 responsavel.Cpf = linha["cpf"].ToString();
-                responsavel.Telefone = Convert.ToInt32(linha["telefone"].ToString());
+                responsavel.Telefone = linha["telefone"].ToString();
 
                 responsaveis.Add(responsavel);
             }
