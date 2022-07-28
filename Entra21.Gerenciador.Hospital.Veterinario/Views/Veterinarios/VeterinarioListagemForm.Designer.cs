@@ -63,6 +63,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(944, 394);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -178,6 +179,7 @@
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "VeterinarioListagemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Veterinários(as)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
