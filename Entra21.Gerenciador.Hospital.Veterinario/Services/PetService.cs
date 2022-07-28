@@ -73,7 +73,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pet WHERE id = @ID";
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pet WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
@@ -82,7 +82,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
                 return null;
 
             var registro = dataTable.Rows[0];
-            var pet = new Raca();
+            var pet = new Pet();
 
             pet.Id = Convert.ToInt32(registro["id"]);
             pet.Nome = registro["nome"].ToString();
@@ -90,17 +90,89 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
             pet.Idade = Convert.ToInt32(registro["idade"]);
             pet.Genero = registro["genero"].ToString();
-            pet.Peso = 
+            pet.Peso = Convert.ToDouble(registro["peso"]);
+            pet.Altura = Convert.ToDouble(registro["altura"]);
 
 
-            conexao.Close();
+            comando.Connection.Close();
 
             return pet;
         }
+        public List<Pet> ObterPorNome(string nomePet)
+        {
+            var conexao = new Conexao().Conectar();
+
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pets WHERE nome LIKE @NOME";
+
+            comando.Parameters.AddWithValue("@NOME", $"%{nomePet}%");
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var pets = new List<Pet>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var pet = new Pet();
+
+                pet.Id = Convert.ToInt32(registro["id"]);
+                pet.Nome = registro["nome"].ToString();
+                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
+                pet.Idade = Convert.ToInt32(registro["idade"]);
+                pet.Genero = registro["genero"].ToString();
+                pet.Peso = Convert.ToDouble(registro["peso"]);
+                pet.Altura = Convert.ToDouble(registro["altura"]);
+
+                
+            }
+
+            comando.Connection.Close();
+
+            return pets;
+        }
+
 
         public List<Pet> ObterTodos()
         {
-            throw new NotImplementedException();
+            var conexao = new Conexao().Conectar();
+
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pets";
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var pets = new List<Pet>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var pet = new Pet();
+
+                pet.Id = Convert.ToInt32(registro["id"]);
+                pet.Nome = registro["nome"].ToString();
+                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
+                pet.Idade = Convert.ToInt32(registro["idade"]);
+                pet.Genero = registro["genero"].ToString();
+                pet.Peso = Convert.ToDouble(registro["peso"]);
+                pet.Altura = Convert.ToDouble(registro["altura"]);
+
+                
+            }
+
+            comando.Connection.Close();
+
+            return pets;
         }
     }
 }
