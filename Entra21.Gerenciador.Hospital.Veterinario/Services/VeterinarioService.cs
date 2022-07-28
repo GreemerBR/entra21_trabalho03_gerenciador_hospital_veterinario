@@ -1,5 +1,4 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Database;
-using Entra21.Gerenciador.Hospital.Vet.Enums;
 using Entra21.Gerenciador.Hospital.Vet.Models;
 using System.Data;
 
@@ -90,7 +89,7 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             veterinario.Id = Convert.ToInt32(registro["id"]);
             veterinario.Nome = registro["nome"].ToString();
             veterinario.Idade = Convert.ToInt32(registro["idade"]);
-            veterinario.Telefone = Convert.ToInt32(registro["telefone"]);
+            veterinario.Telefone = registro["telefone"].ToString();
             veterinario.Cpf = registro["cpf"].ToString();
             veterinario.Especialidade = registro["especialidade"].ToString();
             veterinario.CrmvEstado = registro["crmv_estado"].ToString();
@@ -101,58 +100,81 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             return veterinario;
         }
 
-//        public List<Veterinario> ObterTodosFiltrando(string nomeVet, VeterinarioListaStatus VetListaFiltroSatus)
-//        {
-//            var conexao = new Conexao().Conectar();
+        public List<Veterinario> ObterPorNome(string nomeVet)
+        {
+            var conexao = new Conexao().Conectar();
 
-//            var comando = conexao.CreateCommand();
+            var comando = conexao.CreateCommand();
 
-//            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero, status_horario FROM veterinarios
-//WHERE nome LIKE @NOME";
+            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero FROM veterinarios
+WHERE nome LIKE @NOME";
 
-//            comando.Parameters.AddWithValue("@NOME", $"%{nomeVet}%");
+            comando.Parameters.AddWithValue("@NOME", $"%{nomeVet}%");
 
-//            if (VetListaFiltroSatus == VeterinarioListaStatus.Livre)
-//            {
-//                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
+            var tabelaEmMemoria = new DataTable();
 
-//                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Livre);
-//            }
-//            else if (VetListaFiltroSatus == VeterinarioListaStatus.Ocupado)
-//            {
-//                comando.CommandText += " AND status_horario = @STATUS_HORARIO";
+            tabelaEmMemoria.Load(comando.ExecuteReader());
 
-//                comando.Parameters.AddWithValue("@EH_INADIMPLENTE", VetListaFiltroSatus == VeterinarioListaStatus.Ocupado);
-//            }
+            var veterinarios = new List<Veterinario>();
 
-//            var tabelaEmMemoria = new DataTable();
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
 
-//            tabelaEmMemoria.Load(comando.ExecuteReader());
+                var veterinario = new Veterinario();
 
-//            var veterinarios = new List<Veterinario>();
+                veterinario.Id = Convert.ToInt32(registro["id"]);
+                veterinario.Nome = registro["nome"].ToString();
+                veterinario.Idade = Convert.ToInt32(registro["idade"]);
+                veterinario.Telefone = registro["telefone"].ToString();
+                veterinario.Cpf = registro["cpf"].ToString();
+                veterinario.Especialidade = registro["especialidade"].ToString();
+                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
+                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
 
-//            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
-//            {
-//                var registro = tabelaEmMemoria.Rows[i];
+                veterinarios.Add(veterinario);
+            }
 
-//                var veterinario = new Veterinario();
+            comando.Connection.Close();
 
-//                veterinario.Id = Convert.ToInt32(registro["id"]);
-//                veterinario.Nome = registro["nome"].ToString();
-//                veterinario.Idade = Convert.ToInt32(registro["idade"]);
-//                veterinario.Telefone = Convert.ToInt32(registro["telefone"]);
-//                veterinario.Cpf = registro["cpf"].ToString();
-//                veterinario.Especialidade = registro["especialidade"].ToString();
-//                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
-//                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
-//                veterinario.StatusHorario = Convert.ToBoolean(registro["status_horario"]);
+            return veterinarios;
+        }
 
-//                veterinarios.Add(veterinario);
-//            }
+        public List<Veterinario> ObterTodos()
+        {
+            var conexao = new Conexao().Conectar();
 
-//            comando.Connection.Close();
+            var comando = conexao.CreateCommand();
 
-//            return veterinarios;
-        //}
+            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero FROM veterinarios";
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var veterinarios = new List<Veterinario>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var veterinario = new Veterinario();
+
+                veterinario.Id = Convert.ToInt32(registro["id"]);
+                veterinario.Nome = registro["nome"].ToString();
+                veterinario.Idade = Convert.ToInt32(registro["idade"]);
+                veterinario.Telefone = registro["telefone"].ToString();
+                veterinario.Cpf = registro["cpf"].ToString();
+                veterinario.Especialidade = registro["especialidade"].ToString();
+                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
+                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
+
+                veterinarios.Add(veterinario);
+            }
+
+            comando.Connection.Close();
+
+            return veterinarios;
+        }
     }
 }

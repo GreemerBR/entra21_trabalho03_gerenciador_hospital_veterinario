@@ -30,64 +30,58 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
 
             maskedTextBoxIdade.Text = veterinario.Idade.ToString();
 
-            richTextBoxEspecialidade.Text = veterinario.Especialidade;
+            textBoxEspecialidade.Text = veterinario.Especialidade;
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            String nome;
-            try
-            {
-                nome = textBoxNome.Text.Trim();
+            String nome = textBoxNome.Text.Trim();
+            //try
+            //{
+            //    if (nome.Length >= 6)
+            //        return;
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("O nome do(a) veterinário(a) precisa ter ao menos 6 caracteres", "Aviso", MessageBoxButtons.OK);
 
-                if (nome.Length >= 6)
-                    return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("O nome do(a) veterinário(a) precisa ter ao menos 6 caracteres", "Aviso", MessageBoxButtons.OK);
+            //    textBoxNome.Focus();
 
-                textBoxNome.Focus();
+            //    return;
+            //}
 
-                return;
-            }
+            String crmvEstado = textBoxCrmvUF.Text.Trim().ToUpper();
+            //try
+            //{
+            //    if (crmvEstado.Length == 2)
+            //        return;
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("A unidade federativa (UF) deve ter 2 caracteres", "Aviso", MessageBoxButtons.OK);
 
-            String crmvEstado;
-            try
-            {
-                crmvEstado = textBoxCrmvUF.Text.Trim().ToUpper();
+            //    textBoxCrmvUF.Focus();
 
-                if (crmvEstado.Length == 2)
-                    return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("A unidade federativa (UF) deve ter 2 caracteres", "Aviso", MessageBoxButtons.OK);
+            //    return;
+            //}
 
-                textBoxCrmvUF.Focus();
+            String especialidade = textBoxEspecialidade.Text.Trim();
+            //try
+            //{
+            //    if (crmvEstado.Length > 200)
+            //        return;
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("O campo especialidades deve conter no máximo 200 caracteres", "Aviso", MessageBoxButtons.OK);
 
-                return;
-            }
+            //    textBoxNome.Focus();
 
-            String especialidade;
-            try
-            {
-                especialidade = richTextBoxEspecialidade.Text.Trim();
+            //    return;
+            //}
 
-                if (crmvEstado.Length > 200)
-                    return;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("O campo especialidades deve conter no máximo 200 caracteres", "Aviso", MessageBoxButtons.OK);
-
-                textBoxNome.Focus();
-
-                return;
-            }
-
-            string cpf = maskedTextBoxCpf.Text;           
-            int telefone = Convert.ToInt32(maskedTextBoxTelefone.Text);
+            string cpf = maskedTextBoxCpf.Text;
+            string telefone = maskedTextBoxTelefone.Text;
             int crvmNumero = Convert.ToInt32(maskedTextBoxCrvmNumero.Text);
             int idade = Convert.ToInt32(maskedTextBoxIdade.Text);
 
@@ -108,6 +102,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
 
                 MessageBox.Show("Veterinário(a) cadastrado(a) com sucesso");
                 Close();
+
+                return;
             }
             else
             {

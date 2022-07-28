@@ -42,8 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.richTextBoxEspecialidade = new System.Windows.Forms.RichTextBox();
             this.labelEspecialidade = new System.Windows.Forms.Label();
+            this.textBoxEspecialidade = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxNome
@@ -124,7 +124,7 @@
             // maskedTextBoxCpf
             // 
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(220, 82);
-            this.maskedTextBoxCpf.Mask = "999.999.999-99";
+            this.maskedTextBoxCpf.Mask = "999,999,999-99";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(84, 23);
             this.maskedTextBoxCpf.TabIndex = 3;
@@ -148,7 +148,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(288, 240);
+            this.buttonSalvar.Location = new System.Drawing.Point(288, 190);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 5;
@@ -158,7 +158,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(207, 240);
+            this.buttonCancelar.Location = new System.Drawing.Point(207, 190);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 5;
@@ -166,29 +166,28 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // richTextBoxEspecialidade
-            // 
-            this.richTextBoxEspecialidade.Location = new System.Drawing.Point(12, 142);
-            this.richTextBoxEspecialidade.Name = "richTextBoxEspecialidade";
-            this.richTextBoxEspecialidade.Size = new System.Drawing.Size(351, 81);
-            this.richTextBoxEspecialidade.TabIndex = 6;
-            this.richTextBoxEspecialidade.Text = "";
-            // 
             // labelEspecialidade
             // 
             this.labelEspecialidade.AutoSize = true;
             this.labelEspecialidade.Location = new System.Drawing.Point(12, 124);
             this.labelEspecialidade.Name = "labelEspecialidade";
-            this.labelEspecialidade.Size = new System.Drawing.Size(83, 15);
+            this.labelEspecialidade.Size = new System.Drawing.Size(78, 15);
             this.labelEspecialidade.TabIndex = 2;
-            this.labelEspecialidade.Text = "Especialidades";
+            this.labelEspecialidade.Text = "Especialidade";
+            // 
+            // textBoxEspecialidade
+            // 
+            this.textBoxEspecialidade.Location = new System.Drawing.Point(12, 142);
+            this.textBoxEspecialidade.Name = "textBoxEspecialidade";
+            this.textBoxEspecialidade.Size = new System.Drawing.Size(351, 23);
+            this.textBoxEspecialidade.TabIndex = 6;
             // 
             // VeterinarioCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 274);
-            this.Controls.Add(this.richTextBoxEspecialidade);
+            this.ClientSize = new System.Drawing.Size(375, 228);
+            this.Controls.Add(this.textBoxEspecialidade);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.textBoxCrmvUF);
@@ -228,7 +227,7 @@
         private Label label1;
         private Button buttonSalvar;
         private Button buttonCancelar;
-        private RichTextBox richTextBoxEspecialidade;
         private Label labelEspecialidade;
+        private TextBox textBoxEspecialidade;
     }
 }
