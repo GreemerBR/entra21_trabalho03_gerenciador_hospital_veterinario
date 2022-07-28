@@ -1,6 +1,7 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Database;
 using Entra21.Gerenciador.Hospital.Vet.Models;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Entra21.Gerenciador.Hospital.Vet.Services
 {
@@ -22,8 +23,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
         public void Cadastrar(Responsavel responsavel)
         {
             var conexao = new Conexao().Conectar();
-            var comando = conexao.CreateCommand();
-            comando.CommandText = "INSERT INTO responsaveis (nome, idade, cpf, telefone) VALUES (@NOME, @IDADE, @CPF, @TELEFONE);";
+
+            SqlCommand comando = conexao.CreateCommand();
+
+            comando.CommandText = "INSERT INTO responsaveis (nome, idade, cpf, telefone) VALUES (@NOME, @IDADE, @CPF, @TELEFONE)";
 
             comando.Parameters.AddWithValue("@NOME", responsavel.Nome);
             comando.Parameters.AddWithValue("@IDADE", responsavel.Idade);
@@ -82,7 +85,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id, nome, idade, cpf, telefone";
+            comando.CommandText = "SELECT id, nome, idade, cpf, telefone FROM responsaveis";
 
             var tabelaEmMemoria = new DataTable();
 

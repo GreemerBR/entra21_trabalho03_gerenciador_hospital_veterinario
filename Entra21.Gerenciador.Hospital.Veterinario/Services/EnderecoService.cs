@@ -124,7 +124,7 @@ INNER JOIN responsaveis AS r ON(e.id_responsaveis = r.id)";
                 endereco.Responsavel.Nome = registro["nome"].ToString();
                 endereco.Responsavel.Idade = Convert.ToInt32(registro["idade"]);
                 endereco.Responsavel.Cpf = registro["cpf"].ToString();
-                endereco.Responsavel.Telefone = Convert.ToInt32(registro["telefone"]);
+                endereco.Responsavel.Telefone = registro["telefone"].ToString();
 
                 enderecos.Add(endereco);
             }
