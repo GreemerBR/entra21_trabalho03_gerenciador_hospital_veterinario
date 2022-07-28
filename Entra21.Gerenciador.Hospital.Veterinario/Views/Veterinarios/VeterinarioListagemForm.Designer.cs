@@ -166,6 +166,7 @@
             this.textBoxNomeParaFiltrar.Name = "textBoxNomeParaFiltrar";
             this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(278, 23);
             this.textBoxNomeParaFiltrar.TabIndex = 3;
+            this.textBoxNomeParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxNomeParaFiltrar_KeyUp);
             // 
             // VeterinarioListagemForm
             // 

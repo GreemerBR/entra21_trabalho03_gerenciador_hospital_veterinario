@@ -1,4 +1,4 @@
-using Entra21.Gerenciador.Hospital.Vet.Views;
+using Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios;
 
 namespace Entra21.Gerenciador.Hospital.Vet
 {
@@ -13,7 +13,7 @@ namespace Entra21.Gerenciador.Hospital.Vet
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ResponsavelListagemForm());
+            Application.Run(new VeterinarioListagemForm());
         }
     }
 }

@@ -107,5 +107,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
 
             PreencherDataGridViewComVeterinarios();
         }
+
+        private void textBoxNomeParaFiltrar_KeyUp(object sender, KeyEventArgs e)
+        {
+            PreencherDataGridViewComVeterinarios();
+        }
     }
 }
