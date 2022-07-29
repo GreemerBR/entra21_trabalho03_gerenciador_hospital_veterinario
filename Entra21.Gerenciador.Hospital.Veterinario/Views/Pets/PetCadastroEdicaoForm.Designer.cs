@@ -32,7 +32,6 @@
             this.Peso2 = new System.Windows.Forms.Label();
             this.LabelIdade = new System.Windows.Forms.Label();
             this.Altura4 = new System.Windows.Forms.Label();
-            this.Genero5 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.maskedTextBoxIdade = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAltura = new System.Windows.Forms.MaskedTextBox();
@@ -45,6 +44,8 @@
             this.labelRaca = new System.Windows.Forms.Label();
             this.comboBoxResponsavel = new System.Windows.Forms.ComboBox();
             this.labelResponsavel = new System.Windows.Forms.Label();
+            this.groupBoxGenero = new System.Windows.Forms.GroupBox();
+            this.groupBoxGenero.SuspendLayout();
             this.SuspendLayout();
             // 
             // LabelNome
@@ -83,15 +84,6 @@
             this.Altura4.TabIndex = 3;
             this.Altura4.Text = "Altura";
             // 
-            // Genero5
-            // 
-            this.Genero5.AutoSize = true;
-            this.Genero5.Location = new System.Drawing.Point(342, 139);
-            this.Genero5.Name = "Genero5";
-            this.Genero5.Size = new System.Drawing.Size(45, 15);
-            this.Genero5.TabIndex = 4;
-            this.Genero5.Text = "Genêro";
-            // 
             // textBoxNome
             // 
             this.textBoxNome.Location = new System.Drawing.Point(12, 27);
@@ -123,7 +115,7 @@
             // radioButtonFemea
             // 
             this.radioButtonFemea.AutoSize = true;
-            this.radioButtonFemea.Location = new System.Drawing.Point(342, 195);
+            this.radioButtonFemea.Location = new System.Drawing.Point(6, 56);
             this.radioButtonFemea.Name = "radioButtonFemea";
             this.radioButtonFemea.Size = new System.Drawing.Size(60, 19);
             this.radioButtonFemea.TabIndex = 9;
@@ -134,7 +126,7 @@
             // radioButtonMacho
             // 
             this.radioButtonMacho.AutoSize = true;
-            this.radioButtonMacho.Location = new System.Drawing.Point(342, 165);
+            this.radioButtonMacho.Location = new System.Drawing.Point(6, 30);
             this.radioButtonMacho.Name = "radioButtonMacho";
             this.radioButtonMacho.Size = new System.Drawing.Size(62, 19);
             this.radioButtonMacho.TabIndex = 10;
@@ -177,7 +169,7 @@
             this.labelRaca.Name = "labelRaca";
             this.labelRaca.Size = new System.Drawing.Size(32, 15);
             this.labelRaca.TabIndex = 15;
-            this.labelRaca.Text = "Raca";
+            this.labelRaca.Text = "Raça";
             // 
             // comboBoxResponsavel
             // 
@@ -196,30 +188,41 @@
             this.labelResponsavel.TabIndex = 17;
             this.labelResponsavel.Text = "Responsavel";
             // 
+            // groupBoxGenero
+            // 
+            this.groupBoxGenero.Controls.Add(this.radioButtonMacho);
+            this.groupBoxGenero.Controls.Add(this.radioButtonFemea);
+            this.groupBoxGenero.Location = new System.Drawing.Point(344, 139);
+            this.groupBoxGenero.Name = "groupBoxGenero";
+            this.groupBoxGenero.Size = new System.Drawing.Size(200, 100);
+            this.groupBoxGenero.TabIndex = 18;
+            this.groupBoxGenero.TabStop = false;
+            this.groupBoxGenero.Text = "Gênero";
+            // 
             // PetCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 293);
+            this.Controls.Add(this.groupBoxGenero);
             this.Controls.Add(this.labelResponsavel);
             this.Controls.Add(this.comboBoxResponsavel);
             this.Controls.Add(this.labelRaca);
             this.Controls.Add(this.comboBoxRaca);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.radioButtonMacho);
-            this.Controls.Add(this.radioButtonFemea);
             this.Controls.Add(this.maskedTextBoxPeso);
             this.Controls.Add(this.maskedTextBoxAltura);
             this.Controls.Add(this.maskedTextBoxIdade);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.Genero5);
             this.Controls.Add(this.Altura4);
             this.Controls.Add(this.LabelIdade);
             this.Controls.Add(this.Peso2);
             this.Controls.Add(this.LabelNome);
             this.Name = "PetCadastroEdicaoForm";
             this.Text = "Cadastro dos Pets";
+            this.groupBoxGenero.ResumeLayout(false);
+            this.groupBoxGenero.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +234,6 @@
         private Label Peso2;
         private Label LabelIdade;
         private Label Altura4;
-        private Label Genero5;
         private TextBox textBoxNome;
         private MaskedTextBox maskedTextBoxIdade;
         private MaskedTextBox maskedTextBoxAltura;
@@ -244,5 +246,6 @@
         private Label labelRaca;
         private ComboBox comboBoxResponsavel;
         private Label labelResponsavel;
+        private GroupBox groupBoxGenero;
     }
 }

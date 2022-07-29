@@ -40,9 +40,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             maskedTextBoxAltura.Text = pet.Altura.ToString();
 
-            radioButtonMacho.Text = pet.Genero;
-
-            radioButtonFemea.Text = pet.Genero;
+            groupBoxGenero.Text = pet.Genero.ToString();
 
             for (int i = 0; i < comboBoxResponsavel.Items.Count; i++)
             {
@@ -100,11 +98,12 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-            var peso = maskedTextBoxPeso.Text;
+            var peso = Convert.ToInt32(maskedTextBoxPeso.Text);
             var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
-            var altura = maskedTextBoxAltura.Text;
+            var altura = Convert.ToInt32(maskedTextBoxAltura.Text);
             var macho= radioButtonMacho.Text;
             var femea = radioButtonFemea.Text;
+            
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
             var raca = comboBoxRaca.SelectedItem as Pet;
 

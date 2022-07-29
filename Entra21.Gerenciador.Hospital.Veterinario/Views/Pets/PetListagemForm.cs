@@ -53,6 +53,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
                     pet.Altura,
                     pet.Peso,
                     pet.Genero,
+                    pet.Raca,
+                    pet.Responsavel,
                    
                 });
             }
