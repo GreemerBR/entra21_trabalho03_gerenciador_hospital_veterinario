@@ -20,11 +20,17 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
         {
             InitializeComponent();
 
+            PreencherComboBoxResponsavel();
+
+            PreencherComboBoxRaca();
+
             _idParaEditar = -1;
         }
         public PetCadastroEdicaoForm(Pet pet) : this()
         {
             _idParaEditar = pet.Id;
+
+            textBoxNome.Text = pet.Nome;
 
             textBoxNome.Text = pet.Nome;
 
@@ -38,7 +44,53 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             radioButtonFemea.Text = pet.Genero;
 
-            
+            for (int i = 0; i < comboBoxResponsavel.Items.Count; i++)
+            {
+                var responsavelPercorrido = comboBoxResponsavel.Items[i] as
+                    Responsavel;
+
+                if (responsavelPercorrido.Id == pet.Responsavel.Id)
+                {
+                    comboBoxResponsavel.SelectedItem = responsavelPercorrido;
+                    break;
+                }
+            }
+            for (int i = 0; i < comboBoxRaca.Items.Count; i++)
+            {
+                var racaPercorrido = comboBoxRaca.Items[i] as
+                    Raca;
+
+                if (racaPercorrido.Id == pet.Raca.Id)
+                {
+                    comboBoxRaca.SelectedItem = racaPercorrido;
+                    break;
+                }
+            }
+
+
+        }
+        private void PreencherComboBoxResponsavel()
+        {
+            var petService = new PetService();
+            var pets = petService.ObterTodos();
+
+            for (int i = 0; i < pets.Count; i++)
+            {
+                var pet = pets[i];
+                comboBoxResponsavel.Items.Add(pet);
+            }
+        }
+
+        private void PreencherComboBoxRaca()
+        {
+            var petService = new PetService();
+            var pets = petService.ObterTodos();
+
+            for (int i = 0; i < pets.Count; i++)
+            {
+                var pet = pets[i];
+                comboBoxRaca.Items.Add(pet);
+            }
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
@@ -53,6 +105,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             var altura = maskedTextBoxAltura.Text;
             var macho= radioButtonMacho.Text;
             var femea = radioButtonFemea.Text;
+            var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
+            var raca = comboBoxRaca.SelectedItem as Pet;
 
             var pet = new Pet();
             pet.Nome = nome;
