@@ -146,6 +146,7 @@
             this.buttonCancelar.TabIndex = 11;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -155,6 +156,7 @@
             this.buttonSalvar.TabIndex = 12;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // PetCadastroEdicaoForm
             // 
