@@ -4,8 +4,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 {
     public partial class ConsultaListagemForm : Form
     {
-
         private readonly ConsultaService _consultaService;
+
         public ConsultaListagemForm()
         {
             InitializeComponent();
@@ -21,26 +21,34 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
             var nomePetParaFiltrar = textBoxPetParaFiltrar.Text.Trim();
 
-            var dataParaFiltrar = maskedTextBoxDataParaFiltrar.Text.Replace("/","");
-
             List<Models.Consulta> consultas;
 
-            if (nomeVeterinarioParaFiltrar == "" && nomePetParaFiltrar == "" && dataParaFiltrar == "")
-            {
-                consultas = _consultaService.ObterTodos();
-            }
-            else if (nomePetParaFiltrar == "" && dataParaFiltrar == "")
+            //if (nomeVeterinarioParaFiltrar == "" && nomePetParaFiltrar == "")
+            //{
+            //    consultas = _consultaService.ObterTodos();
+            //}
+            //else if (nomePetParaFiltrar == "")
+            //{
+            //    consultas = _consultaService.ObterPorVeterinario(nomeVeterinarioParaFiltrar);
+            //}
+            //else
+            //{
+            //    consultas = _consultaService.ObterPorPet(nomePetParaFiltrar);
+            //}
+
+            if (nomeVeterinarioParaFiltrar != "")
             {
                 consultas = _consultaService.ObterPorVeterinario(nomeVeterinarioParaFiltrar);
             }
-            else if (nomeVeterinarioParaFiltrar == "" && dataParaFiltrar == "")
+            else if (nomePetParaFiltrar != "")
             {
                 consultas = _consultaService.ObterPorPet(nomePetParaFiltrar);
             }
             else
             {
-                consultas = _consultaService.ObterPorData(dataParaFiltrar);
+                consultas = _consultaService.ObterTodos();
             }
+
 
             dataGridView1.Rows.Clear();
 
@@ -123,11 +131,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
         }
 
         private void textBoxPetParaFiltrar_KeyUp(object sender, KeyEventArgs e)
-        {
-            PreencherDataGridViewComConsultas();
-        }
-
-        private void maskedTextBoxDataParaFiltrar_KeyUp(object sender, KeyEventArgs e)
         {
             PreencherDataGridViewComConsultas();
         }

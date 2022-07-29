@@ -94,58 +94,6 @@ id_veterinarios = @ID_VETERINARIOS, id_pets = @ID_PETS WHERE id = @ID";
             return consulta;
         }
 
-        public List<Consulta> ObterPorData(string dataHora)
-        {
-            var conexao = new Conexao().Conectar();
-
-            var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT
-c.id AS 'id',
-c.data_hora_consulta AS 'data_hora_consulta',
-c.observacao AS 'observacao',
-v.id AS 'id_veterinarios,
-v.nome AS 'nome_veterinario',
-p.id A 'id_pets',
-p.nome AS 'nome_pet',
-FROM consultas AS c
-INNER JOIN veterinarios AS v ON(c.id_veterinarios = v.id)
-INNER JOIN pets AS p ON(c.id_pets = p.id) 
-WHERE data_hora_consulta LIKE @DATA_HORA_CONSULTA";
-
-            comando.Parameters.AddWithValue("@DATA_HORA_CONSULTA", $"%{dataHora}%");
-
-            var tabelaEmMemoria = new DataTable();
-
-            tabelaEmMemoria.Load(comando.ExecuteReader());
-
-            var consultas = new List<Consulta>();
-
-            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
-            {
-                var registro = tabelaEmMemoria.Rows[i];
-
-                var consulta = new Consulta();
-
-                consulta.Id = Convert.ToInt32(registro["id"]);
-                consulta.DataHora = Convert.ToDateTime(registro["data_consulta"]).Date;
-                consulta.Observacao = registro["observacao"].ToString();
-
-                consulta.Veterinario = new Veterinario();
-                consulta.Veterinario.Id = Convert.ToInt32(registro["id_veterinarios"]);
-                consulta.Veterinario.Nome = registro["nome"].ToString();
-
-                consulta.Pet = new Pet();
-                consulta.Pet.Id = Convert.ToInt32(registro["id_pets"]);
-                consulta.Pet.Nome = registro["nome"].ToString();
-
-                consultas.Add(consulta);
-            }            
-
-            comando.Connection.Close();
-
-            return consultas;
-        }
-
         public List<Consulta> ObterPorPet(string nomePet)
         {
             var conexao = new Conexao().Conectar();
@@ -258,14 +206,13 @@ WHERE nome_veterinario LIKE @NOME_VETERINARIO";
             comando.CommandText = @"SELECT
 c.id AS 'id',
 c.data_hora_consulta AS 'data_hora_consulta',
-c.observacao AS 'observacao',
 v.id,
 v.nome,
 p.id,
-p.nome,
+p.nome
 FROM consultas AS c
 INNER JOIN veterinarios AS v ON(c.id_veterinarios = v.id)
-INNER JOIN pets AS p ON(c.id_pets = p.id)"; 
+INNER JOIN pets AS p ON(c.id_pets = p.id)";
 
             var tabelaEmMemoria = new DataTable();
 
@@ -281,7 +228,6 @@ INNER JOIN pets AS p ON(c.id_pets = p.id)";
 
                 consulta.Id = Convert.ToInt32(registro["id"]);
                 consulta.DataHora = Convert.ToDateTime(registro["data_consulta"]).Date;
-                consulta.Observacao = registro["observacao"].ToString();
 
                 consulta.Veterinario = new Veterinario();
                 consulta.Veterinario.Id = Convert.ToInt32(registro["id_veterinarios"]);

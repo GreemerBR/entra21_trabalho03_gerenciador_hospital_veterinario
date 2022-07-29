@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelVeterinarioParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxVeterinarioParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelPetParaFiltrar = new System.Windows.Forms.Label();
@@ -37,12 +43,6 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maskedTextBoxDataParaFiltrar = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,48 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 382);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Código";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
+            // ColumnVeterinario
+            // 
+            this.ColumnVeterinario.HeaderText = "Veterinário(a)";
+            this.ColumnVeterinario.Name = "ColumnVeterinario";
+            this.ColumnVeterinario.ReadOnly = true;
+            this.ColumnVeterinario.Width = 250;
+            // 
+            // ColumnPet
+            // 
+            this.ColumnPet.HeaderText = "PET";
+            this.ColumnPet.Name = "ColumnPet";
+            this.ColumnPet.ReadOnly = true;
+            this.ColumnPet.Width = 150;
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.HeaderText = "Data";
+            this.ColumnData.Name = "ColumnData";
+            this.ColumnData.ReadOnly = true;
+            this.ColumnData.Width = 75;
+            // 
+            // ColumnHora
+            // 
+            this.ColumnHora.HeaderText = "Hora";
+            this.ColumnHora.Name = "ColumnHora";
+            this.ColumnHora.ReadOnly = true;
+            this.ColumnHora.Width = 58;
+            // 
+            // ColumnObservacao
+            // 
+            this.ColumnObservacao.HeaderText = "Observação";
+            this.ColumnObservacao.Name = "ColumnObservacao";
+            this.ColumnObservacao.ReadOnly = true;
+            this.ColumnObservacao.Width = 200;
             // 
             // labelVeterinarioParaFiltrar
             // 
@@ -140,48 +182,6 @@
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Código";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
-            // 
-            // ColumnVeterinario
-            // 
-            this.ColumnVeterinario.HeaderText = "Veterinário(a)";
-            this.ColumnVeterinario.Name = "ColumnVeterinario";
-            this.ColumnVeterinario.ReadOnly = true;
-            this.ColumnVeterinario.Width = 250;
-            // 
-            // ColumnPet
-            // 
-            this.ColumnPet.HeaderText = "PET";
-            this.ColumnPet.Name = "ColumnPet";
-            this.ColumnPet.ReadOnly = true;
-            this.ColumnPet.Width = 150;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.HeaderText = "Data";
-            this.ColumnData.Name = "ColumnData";
-            this.ColumnData.ReadOnly = true;
-            this.ColumnData.Width = 75;
-            // 
-            // ColumnHora
-            // 
-            this.ColumnHora.HeaderText = "Hora";
-            this.ColumnHora.Name = "ColumnHora";
-            this.ColumnHora.ReadOnly = true;
-            this.ColumnHora.Width = 58;
-            // 
-            // ColumnObservacao
-            // 
-            this.ColumnObservacao.HeaderText = "Observação";
-            this.ColumnObservacao.Name = "ColumnObservacao";
-            this.ColumnObservacao.ReadOnly = true;
-            this.ColumnObservacao.Width = 200;
-            // 
             // maskedTextBoxDataParaFiltrar
             // 
             this.maskedTextBoxDataParaFiltrar.Location = new System.Drawing.Point(350, 27);
@@ -189,7 +189,6 @@
             this.maskedTextBoxDataParaFiltrar.Name = "maskedTextBoxDataParaFiltrar";
             this.maskedTextBoxDataParaFiltrar.Size = new System.Drawing.Size(105, 23);
             this.maskedTextBoxDataParaFiltrar.TabIndex = 4;
-            this.maskedTextBoxDataParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.maskedTextBoxDataParaFiltrar_KeyUp);
             // 
             // ConsultaListagemForm
             // 

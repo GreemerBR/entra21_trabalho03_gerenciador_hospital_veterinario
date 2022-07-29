@@ -5,7 +5,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
     internal interface IConsultaService
     {
         List<Consulta> ObterTodos();
-        List<Consulta> ObterPorData(string dataHora);
         List<Consulta> ObterPorVeterinario(string nomeVeterinario);
         List<Consulta> ObterPorPet(string nomePet);
         Consulta ObterPorId(int id);
