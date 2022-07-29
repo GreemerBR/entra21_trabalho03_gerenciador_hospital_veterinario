@@ -1,6 +1,6 @@
 ﻿namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 {
-    partial class RacaListegemForm
+    partial class RacaListagemForm
     {
         /// <summary>
         /// Required designer variable.

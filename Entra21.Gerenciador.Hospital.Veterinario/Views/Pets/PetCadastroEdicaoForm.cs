@@ -101,8 +101,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             var peso = Convert.ToInt32(maskedTextBoxPeso.Text);
             var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
             var altura = Convert.ToInt32(maskedTextBoxAltura.Text);
-            var macho= radioButtonMacho.Text;
-            var femea = radioButtonFemea.Text;
+            var genero= groupBoxGenero.Text;
+            
             
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
             var raca = comboBoxRaca.SelectedItem as Pet;
@@ -112,8 +112,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             pet.Peso = peso;
             pet.Idade = idade;
             pet.Altura = altura;
-            pet.Macho = macho;
-            pet.Femea = femea;
+            pet.Genero = genero;
+            
 
 
             var petService = new PetService();

@@ -29,7 +29,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
             var veterinarioForm = new VeterinarioListagemForm();
             veterinarioForm.ShowDialog();
         }
-              
+
+        private void buttonConsulta_Click(object sender, EventArgs e)
+        {
+            var consultaForm = new ConsultaListagemForm();
+            consultaForm.ShowDialog();
+        }
+
         private void buttonPet_Click(object sender, EventArgs e)
         {
             var petForm = new PetListagemForm();
@@ -38,14 +44,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
         private void buttonRaca_Click(object sender, EventArgs e)
         {
-            var racaForm = new RacaListegemForm();
+            var racaForm = new RacaListagemForm();
             racaForm.ShowDialog();
-        }
-
-        private void buttonConsulta_Click(object sender, EventArgs e)
-        {
-            var consultaForm = new ConsultaListagemForm();
-            consultaForm.ShowDialog();
         }
     }
 }

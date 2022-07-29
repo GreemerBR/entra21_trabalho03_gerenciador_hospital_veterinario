@@ -15,6 +15,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
     public partial class RacaCadastroEdicaoForm : Form
     {
         private readonly int _idParaEditar;
+        private int idEdicao;
 
         public RacaCadastroEdicaoForm()
         {
@@ -39,45 +40,46 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if (CamposValidos() == false)
-            {
-                return;
-            }
-
             var nome = textBoxNome.Text.Trim();
             var especie = textBoxEspecie.Text.Trim();
 
-
-            var pet = new Pet();
-            pet.Nome = nome;
-            pet.Especie = especie;
+            var raca = new Raca();
+            raca.Nome = nome;
+            raca.Especie = especie;
             
-
 
             var racaService = new RacaService();
 
-            if (_idParaEditar == -1)
+            if (idEdicao == -1)
             {
                 racaService.Cadastrar(raca);
 
-                MessageBox.Show("Raça está Salvo  ", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Raça cadastrado com sucesso");
+
                 Close();
 
                 return;
             }
-            else
-            {
-                pet.Id = _idParaEditar;
-                petService.Editar(pet);
 
-                MessageBox.Show("Cadastro do Pet editado com sucesso", "Aviso", MessageBoxButtons.OK);
-                Close();
-            }
+            raca.Id = idEdicao;
+            racaService.Editar(raca);
+
+            MessageBox.Show("Raça alterado com sucesso!!");
+
+            Close();
         }
 
-        private bool CamposValidos()
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
+            Close();
+            
         }
+    
+
+    
+        
+            
+        
     }
 }
