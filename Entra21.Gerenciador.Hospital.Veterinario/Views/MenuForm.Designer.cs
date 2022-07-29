@@ -64,6 +64,7 @@
             this.buttonPet.TabIndex = 0;
             this.buttonPet.Text = "Pet";
             this.buttonPet.UseVisualStyleBackColor = true;
+            this.buttonPet.Click += new System.EventHandler(this.buttonPet_Click);
             // 
             // buttonRaca
             // 
@@ -73,6 +74,7 @@
             this.buttonRaca.TabIndex = 0;
             this.buttonRaca.Text = "Raça";
             this.buttonRaca.UseVisualStyleBackColor = true;
+            this.buttonRaca.Click += new System.EventHandler(this.buttonRaca_Click);
             // 
             // buttonResponsavel
             // 

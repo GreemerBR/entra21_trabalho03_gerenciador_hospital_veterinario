@@ -100,7 +100,7 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             return veterinario;
         }
 
-        public List<Veterinario> ObterPorNome(string nomeVet)
+        public List<Veterinario> ObterPorNome(string nomeVeterinario)
         {
             var conexao = new Conexao().Conectar();
 
@@ -109,7 +109,7 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero FROM veterinarios
 WHERE nome LIKE @NOME";
 
-            comando.Parameters.AddWithValue("@NOME", $"%{nomeVet}%");
+            comando.Parameters.AddWithValue("@NOME", $"%{nomeVeterinario}%");
 
             var tabelaEmMemoria = new DataTable();
 

@@ -1,5 +1,7 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Views.Consultas;
 using Entra21.Gerenciador.Hospital.Vet.Views.Enderecos;
+using Entra21.Gerenciador.Hospital.Vet.Views.Pets;
+using Entra21.Gerenciador.Hospital.Vet.Views.Racas;
 using Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios;
 
 namespace Entra21.Gerenciador.Hospital.Vet.Views
@@ -32,6 +34,18 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
         {
             var consultaForm = new ConsultaListagemForm();
             consultaForm.ShowDialog();
+        }
+
+        private void buttonPet_Click(object sender, EventArgs e)
+        {
+            var petForm = new PetListagemForm();
+            petForm.ShowDialog();
+        }
+
+        private void buttonRaca_Click(object sender, EventArgs e)
+        {
+            var racaForm = new RacaListegemForm();
+            racaForm.ShowDialog();
         }
     }
 }

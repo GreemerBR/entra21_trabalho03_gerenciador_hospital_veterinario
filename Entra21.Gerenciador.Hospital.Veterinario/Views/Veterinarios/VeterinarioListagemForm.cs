@@ -54,7 +54,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um(a) veterinário(a) para apagar o cadastro!", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Selecione um(a) veterinário(a) para apagar o cadastro!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um(a) veterinário(a) para apagar editar o cadastro!", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Selecione um(a) veterinário(a) para editar o cadastro!", "Aviso", MessageBoxButtons.OK);
                 return;
             }
 

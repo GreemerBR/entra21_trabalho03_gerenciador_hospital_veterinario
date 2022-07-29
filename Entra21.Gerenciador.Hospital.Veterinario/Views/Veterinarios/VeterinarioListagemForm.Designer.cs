@@ -156,13 +156,13 @@
             this.labelNomeParaFiltrar.AutoSize = true;
             this.labelNomeParaFiltrar.Location = new System.Drawing.Point(21, 16);
             this.labelNomeParaFiltrar.Name = "labelNomeParaFiltrar";
-            this.labelNomeParaFiltrar.Size = new System.Drawing.Size(103, 15);
+            this.labelNomeParaFiltrar.Size = new System.Drawing.Size(118, 15);
             this.labelNomeParaFiltrar.TabIndex = 2;
-            this.labelNomeParaFiltrar.Text = "Nome para filtrar: ";
+            this.labelNomeParaFiltrar.Text = "Pesquisar por nome :";
             // 
             // textBoxNomeParaFiltrar
             // 
-            this.textBoxNomeParaFiltrar.Location = new System.Drawing.Point(130, 12);
+            this.textBoxNomeParaFiltrar.Location = new System.Drawing.Point(139, 12);
             this.textBoxNomeParaFiltrar.Name = "textBoxNomeParaFiltrar";
             this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(278, 23);
             this.textBoxNomeParaFiltrar.TabIndex = 3;
