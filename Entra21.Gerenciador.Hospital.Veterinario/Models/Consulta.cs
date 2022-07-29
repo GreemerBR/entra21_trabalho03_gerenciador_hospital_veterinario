@@ -1,6 +1,6 @@
 ﻿namespace Entra21.Gerenciador.Hospital.Vet.Models
 {
-    internal class Consulta
+    public class Consulta
     {
         public int Id { get; set; }
         public DateTime DataHora { get; set; }

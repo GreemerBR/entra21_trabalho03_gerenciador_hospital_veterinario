@@ -35,55 +35,18 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            String nome = textBoxNome.Text.Trim();
-            //try
-            //{
-            //    if (nome.Length >= 6)
-            //        return;
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("O nome do(a) veterinário(a) precisa ter ao menos 6 caracteres", "Aviso", MessageBoxButtons.OK);
+            if (CamposValidos() == false)
+            {
+                return;
+            }
 
-            //    textBoxNome.Focus();
-
-            //    return;
-            //}
-
-            String crmvEstado = textBoxCrmvUF.Text.Trim().ToUpper();
-            //try
-            //{
-            //    if (crmvEstado.Length == 2)
-            //        return;
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("A unidade federativa (UF) deve ter 2 caracteres", "Aviso", MessageBoxButtons.OK);
-
-            //    textBoxCrmvUF.Focus();
-
-            //    return;
-            //}
-
-            String especialidade = textBoxEspecialidade.Text.Trim();
-            //try
-            //{
-            //    if (crmvEstado.Length > 200)
-            //        return;
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("O campo especialidades deve conter no máximo 200 caracteres", "Aviso", MessageBoxButtons.OK);
-
-            //    textBoxNome.Focus();
-
-            //    return;
-            //}
-
-            string cpf = maskedTextBoxCpf.Text;
-            string telefone = maskedTextBoxTelefone.Text;
-            int crvmNumero = Convert.ToInt32(maskedTextBoxCrvmNumero.Text);
-            int idade = Convert.ToInt32(maskedTextBoxIdade.Text);
+            var nome = textBoxNome.Text.Trim();
+            var crmvEstado = textBoxCrmvUF.Text.Trim().ToUpper();
+            var especialidade = textBoxEspecialidade.Text.Trim();
+            var cpf = maskedTextBoxCpf.Text;
+            var telefone = maskedTextBoxTelefone.Text;
+            var crvmNumero = Convert.ToInt32(maskedTextBoxCrvmNumero.Text);
+            var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
 
             var veterinario = new Veterinario();
             veterinario.Nome = nome;
@@ -100,7 +63,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
             {
                 veterinarioService.Cadastrar(veterinario);
 
-                MessageBox.Show("Veterinário(a) cadastrado(a) com sucesso");
+                MessageBox.Show("Veterinário(a) cadastrado(a) com sucesso", "Aviso", MessageBoxButtons.OK);
                 Close();
 
                 return;
@@ -110,7 +73,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
                 veterinario.Id = _idParaEditar;
                 veterinarioService.Editar(veterinario);
 
-                MessageBox.Show("Cadastro do(a) veterinário(a) editado(a) com sucesso");
+                MessageBox.Show("Cadastro do(a) veterinário(a) editado(a) com sucesso", "Aviso", MessageBoxButtons.OK);
                 Close();
             }
         }
@@ -118,6 +81,74 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool CamposValidos()
+        {
+            if (textBoxNome.Text.Trim().Length < 6)
+            {
+                MessageBox.Show("O nome do(a) veterinário(a) precisa ter ao menos 6 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxNome.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxTelefone.Text == string.Empty)
+            {
+                MessageBox.Show("O número de telefone do(a) Veterinário(a) deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxTelefone.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxCrvmNumero.Text == string.Empty)
+            {
+                MessageBox.Show("O número do CRMV do(a) Veterinário(a) deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxCrvmNumero.Focus();
+
+                return false;
+            }
+
+            if (textBoxCrmvUF.Text.Trim().ToUpper().Length != 2)
+            {
+                MessageBox.Show("A unidade federativa (UF) do CRMV do(a) Veterinário(a) deve ter 2 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxCrmvUF.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxCpf.Text == string.Empty)
+            {
+                MessageBox.Show("O CPF do(a) Veterinário(a) deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxCpf.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxIdade.Text == string.Empty)
+            {
+                MessageBox.Show("A idade do(a) Veterinário(a) deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxIdade.Focus();
+
+                return false;
+            }
+
+            if (textBoxEspecialidade.Text.Trim().Length > 200)
+            {
+                MessageBox.Show("O campo especialidades do(a) Veterinário(a) deve conter com no máximo 200 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxEspecialidade.Focus();
+
+                return false;
+            }
+
+            return true;
         }
     }
 }

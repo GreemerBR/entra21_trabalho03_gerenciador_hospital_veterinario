@@ -1,7 +1,7 @@
 ﻿
 namespace Entra21.Gerenciador.Hospital.Vet.Models
 {
-    internal class Pet
+    public class Pet
     {
         public int Id { get; set; }
         public string Nome { get; set; }

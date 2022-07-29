@@ -44,6 +44,7 @@
             this.buttonConsulta.TabIndex = 0;
             this.buttonConsulta.Text = "Consulta";
             this.buttonConsulta.UseVisualStyleBackColor = true;
+            this.buttonConsulta.Click += new System.EventHandler(this.buttonConsulta_Click);
             // 
             // buttonEndereco
             // 
