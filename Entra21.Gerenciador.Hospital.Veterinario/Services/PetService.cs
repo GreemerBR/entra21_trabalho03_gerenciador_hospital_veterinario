@@ -1,6 +1,11 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Database;
 using Entra21.Gerenciador.Hospital.Vet.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Entra21.Gerenciador.Hospital.Vet.Services
 {
@@ -42,6 +47,16 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             comando.Connection.Close();
         }
 
+        internal List<Pet> ObterPorNomeResponsavel(string nomeResponsavelPraFiltrar)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Pet> ObterPorNomePet(string nomePetParaFiltrar)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Editar(Pet pet)
         {
             var conexao = new Conexao().Conectar();
@@ -68,7 +83,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id, id_responsaveis,id_raca, nome, idade, peso, altura, genero FROM pet WHERE id = @ID";
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pet WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
@@ -77,50 +92,31 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
                 return null;
 
             var registro = dataTable.Rows[0];
-
             var pet = new Pet();
+
             pet.Id = Convert.ToInt32(registro["id"]);
             pet.Nome = registro["nome"].ToString();
+            pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+            pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
             pet.Idade = Convert.ToInt32(registro["idade"]);
             pet.Genero = registro["genero"].ToString();
             pet.Peso = Convert.ToDouble(registro["peso"]);
             pet.Altura = Convert.ToDouble(registro["altura"]);
-
-            pet.Raca = new Raca();
-            pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-
-            pet.Responsavel = new Responsavel();
-            pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
 
 
             comando.Connection.Close();
 
             return pet;
         }
-
-        public List<Pet> ObterPorNomePet(string nomePet)
+        public List<Pet> ObterPorNome(string nomePet)
         {
             var conexao = new Conexao().Conectar();
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"SELECT
-p.id AS 'id',
-p.nome AS 'nome', 
-p.idade AS 'idade', 
-p.peso AS 'peso', 
-p.altura AS 'altura', 
-p.genero AS 'genero', 
-rp.id AS 'id_responsaveis',
-rp.nome AS 'nome_responsavel',
-rc.id AS 'id_raca',
-rc.nome AS 'nome_raca'
-FROM pets AS p
-INNER JOIN responsaveis AS rp ON(p.id_responsaveis = rp.id)
-INNER JOIN racas AS rc ON(p.id_racas = rc.id)
-WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pets WHERE nome LIKE @NOME";
 
-            comando.Parameters.AddWithValue("@NOME_RESPONSAVEL", $"%{nomePet}%");
+            comando.Parameters.AddWithValue("@NOME", $"%{nomePet}%");
 
             var tabelaEmMemoria = new DataTable();
 
@@ -133,20 +129,17 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
                 var registro = tabelaEmMemoria.Rows[i];
 
                 var pet = new Pet();
+
                 pet.Id = Convert.ToInt32(registro["id"]);
                 pet.Nome = registro["nome"].ToString();
+                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
                 pet.Idade = Convert.ToInt32(registro["idade"]);
                 pet.Genero = registro["genero"].ToString();
                 pet.Peso = Convert.ToDouble(registro["peso"]);
                 pet.Altura = Convert.ToDouble(registro["altura"]);
 
-                pet.Raca = new Raca();
-                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
-
-                pet.Responsavel = new Responsavel();
-                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
+                
             }
 
             comando.Connection.Close();
@@ -154,61 +147,6 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
             return pets;
         }
 
-        public List<Pet> ObterPorNomeResponsavel(string nomeResponsavel)
-        {
-            var conexao = new Conexao().Conectar();
-
-            var comando = conexao.CreateCommand();
-
-            comando.CommandText = @"SELECT
-p.id AS 'id',
-p.nome AS 'nome', 
-p.idade AS 'idade', 
-p.peso AS 'peso', 
-p.altura AS 'altura', 
-p.genero AS 'genero', 
-rp.id AS 'id_responsaveis',
-rp.nome AS 'nome_responsavel',
-rc.id AS 'id_raca',
-rc.nome AS 'nome_raca'
-FROM pets AS p
-INNER JOIN responsaveis AS rp ON(p.id_responsaveis = rp.id)
-INNER JOIN racas AS rc ON(p.id_racas = rc.id)
-WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
-
-            comando.Parameters.AddWithValue("@NOME_RESPONSAVEL", $"%{nomeResponsavel}%");
-
-            var tabelaEmMemoria = new DataTable();
-
-            tabelaEmMemoria.Load(comando.ExecuteReader());
-
-            var pets = new List<Pet>();
-
-            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
-            {
-                var registro = tabelaEmMemoria.Rows[i];
-
-                var pet = new Pet();
-                pet.Id = Convert.ToInt32(registro["id"]);
-                pet.Nome = registro["nome"].ToString();
-                pet.Idade = Convert.ToInt32(registro["idade"]);
-                pet.Genero = registro["genero"].ToString();
-                pet.Peso = Convert.ToDouble(registro["peso"]);
-                pet.Altura = Convert.ToDouble(registro["altura"]);
-
-                pet.Raca = new Raca();
-                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
-
-                pet.Responsavel = new Responsavel();
-                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
-            }
-
-            comando.Connection.Close();
-
-            return pets;
-        }
 
         public List<Pet> ObterTodos()
         {
@@ -216,20 +154,7 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"SELECT
-p.id AS 'id',
-p.nome AS 'nome', 
-p.idade AS 'idade', 
-p.peso AS 'peso', 
-p.altura AS 'altura', 
-p.genero AS 'genero', 
-rp.id AS 'id_responsaveis',
-rp.nome AS 'nome_responsavel',
-rc.id AS 'id_raca',
-rc.nome AS 'nome_raca'
-FROM pets AS p
-INNER JOIN responsaveis AS rp ON(p.id_responsaveis = rp.id)
-INNER JOIN racas AS rc ON(p.id_racas = rc.id)";
+            comando.CommandText = "SELECT id, id_responsaveis,id_raca,nome, idade,peso,altura,genero FROM pets";
 
             var tabelaEmMemoria = new DataTable();
 
@@ -242,20 +167,17 @@ INNER JOIN racas AS rc ON(p.id_racas = rc.id)";
                 var registro = tabelaEmMemoria.Rows[i];
 
                 var pet = new Pet();
+
                 pet.Id = Convert.ToInt32(registro["id"]);
                 pet.Nome = registro["nome"].ToString();
+                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
                 pet.Idade = Convert.ToInt32(registro["idade"]);
                 pet.Genero = registro["genero"].ToString();
                 pet.Peso = Convert.ToDouble(registro["peso"]);
                 pet.Altura = Convert.ToDouble(registro["altura"]);
 
-                pet.Raca = new Raca();
-                pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
-
-                pet.Responsavel = new Responsavel();
-                pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
+                
             }
 
             comando.Connection.Close();
