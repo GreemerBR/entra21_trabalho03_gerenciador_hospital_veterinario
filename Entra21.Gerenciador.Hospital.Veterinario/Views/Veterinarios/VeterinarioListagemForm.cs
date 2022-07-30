@@ -19,15 +19,21 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
         {
             var nomeParaFiltrar = textBoxNomeParaFiltrar.Text.Trim();
 
+            var especialidadeParaFiltrar = textBoxEspecialidadeParaFiltrar.Text.Trim();
+
             List<Models.Veterinario> veterinarios;
 
-            if (nomeParaFiltrar == "")
+            if (nomeParaFiltrar != "")
             {
-                veterinarios = _veterinariosService.ObterTodos();
+                veterinarios = _veterinariosService.ObterPorNome(nomeParaFiltrar);
+            }
+            else if (especialidadeParaFiltrar != "")
+            {
+                veterinarios = _veterinariosService.ObterPorEspecialidade(especialidadeParaFiltrar);
             }
             else
             {
-                veterinarios = _veterinariosService.ObterPorNome(nomeParaFiltrar);
+                veterinarios = _veterinariosService.ObterTodos();
             }
 
             dataGridView1.Rows.Clear();
@@ -109,6 +115,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
         }
 
         private void textBoxNomeParaFiltrar_KeyUp(object sender, KeyEventArgs e)
+        {
+            PreencherDataGridViewComVeterinarios();
+        }
+
+        private void textBoxEspecialidadeParaFiltrar_KeyUp(object sender, KeyEventArgs e)
         {
             PreencherDataGridViewComVeterinarios();
         }

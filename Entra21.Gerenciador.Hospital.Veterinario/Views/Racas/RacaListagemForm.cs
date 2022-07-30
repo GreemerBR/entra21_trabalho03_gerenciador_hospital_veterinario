@@ -1,33 +1,23 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 {
     public partial class RacaListagemForm : Form
     {
-        private RacaService racaService;
+        private RacaService _racaService;
 
         public RacaListagemForm()
         {
             InitializeComponent();
 
-            racaService = new RacaService();
+            _racaService = new RacaService();
+
+            PreencherDataGridViewComRacas();
         }
-        private void ResponsavelListagemForm_Load(object sender, EventArgs e)
+        
+        private void PreencherDataGridViewComRacas()
         {
-            AtualizarRegistrosDataGriedView();
-        }
-        private void AtualizarRegistrosDataGriedView()
-        {
-            var racas = racaService.ObterTodos();
+            var racas = _racaService.ObterTodos();
 
             dataGridViewRacas.Rows.Clear();
 
@@ -45,27 +35,21 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
             }
         }
 
-        private void ButtonSalvar_Click(object sender, EventArgs e)
+        private void ButtonCadastrar_Click(object sender, EventArgs e)
         {
             var racaCadastroEdicaoForm =
                new RacaCadastroEdicaoForm();
 
             racaCadastroEdicaoForm.ShowDialog();
 
-            AtualizarRegistrosDataGriedView();
+            PreencherDataGridViewComRacas();
         }
 
-        private void ButtonEditar_Click(object sender, EventArgs e)
+        private void ButtonEditar_Click_1(object sender, EventArgs e)
         {
             if (dataGridViewRacas.Rows.Count == 0)
             {
-                MessageBox.Show("Cadastre!!");
-                return;
-            }
-
-            if (dataGridViewRacas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecione algum registro");
+                MessageBox.Show("Selecione uma raça para editar o cadastro!", "Aviso", MessageBoxButtons.OK);
                 return;
             }
 
@@ -73,23 +57,42 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 
             var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-            var raca = racaService.ObterPorId(id);
+            var raca = _racaService.ObterPorId(id);
 
             var racaForm = new RacaCadastroEdicaoForm(raca);
+
             racaForm.ShowDialog();
 
-            AtualizarRegistrosDataGriedView();
+            PreencherDataGridViewComRacas();
         }
 
-        private void ButtonApagar1_Click(object sender, EventArgs e)
+        private void ButtonApagar_Click(object sender, EventArgs e)
         {
-            var id = Convert.ToInt32(dataGridViewRacas.SelectedRows[0].Cells[0].Value);
+            if (dataGridViewRacas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione uma raça para apagar o cadastro!", "ERRO", MessageBoxButtons.OK);
+                return;
+            }
 
-            racaService.Apagar(id);
+            var resposta = MessageBox.Show("Deseja apagar a raça?", "Aviso", MessageBoxButtons.YesNo);
 
-            AtualizarRegistrosDataGriedView();
+            if (resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("A raça permanece na lista!", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
 
-            MessageBox.Show("Registro apagado com sucesso");
+                var linhaSelecionada = dataGridViewRacas.SelectedRows[0];
+
+                var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+                _racaService.Apagar(id);
+
+                PreencherDataGridViewComRacas();
+
+                MessageBox.Show("Raça removida com sucesso!", "Aviso", MessageBoxButtons.OK);
+            }
         }
     }
 }

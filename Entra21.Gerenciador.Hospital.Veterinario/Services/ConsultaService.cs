@@ -206,13 +206,14 @@ WHERE nome_veterinario LIKE @NOME_VETERINARIO";
             comando.CommandText = @"SELECT
 c.id AS 'id',
 c.data_hora_consulta AS 'data_hora_consulta',
-v.id,
-v.nome,
-p.id,
-p.nome
+c.observacao AS 'observacao',
+v.id AS 'id_veterinarios,
+v.nome AS 'nome_veterinario',
+p.id A 'id_pets',
+p.nome AS 'nome_pet',
 FROM consultas AS c
 INNER JOIN veterinarios AS v ON(c.id_veterinarios = v.id)
-INNER JOIN pets AS p ON(c.id_pets = p.id)";
+INNER JOIN pets AS p ON(c.id_pets = p.id)"; 
 
             var tabelaEmMemoria = new DataTable();
 
@@ -228,6 +229,7 @@ INNER JOIN pets AS p ON(c.id_pets = p.id)";
 
                 consulta.Id = Convert.ToInt32(registro["id"]);
                 consulta.DataHora = Convert.ToDateTime(registro["data_consulta"]).Date;
+                consulta.Observacao = registro["observacao"].ToString();
 
                 consulta.Veterinario = new Veterinario();
                 consulta.Veterinario.Id = Convert.ToInt32(registro["id_veterinarios"]);

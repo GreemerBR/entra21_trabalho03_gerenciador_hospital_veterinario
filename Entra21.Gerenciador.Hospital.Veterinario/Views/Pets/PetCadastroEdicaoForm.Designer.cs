@@ -69,7 +69,7 @@
             // LabelIdade
             // 
             this.LabelIdade.AutoSize = true;
-            this.LabelIdade.Location = new System.Drawing.Point(12, 121);
+            this.LabelIdade.Location = new System.Drawing.Point(148, 68);
             this.LabelIdade.Name = "LabelIdade";
             this.LabelIdade.Size = new System.Drawing.Size(36, 15);
             this.LabelIdade.TabIndex = 2;
@@ -78,7 +78,7 @@
             // Altura4
             // 
             this.Altura4.AutoSize = true;
-            this.Altura4.Location = new System.Drawing.Point(13, 169);
+            this.Altura4.Location = new System.Drawing.Point(82, 64);
             this.Altura4.Name = "Altura4";
             this.Altura4.Size = new System.Drawing.Size(39, 15);
             this.Altura4.TabIndex = 3;
@@ -88,28 +88,31 @@
             // 
             this.textBoxNome.Location = new System.Drawing.Point(12, 27);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(250, 23);
+            this.textBoxNome.Size = new System.Drawing.Size(202, 23);
             this.textBoxNome.TabIndex = 5;
             // 
             // maskedTextBoxIdade
             // 
-            this.maskedTextBoxIdade.Location = new System.Drawing.Point(12, 139);
+            this.maskedTextBoxIdade.Location = new System.Drawing.Point(148, 86);
+            this.maskedTextBoxIdade.Mask = "00";
             this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
-            this.maskedTextBoxIdade.Size = new System.Drawing.Size(250, 23);
+            this.maskedTextBoxIdade.Size = new System.Drawing.Size(66, 23);
             this.maskedTextBoxIdade.TabIndex = 6;
             // 
             // maskedTextBoxAltura
             // 
-            this.maskedTextBoxAltura.Location = new System.Drawing.Point(12, 191);
+            this.maskedTextBoxAltura.Location = new System.Drawing.Point(81, 86);
+            this.maskedTextBoxAltura.Mask = "0,00";
             this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
-            this.maskedTextBoxAltura.Size = new System.Drawing.Size(250, 23);
+            this.maskedTextBoxAltura.Size = new System.Drawing.Size(47, 23);
             this.maskedTextBoxAltura.TabIndex = 7;
             // 
             // maskedTextBoxPeso
             // 
             this.maskedTextBoxPeso.Location = new System.Drawing.Point(12, 86);
+            this.maskedTextBoxPeso.Mask = "000,00";
             this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
-            this.maskedTextBoxPeso.Size = new System.Drawing.Size(250, 23);
+            this.maskedTextBoxPeso.Size = new System.Drawing.Size(47, 23);
             this.maskedTextBoxPeso.TabIndex = 8;
             // 
             // radioButtonFemea
@@ -136,7 +139,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(383, 258);
+            this.buttonCancelar.Location = new System.Drawing.Point(52, 362);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(78, 23);
             this.buttonCancelar.TabIndex = 11;
@@ -146,7 +149,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(504, 258);
+            this.buttonSalvar.Location = new System.Drawing.Point(136, 362);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(78, 23);
             this.buttonSalvar.TabIndex = 12;
@@ -157,7 +160,7 @@
             // comboBoxRaca
             // 
             this.comboBoxRaca.FormattingEnabled = true;
-            this.comboBoxRaca.Location = new System.Drawing.Point(342, 27);
+            this.comboBoxRaca.Location = new System.Drawing.Point(12, 139);
             this.comboBoxRaca.Name = "comboBoxRaca";
             this.comboBoxRaca.Size = new System.Drawing.Size(202, 23);
             this.comboBoxRaca.TabIndex = 14;
@@ -165,7 +168,7 @@
             // labelRaca
             // 
             this.labelRaca.AutoSize = true;
-            this.labelRaca.Location = new System.Drawing.Point(342, 9);
+            this.labelRaca.Location = new System.Drawing.Point(12, 121);
             this.labelRaca.Name = "labelRaca";
             this.labelRaca.Size = new System.Drawing.Size(32, 15);
             this.labelRaca.TabIndex = 15;
@@ -174,7 +177,7 @@
             // comboBoxResponsavel
             // 
             this.comboBoxResponsavel.FormattingEnabled = true;
-            this.comboBoxResponsavel.Location = new System.Drawing.Point(342, 86);
+            this.comboBoxResponsavel.Location = new System.Drawing.Point(12, 195);
             this.comboBoxResponsavel.Name = "comboBoxResponsavel";
             this.comboBoxResponsavel.Size = new System.Drawing.Size(202, 23);
             this.comboBoxResponsavel.TabIndex = 16;
@@ -182,7 +185,7 @@
             // labelResponsavel
             // 
             this.labelResponsavel.AutoSize = true;
-            this.labelResponsavel.Location = new System.Drawing.Point(342, 68);
+            this.labelResponsavel.Location = new System.Drawing.Point(12, 177);
             this.labelResponsavel.Name = "labelResponsavel";
             this.labelResponsavel.Size = new System.Drawing.Size(72, 15);
             this.labelResponsavel.TabIndex = 17;
@@ -192,7 +195,7 @@
             // 
             this.groupBoxGenero.Controls.Add(this.radioButtonMacho);
             this.groupBoxGenero.Controls.Add(this.radioButtonFemea);
-            this.groupBoxGenero.Location = new System.Drawing.Point(344, 139);
+            this.groupBoxGenero.Location = new System.Drawing.Point(14, 246);
             this.groupBoxGenero.Name = "groupBoxGenero";
             this.groupBoxGenero.Size = new System.Drawing.Size(200, 100);
             this.groupBoxGenero.TabIndex = 18;
@@ -203,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 293);
+            this.ClientSize = new System.Drawing.Size(231, 400);
             this.Controls.Add(this.groupBoxGenero);
             this.Controls.Add(this.labelResponsavel);
             this.Controls.Add(this.comboBoxResponsavel);
@@ -220,6 +223,7 @@
             this.Controls.Add(this.Peso2);
             this.Controls.Add(this.LabelNome);
             this.Name = "PetCadastroEdicaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro dos Pets";
             this.groupBoxGenero.ResumeLayout(false);
             this.groupBoxGenero.PerformLayout();

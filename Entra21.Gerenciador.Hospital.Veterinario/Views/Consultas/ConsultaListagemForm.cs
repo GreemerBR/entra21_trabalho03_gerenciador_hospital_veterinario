@@ -48,8 +48,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
             {
                 consultas = _consultaService.ObterTodos();
             }
-
-
+            
             dataGridView1.Rows.Clear();
 
             for (var i = 0; i < consultas.Count; i++)
@@ -58,6 +57,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
                 dataGridView1.Rows.Add(new object[]
                 {
+                    consulta.Id,
                     consulta.Veterinario.Nome,
                     consulta.Pet.Nome,
                     consulta.DataHora.ToString("dd/MM/yyyy"),

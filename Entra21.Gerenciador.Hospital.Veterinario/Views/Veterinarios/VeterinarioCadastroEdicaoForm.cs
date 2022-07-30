@@ -63,7 +63,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
             {
                 veterinarioService.Cadastrar(veterinario);
 
-                MessageBox.Show("Veterinário(a) cadastrado(a) com sucesso", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Veterinário(a) cadastrado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
                 Close();
 
                 return;
@@ -73,7 +73,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
                 veterinario.Id = _idParaEditar;
                 veterinarioService.Editar(veterinario);
 
-                MessageBox.Show("Cadastro do(a) veterinário(a) editado(a) com sucesso", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Cadastro do(a) veterinário(a) editado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
                 Close();
             }
         }

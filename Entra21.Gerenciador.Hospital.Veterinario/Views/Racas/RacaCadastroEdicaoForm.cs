@@ -1,21 +1,11 @@
 ﻿using Entra21.Gerenciador.Hospital.Vet.Models;
 using Entra21.Gerenciador.Hospital.Vet.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 {
     public partial class RacaCadastroEdicaoForm : Form
     {
         private readonly int _idParaEditar;
-        private int idEdicao;
 
         public RacaCadastroEdicaoForm()
         {
@@ -33,13 +23,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 
         }
 
-        private void Nome2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            if (CamposValidos() == false)
+            {
+                return;
+            }
+
             var nome = textBoxNome.Text.Trim();
             var especie = textBoxEspecie.Text.Trim();
 
@@ -50,36 +40,52 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 
             var racaService = new RacaService();
 
-            if (idEdicao == -1)
+            if (_idParaEditar == -1)
             {
                 racaService.Cadastrar(raca);
 
-                MessageBox.Show("Raça cadastrado com sucesso");
+                MessageBox.Show("Raça cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK);
 
                 Close();
 
                 return;
             }
 
-            raca.Id = idEdicao;
+            raca.Id = _idParaEditar;
             racaService.Editar(raca);
 
-            MessageBox.Show("Raça alterado com sucesso!!");
+            MessageBox.Show("Raça alterado com sucesso!", "Aviso", MessageBoxButtons.OK);
 
             Close();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            
             Close();
-            
         }
-    
 
-    
-        
-            
-        
+        private bool CamposValidos()
+        {
+            if (textBoxNome.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("O nome da raça precisa ter ao menos 3 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxNome.Focus();
+
+                return false;
+            }
+
+            if (textBoxEspecie.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("O nome da espécie precisa ter ao menos 3 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxNome.Focus();
+
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

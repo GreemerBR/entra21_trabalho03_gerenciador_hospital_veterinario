@@ -32,7 +32,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             textBoxNome.Text = pet.Nome;
 
-            textBoxNome.Text = pet.Nome;
 
             maskedTextBoxPeso.Text = pet.Peso.ToString();
 
@@ -81,13 +80,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
         private void PreencherComboBoxRaca()
         {
-            var petService = new PetService();
-            var pets = petService.ObterTodos();
+            var racaService = new RacaService();
+            var racas = racaService.ObterTodos();
 
-            for (int i = 0; i < pets.Count; i++)
+            for (int i = 0; i < racas.Count; i++)
             {
-                var pet = pets[i];
-                comboBoxRaca.Items.Add(pet);
+                var raca = racas[i];
+                comboBoxRaca.Items.Add(raca);
             }
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -98,15 +97,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-            var peso = Convert.ToInt32(maskedTextBoxPeso.Text);
+            var peso = Convert.ToDouble(maskedTextBoxPeso.Text);
             var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
-            var altura = Convert.ToInt32(maskedTextBoxAltura.Text);
+            var altura = Convert.ToDouble(maskedTextBoxAltura.Text);
             var genero= groupBoxGenero.Text;
             
-            
-            var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
-            var raca = comboBoxRaca.SelectedItem as Pet;
-
             var pet = new Pet();
             pet.Nome = nome;
             pet.Peso = peso;
@@ -114,8 +109,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             pet.Altura = altura;
             pet.Genero = genero;
             
-
-
             var petService = new PetService();
 
             if (_idParaEditar == -1)
@@ -144,9 +137,9 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
         private bool CamposValidos()
         {
-            if (textBoxNome.Text.Trim().Length < 6)
+            if (textBoxNome.Text.Trim().Length < 2)
             {
-                MessageBox.Show("O nome do Pet precisa ter ao menos 10 caracteres!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("O nome do Pet precisa ter ao menos 2 caracteres!", "ERRO", MessageBoxButtons.OK);
 
                 textBoxNome.Focus();
 
@@ -155,7 +148,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             if (maskedTextBoxPeso.Text == string.Empty)
             {
-                MessageBox.Show("O Peso do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("O peso do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
 
                 maskedTextBoxPeso.Focus();
 
@@ -164,7 +157,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             if (maskedTextBoxIdade.Text == string.Empty)
             {
-                MessageBox.Show("A Idade do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("A idade do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
 
                 maskedTextBoxIdade.Focus();
 
@@ -173,34 +166,15 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             if (maskedTextBoxAltura.Text == string.Empty)
             {
-                MessageBox.Show("A Altura do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("A Altura do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
 
                 maskedTextBoxAltura.Focus();
 
                 return false;
             }
 
-            if (radioButtonMacho.Text == string.Empty)
-            {
-                MessageBox.Show("O Seleção Gênero deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
-
-                radioButtonMacho.Focus();
-
-                return false;
-            }
-
-            if (radioButtonFemea.Text == string.Empty)
-            {
-                MessageBox.Show("O Seleção Gênero deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
-
-                radioButtonFemea.Focus();
-
-                return false;
-            }
             return true;
         }
-
-        
     }
     
 }

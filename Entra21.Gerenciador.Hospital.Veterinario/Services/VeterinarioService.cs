@@ -65,6 +65,46 @@ especialidade = @ESPECIALIDADE, crmv_estado = @CRMV_ESTADO, crmv_numero = @CRMV_
             comando.Connection.Close();
         }
 
+        public List<Veterinario> ObterPorEspecialidade(string especialidade)
+        {
+            var conexao = new Conexao().Conectar();
+
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = @"SELECT id, nome, idade, telefone, cpf, especialidade, crmv_estado, crmv_numero FROM veterinarios
+WHERE especialidade LIKE @ESPECIALIDADE";
+
+            comando.Parameters.AddWithValue("@ESPECIALIDADE", $"%{especialidade}%");
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var veterinarios = new List<Veterinario>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var veterinario = new Veterinario();
+
+                veterinario.Id = Convert.ToInt32(registro["id"]);
+                veterinario.Nome = registro["nome"].ToString();
+                veterinario.Idade = Convert.ToInt32(registro["idade"]);
+                veterinario.Telefone = registro["telefone"].ToString();
+                veterinario.Cpf = registro["cpf"].ToString();
+                veterinario.Especialidade = registro["especialidade"].ToString();
+                veterinario.CrmvEstado = registro["crmv_estado"].ToString();
+                veterinario.CrmvNumero = Convert.ToInt32(registro["crmv_numero"]);
+
+                veterinarios.Add(veterinario);
+            }
+
+            comando.Connection.Close();
+
+            return veterinarios;
+        }
+
         public Veterinario ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();

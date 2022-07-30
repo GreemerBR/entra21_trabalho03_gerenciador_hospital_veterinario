@@ -42,6 +42,8 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.labelNomeParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxNomeParaFiltrar = new System.Windows.Forms.TextBox();
+            this.labelEspecialidadeParaFiltrar = new System.Windows.Forms.Label();
+            this.textBoxEspecialidadeParaFiltrar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,9 +158,9 @@
             this.labelNomeParaFiltrar.AutoSize = true;
             this.labelNomeParaFiltrar.Location = new System.Drawing.Point(21, 16);
             this.labelNomeParaFiltrar.Name = "labelNomeParaFiltrar";
-            this.labelNomeParaFiltrar.Size = new System.Drawing.Size(118, 15);
+            this.labelNomeParaFiltrar.Size = new System.Drawing.Size(119, 15);
             this.labelNomeParaFiltrar.TabIndex = 2;
-            this.labelNomeParaFiltrar.Text = "Pesquisar por nome :";
+            this.labelNomeParaFiltrar.Text = "Nome Veterinário(a): ";
             // 
             // textBoxNomeParaFiltrar
             // 
@@ -168,11 +170,30 @@
             this.textBoxNomeParaFiltrar.TabIndex = 3;
             this.textBoxNomeParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxNomeParaFiltrar_KeyUp);
             // 
+            // labelEspecialidadeParaFiltrar
+            // 
+            this.labelEspecialidadeParaFiltrar.AutoSize = true;
+            this.labelEspecialidadeParaFiltrar.Location = new System.Drawing.Point(427, 16);
+            this.labelEspecialidadeParaFiltrar.Name = "labelEspecialidadeParaFiltrar";
+            this.labelEspecialidadeParaFiltrar.Size = new System.Drawing.Size(81, 15);
+            this.labelEspecialidadeParaFiltrar.TabIndex = 2;
+            this.labelEspecialidadeParaFiltrar.Text = "Especialidade:";
+            // 
+            // textBoxEspecialidadeParaFiltrar
+            // 
+            this.textBoxEspecialidadeParaFiltrar.Location = new System.Drawing.Point(514, 12);
+            this.textBoxEspecialidadeParaFiltrar.Name = "textBoxEspecialidadeParaFiltrar";
+            this.textBoxEspecialidadeParaFiltrar.Size = new System.Drawing.Size(168, 23);
+            this.textBoxEspecialidadeParaFiltrar.TabIndex = 3;
+            this.textBoxEspecialidadeParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxEspecialidadeParaFiltrar_KeyUp);
+            // 
             // VeterinarioListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 450);
+            this.Controls.Add(this.textBoxEspecialidadeParaFiltrar);
+            this.Controls.Add(this.labelEspecialidadeParaFiltrar);
             this.Controls.Add(this.textBoxNomeParaFiltrar);
             this.Controls.Add(this.labelNomeParaFiltrar);
             this.Controls.Add(this.buttonApagar);
@@ -204,5 +225,7 @@
         private DataGridViewTextBoxColumn ColumnTelefone;
         private Label labelNomeParaFiltrar;
         private TextBox textBoxNomeParaFiltrar;
+        private Label labelEspecialidadeParaFiltrar;
+        private TextBox textBoxEspecialidadeParaFiltrar;
     }
 }

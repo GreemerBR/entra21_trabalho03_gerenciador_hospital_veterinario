@@ -53,7 +53,6 @@
             this.Nome.Size = new System.Drawing.Size(40, 15);
             this.Nome.TabIndex = 1;
             this.Nome.Text = "Nome";
-            this.Nome.Click += new System.EventHandler(this.Nome2_Click);
             // 
             // textBoxNome
             // 
@@ -71,7 +70,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(280, 172);
+            this.buttonSalvar.Location = new System.Drawing.Point(259, 142);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 4;
@@ -81,7 +80,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(176, 172);
+            this.buttonCancelar.Location = new System.Drawing.Point(168, 142);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 5;
@@ -93,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 205);
+            this.ClientSize = new System.Drawing.Size(343, 176);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.textBoxEspecie);
@@ -101,6 +100,7 @@
             this.Controls.Add(this.Nome);
             this.Controls.Add(this.textBoxEspécie1);
             this.Name = "RacaCadastroEdicaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro da Raça";
             this.ResumeLayout(false);
             this.PerformLayout();

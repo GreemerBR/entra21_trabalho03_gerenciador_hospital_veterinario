@@ -5,6 +5,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
     internal interface IVeterinarioService
     {
         List<Veterinario> ObterPorNome(string nomeVeterinario);
+        List<Veterinario> ObterPorEspecialidade(string especialidade);
         List<Veterinario> ObterTodos();
         Veterinario ObterPorId(int id);
         void Apagar(int id);
