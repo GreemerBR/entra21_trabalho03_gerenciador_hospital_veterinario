@@ -156,7 +156,7 @@
             // labelNomeParaFiltrar
             // 
             this.labelNomeParaFiltrar.AutoSize = true;
-            this.labelNomeParaFiltrar.Location = new System.Drawing.Point(21, 16);
+            this.labelNomeParaFiltrar.Location = new System.Drawing.Point(14, 15);
             this.labelNomeParaFiltrar.Name = "labelNomeParaFiltrar";
             this.labelNomeParaFiltrar.Size = new System.Drawing.Size(119, 15);
             this.labelNomeParaFiltrar.TabIndex = 2;

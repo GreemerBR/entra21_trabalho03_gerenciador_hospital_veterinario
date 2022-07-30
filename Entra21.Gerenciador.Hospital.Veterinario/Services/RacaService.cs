@@ -85,8 +85,72 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id,especie, nome FROM raca WHERE id = @ID";
+            comando.CommandText = "SELECT id, especie, nome FROM racas";
            
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var racas = new List<Raca>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var raca = new Raca();
+                raca.Id = Convert.ToInt32(registro["id"]);
+                raca.Especie = registro["especie"].ToString();
+                raca.Nome = registro["nome"].ToString();
+
+                racas.Add(raca);
+            }
+            comando.Connection.Close();
+
+            return racas;
+        }
+
+        public List<Raca> ObterPorNome(string nomeRaca)
+        {
+            var conexao = new Conexao().Conectar();
+
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = "SELECT id, especie, nome FROM racas WHERE nome LIKE @NOME";
+
+            comando.Parameters.AddWithValue("@NOME", $"%{nomeRaca}%");
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var racas = new List<Raca>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+
+                var raca = new Raca();
+                raca.Id = Convert.ToInt32(registro["id"]);
+                raca.Especie = registro["especie"].ToString();
+                raca.Nome = registro["nome"].ToString();
+
+                racas.Add(raca);
+            }
+            comando.Connection.Close();
+
+            return racas;
+        }
+
+        public List<Raca> ObterPorEspecie(string especie)
+        {
+            var conexao = new Conexao().Conectar();
+
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = "SELECT id, especie, nome FROM racas WHERE especie LIKE @ESPECIE";
+
+            comando.Parameters.AddWithValue("@ESPECIE", $"%{especie}%");
 
             var tabelaEmMemoria = new DataTable();
 

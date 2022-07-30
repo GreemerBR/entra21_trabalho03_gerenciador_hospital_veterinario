@@ -9,6 +9,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 {
     internal interface IRacaService
     {
+        List<Raca> ObterPorNome(string nomeRaca);
+        List<Raca> ObterPorEspecie(string especie);
         List<Raca> ObterTodos();
         Raca ObterPorId(int id);
         void Cadastrar(Raca raca);

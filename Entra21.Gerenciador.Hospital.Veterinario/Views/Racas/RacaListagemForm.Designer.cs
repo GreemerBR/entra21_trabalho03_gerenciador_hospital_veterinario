@@ -34,6 +34,10 @@
             this.ButtonApagar = new System.Windows.Forms.Button();
             this.ButtonCadastrar = new System.Windows.Forms.Button();
             this.ButtonEditar = new System.Windows.Forms.Button();
+            this.labelNomeParaFiltrar = new System.Windows.Forms.Label();
+            this.textBoxNomeParaFiltrar = new System.Windows.Forms.TextBox();
+            this.labelEspecieParaFiltrar = new System.Windows.Forms.Label();
+            this.textBoxEspecieParaFiltrar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +100,47 @@
             this.ButtonEditar.UseVisualStyleBackColor = true;
             this.ButtonEditar.Click += new System.EventHandler(this.ButtonEditar_Click_1);
             // 
+            // labelNomeParaFiltrar
+            // 
+            this.labelNomeParaFiltrar.AutoSize = true;
+            this.labelNomeParaFiltrar.Location = new System.Drawing.Point(15, 20);
+            this.labelNomeParaFiltrar.Name = "labelNomeParaFiltrar";
+            this.labelNomeParaFiltrar.Size = new System.Drawing.Size(43, 15);
+            this.labelNomeParaFiltrar.TabIndex = 4;
+            this.labelNomeParaFiltrar.Text = "Nome:";
+            // 
+            // textBoxNomeParaFiltrar
+            // 
+            this.textBoxNomeParaFiltrar.Location = new System.Drawing.Point(64, 16);
+            this.textBoxNomeParaFiltrar.Name = "textBoxNomeParaFiltrar";
+            this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(131, 23);
+            this.textBoxNomeParaFiltrar.TabIndex = 5;
+            // 
+            // labelEspecieParaFiltrar
+            // 
+            this.labelEspecieParaFiltrar.AutoSize = true;
+            this.labelEspecieParaFiltrar.Location = new System.Drawing.Point(207, 20);
+            this.labelEspecieParaFiltrar.Name = "labelEspecieParaFiltrar";
+            this.labelEspecieParaFiltrar.Size = new System.Drawing.Size(49, 15);
+            this.labelEspecieParaFiltrar.TabIndex = 4;
+            this.labelEspecieParaFiltrar.Text = "Espécie:";
+            // 
+            // textBoxEspecieParaFiltrar
+            // 
+            this.textBoxEspecieParaFiltrar.Location = new System.Drawing.Point(256, 16);
+            this.textBoxEspecieParaFiltrar.Name = "textBoxEspecieParaFiltrar";
+            this.textBoxEspecieParaFiltrar.Size = new System.Drawing.Size(131, 23);
+            this.textBoxEspecieParaFiltrar.TabIndex = 5;
+            // 
             // RacaListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 367);
+            this.Controls.Add(this.textBoxEspecieParaFiltrar);
+            this.Controls.Add(this.textBoxNomeParaFiltrar);
+            this.Controls.Add(this.labelEspecieParaFiltrar);
+            this.Controls.Add(this.labelNomeParaFiltrar);
             this.Controls.Add(this.ButtonEditar);
             this.Controls.Add(this.ButtonCadastrar);
             this.Controls.Add(this.ButtonApagar);
@@ -110,6 +150,7 @@
             this.Text = "Lista das Raças";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -121,5 +162,9 @@
         private Button ButtonApagar;
         private Button ButtonCadastrar;
         private Button ButtonEditar;
+        private Label labelNomeParaFiltrar;
+        private TextBox textBoxNomeParaFiltrar;
+        private Label labelEspecieParaFiltrar;
+        private TextBox textBoxEspecieParaFiltrar;
     }
 }

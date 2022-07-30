@@ -17,7 +17,24 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
         
         private void PreencherDataGridViewComRacas()
         {
-            var racas = _racaService.ObterTodos();
+            var nomeParaFiltrar = textBoxNomeParaFiltrar.Text.Trim();
+
+            var especieParaFiltrar = textBoxEspecieParaFiltrar.Text.Trim();
+
+            List<Models.Raca> racas;
+
+            if (nomeParaFiltrar != "")
+            {
+                racas = _racaService.ObterPorNome(nomeParaFiltrar);
+            }
+            else if (especieParaFiltrar != "")
+            {
+                racas = _racaService.ObterPorEspecie(especieParaFiltrar);
+            }
+            else
+            {
+                racas = _racaService.ObterTodos();
+            }
 
             dataGridViewRacas.Rows.Clear();
 
