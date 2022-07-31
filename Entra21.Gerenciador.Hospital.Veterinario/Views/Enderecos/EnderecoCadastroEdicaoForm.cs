@@ -54,40 +54,47 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if(comboBoxResponsavel.SelectedIndex == -1)
+            try
             {
-                MessageBox.Show("Selecione um responsavel");
-                return;
+                if (comboBoxResponsavel.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selecione um responsavel");
+                    return;
+                }
+
+                var cep = maskedTextBoxCep.Text.Trim();
+                var logradouro = textBoxLogradouro.Text.Trim();
+                var bairro = textBoxBairro.Text.Trim();
+                var cidade = textBoxCidade.Text.Trim();
+                var unidadeFederativa = maskedTextBoxUnidadeFederativa.Text.Trim().ToUpper();
+                var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
+
+                var endereco = new Endereco();
+                endereco.Cep = cep;
+                endereco.Logradouro = logradouro;
+                endereco.Bairro = bairro;
+                endereco.Localidade = cidade;
+                endereco.Uf = unidadeFederativa;
+                endereco.Responsavel = responsavel;
+
+                var enderecoSevice = new EnderecoService();
+                if (_idParaEditar == -1)
+                {
+                    enderecoSevice.Cadastrar(endereco);
+                    MessageBox.Show("Endereco cadastrado com sucesso");
+                    Close();
+                }
+                else
+                {
+                    endereco.Id = _idParaEditar; ;
+                    enderecoSevice.Editar(endereco);
+                    MessageBox.Show("Endereco alterado com sucesso");
+                    Close();
+                }
             }
-
-            var cep = maskedTextBoxCep.Text.Trim();
-            var logradouro = textBoxLogradouro.Text.Trim();
-            var bairro = textBoxBairro.Text.Trim();
-            var cidade = textBoxCidade.Text.Trim();
-            var unidadeFederativa = maskedTextBoxUnidadeFederativa.Text.Trim().ToUpper();
-            var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
-
-            var endereco = new Endereco();
-            endereco.Cep = cep;
-            endereco.Logradouro = logradouro;
-            endereco.Bairro = bairro;
-            endereco.Localidade = cidade;
-            endereco.Uf = unidadeFederativa;
-            endereco.Responsavel = responsavel;
-
-            var enderecoSevice = new EnderecoService();
-            if(_idParaEditar == -1)
+            catch(Exception ex)
             {
-                enderecoSevice.Cadastrar(endereco);
-                MessageBox.Show("Endereco cadastrado com sucesso");
-                Close();
-            }
-            else
-            {
-                endereco.Id = _idParaEditar; ;
-                enderecoSevice.Editar(endereco);
-                MessageBox.Show("Endereco alterado com sucesso");
-                Close();
+                MessageBox.Show("Algum dado esta invalido!!!");
             }
         }
 
