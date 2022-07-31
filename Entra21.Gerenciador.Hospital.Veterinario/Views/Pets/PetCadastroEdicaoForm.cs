@@ -68,13 +68,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
         }
         private void PreencherComboBoxResponsavel()
         {
-            var petService = new PetService();
-            var pets = petService.ObterTodos();
+            var responsavelService = new ResponsavelService();
+            var responsaveis = responsavelService.ObterTodos();
 
-            for (int i = 0; i < pets.Count; i++)
+            for (int i = 0; i < responsaveis.Count; i++)
             {
-                var pet = pets[i];
-                comboBoxResponsavel.Items.Add(pet);
+                var responsavel = responsaveis[i];
+                comboBoxResponsavel.Items.Add(responsavel);
             }
         }
 
@@ -142,6 +142,14 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
                 MessageBox.Show("O nome do Pet precisa ter ao menos 2 caracteres!", "ERRO", MessageBoxButtons.OK);
 
                 textBoxNome.Focus();
+
+                return false;
+            }
+            if (comboBoxRaca.Text.Trim().Length < 2)
+            {
+                MessageBox.Show("A função Raça deve ser selecionada!", "ERRO", MessageBoxButtons.OK);
+
+                comboBoxRaca.Focus();
 
                 return false;
             }
