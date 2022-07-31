@@ -113,6 +113,16 @@ namespace Entra21.Gerenciador.Hospital.Vet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rMn0Jho3_4x_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("rMn0Jho3_4x-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap veterinario__1_ {
             get {
                 object obj = ResourceManager.GetObject("veterinario (1)", resourceCulture);

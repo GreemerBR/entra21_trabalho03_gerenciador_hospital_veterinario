@@ -121,19 +121,22 @@
   <data name="loja-de-animais (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\loja-de-animais (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="consulta-medica (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\consulta-medica (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="avatar-de-perfil (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\avatar-de-perfil (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="localizacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\localizacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="animais-de-estimacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\animais-de-estimacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="consulta-medica (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\consulta-medica (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="localizacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\localizacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="veterinario (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\veterinario (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rMn0Jho3_4x-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\rMn0Jho3_4x-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
