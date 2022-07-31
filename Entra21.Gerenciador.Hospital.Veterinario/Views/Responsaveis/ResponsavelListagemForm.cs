@@ -17,7 +17,17 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
         private void AtualizarRegistrosDataGriedView()
         {
-            var responsaveis = _responsavelService.ObterTodos();
+            var nomeParaFiltrar = textBoxBuscarPorNome.Text.Trim();
+            List<Models.Responsavel> responsaveis;
+
+            if (nomeParaFiltrar != "")
+            {
+                responsaveis = _responsavelService.ObterPorNome(nomeParaFiltrar);
+            }
+            else
+            {
+                responsaveis = _responsavelService.ObterTodos();
+            }
 
             dataGridView1.Rows.Clear();
 
@@ -99,6 +109,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
             
             responsavelForm.ShowDialog();
 
+            AtualizarRegistrosDataGriedView();
+        }
+
+        private void textBoxBuscarPorNome_KeyUp(object sender, KeyEventArgs e)
+        {
             AtualizarRegistrosDataGriedView();
         }
     }

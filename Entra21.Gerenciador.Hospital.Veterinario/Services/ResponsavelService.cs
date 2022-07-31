@@ -80,6 +80,40 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             return responsavel;
         }
 
+        public List<Responsavel> ObterPorNome(string nome)
+        {
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+
+            comando.CommandText = "SELECT id, nome, idade, cpf, telefone FROM responsaveis WHERE nome LIKE @NOME";
+
+            comando.Parameters.AddWithValue("@NOME", $"%{nome}%");
+
+            var tabelaEmMemoria = new DataTable();
+
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var responsaveis = new List<Responsavel>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var linha = tabelaEmMemoria.Rows[i];
+
+                var responsavel = new Responsavel();
+                responsavel.Id = Convert.ToInt32(linha["id"].ToString());
+                responsavel.Nome = linha["nome"].ToString();
+                responsavel.Idade = Convert.ToInt32(linha["idade"].ToString());
+                responsavel.Cpf = linha["cpf"].ToString();
+                responsavel.Telefone = linha["telefone"].ToString();
+
+                responsaveis.Add(responsavel);
+            }
+
+            comando.Connection.Close();
+
+            return responsaveis;
+        }
+
         public List<Responsavel> ObterTodos()
         {
             var conexao = new Conexao().Conectar();

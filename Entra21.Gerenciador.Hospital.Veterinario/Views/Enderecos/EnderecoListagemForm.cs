@@ -18,7 +18,17 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
 
         private void PreencherDataGriedViewComEndereco()
         {
-            var enderecos = _enderecoService.ObterTodos();
+            var bairroParaFiltrar = textBoxBuscarBairro.Text.Trim();
+            List<Models.Endereco> enderecos;
+
+            if(bairroParaFiltrar != "")
+            {
+                enderecos = _enderecoService.ObterPorBairro(bairroParaFiltrar);
+            }
+            else
+            {
+               enderecos = _enderecoService.ObterTodos();
+            }
 
             dataGridView1.Rows.Clear();
 
@@ -82,6 +92,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
             var endercoCadastroForm = new EnderecoCadastroEdicaoForm(endereco);
             endercoCadastroForm.ShowDialog();
 
+            PreencherDataGriedViewComEndereco();
+        }
+
+        private void textBoxBuscarBairro_KeyUp(object sender, KeyEventArgs e)
+        {
             PreencherDataGriedViewComEndereco();
         }
     }

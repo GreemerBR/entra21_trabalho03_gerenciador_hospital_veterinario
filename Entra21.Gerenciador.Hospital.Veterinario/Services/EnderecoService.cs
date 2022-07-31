@@ -56,6 +56,56 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
             comando.Connection.Close();
         }
 
+        public List<Endereco> ObterPorBairro(string bairro)
+        {
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = @"SELECT
+e.id AS 'id',
+e.cep AS 'cep',
+e.logradouro AS 'logradouro',
+e.bairro AS 'bairro',
+e.cidade AS 'cidade',
+e.unidade_federativa AS 'unidade_federativa',
+r.id AS 'responsavel_id',
+r.nome AS 'responsavel_nome',
+r.idade AS 'responsavel_idade',
+r.cpf AS 'responsavel_cpf',
+r.telefone AS 'responsavel_telefone'
+FROM enderecos AS e
+INNER JOIN responsaveis AS r ON(e.id_responsaveis = r.id)
+WHERE e.bairro LIKE @BAIRRO";
+
+            comando.Parameters.AddWithValue("@BAIRRO",$"%{bairro}%");
+
+            var tabelaEmMemoria = new DataTable();
+            tabelaEmMemoria.Load(comando.ExecuteReader());
+
+            var enderecos = new List<Endereco>();
+
+            for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
+            {
+                var registro = tabelaEmMemoria.Rows[i];
+                var endereco = new Endereco();
+                endereco.Id = Convert.ToInt32(registro["id"]);
+                endereco.Cep = registro["cep"].ToString();
+                endereco.Logradouro = registro["logradouro"].ToString();
+                endereco.Bairro = registro["bairro"].ToString();
+                endereco.Localidade = registro["cidade"].ToString();
+                endereco.Uf = registro["unidade_federativa"].ToString();
+
+                endereco.Responsavel = new Responsavel();
+                endereco.Responsavel.Id = Convert.ToInt32(registro["responsavel_id"]);
+                endereco.Responsavel.Nome = registro["responsavel_nome"].ToString();
+                endereco.Responsavel.Idade = Convert.ToInt32(registro["responsavel_idade"]);
+                endereco.Responsavel.Cpf = registro["responsavel_cpf"].ToString();
+                endereco.Responsavel.Telefone = registro["responsavel_telefone"].ToString();
+
+                enderecos.Add(endereco);
+            }
+            return enderecos;
+        }
+
         public Endereco ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();

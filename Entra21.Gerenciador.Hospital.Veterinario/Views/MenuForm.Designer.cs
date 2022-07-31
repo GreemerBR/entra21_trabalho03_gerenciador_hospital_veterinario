@@ -210,13 +210,13 @@
             // 
             this.labelHome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHome.AutoSize = true;
-            this.labelHome.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHome.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelHome.ForeColor = System.Drawing.Color.White;
-            this.labelHome.Location = new System.Drawing.Point(400, 36);
+            this.labelHome.Location = new System.Drawing.Point(343, 37);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(69, 30);
+            this.labelHome.Size = new System.Drawing.Size(173, 26);
             this.labelHome.TabIndex = 0;
-            this.labelHome.Text = "Vet Et";
+            this.labelHome.Text = "Clinica Veterinária";
             // 
             // panelAbas
             // 

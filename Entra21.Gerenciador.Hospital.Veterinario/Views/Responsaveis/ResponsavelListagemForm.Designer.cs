@@ -37,6 +37,8 @@
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
+            this.labelNome = new System.Windows.Forms.Label();
+            this.textBoxBuscarPorNome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,13 +55,12 @@
             this.ColumnIdade,
             this.ColumnCpf,
             this.ColumnTelefone});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(556, 444);
+            this.dataGridView1.Size = new System.Drawing.Size(814, 378);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -95,14 +96,12 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.BackColor = System.Drawing.Color.DarkBlue;
-            this.buttonCadastrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCadastrar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadastrar.ForeColor = System.Drawing.Color.White;
-            this.buttonCadastrar.Location = new System.Drawing.Point(556, 0);
+            this.buttonCadastrar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonCadastrar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCadastrar.ForeColor = System.Drawing.Color.Black;
+            this.buttonCadastrar.Location = new System.Drawing.Point(12, 12);
             this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(282, 72);
+            this.buttonCadastrar.Size = new System.Drawing.Size(90, 34);
             this.buttonCadastrar.TabIndex = 1;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = false;
@@ -110,14 +109,12 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.BackColor = System.Drawing.Color.DarkBlue;
-            this.buttonApagar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApagar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonApagar.ForeColor = System.Drawing.Color.White;
-            this.buttonApagar.Location = new System.Drawing.Point(556, 72);
+            this.buttonApagar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonApagar.ForeColor = System.Drawing.Color.Black;
+            this.buttonApagar.Location = new System.Drawing.Point(204, 12);
             this.buttonApagar.Name = "buttonApagar";
-            this.buttonApagar.Size = new System.Drawing.Size(282, 74);
+            this.buttonApagar.Size = new System.Drawing.Size(90, 36);
             this.buttonApagar.TabIndex = 2;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = false;
@@ -125,17 +122,34 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.BackColor = System.Drawing.Color.DarkBlue;
-            this.buttonEditar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEditar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEditar.ForeColor = System.Drawing.Color.White;
-            this.buttonEditar.Location = new System.Drawing.Point(556, 146);
+            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonEditar.ForeColor = System.Drawing.Color.Black;
+            this.buttonEditar.Location = new System.Drawing.Point(108, 12);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(282, 74);
+            this.buttonEditar.Size = new System.Drawing.Size(90, 36);
             this.buttonEditar.TabIndex = 3;
             this.buttonEditar.Text = "Editar";
+            this.buttonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
+            // 
+            // labelNome
+            // 
+            this.labelNome.AutoSize = true;
+            this.labelNome.Location = new System.Drawing.Point(558, 21);
+            this.labelNome.Name = "labelNome";
+            this.labelNome.Size = new System.Drawing.Size(43, 15);
+            this.labelNome.TabIndex = 4;
+            this.labelNome.Text = "Nome:";
+            // 
+            // textBoxBuscarPorNome
+            // 
+            this.textBoxBuscarPorNome.Location = new System.Drawing.Point(607, 18);
+            this.textBoxBuscarPorNome.Name = "textBoxBuscarPorNome";
+            this.textBoxBuscarPorNome.Size = new System.Drawing.Size(219, 23);
+            this.textBoxBuscarPorNome.TabIndex = 5;
+            this.textBoxBuscarPorNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxBuscarPorNome_KeyUp);
             // 
             // ResponsavelListagemForm
             // 
@@ -143,6 +157,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(838, 444);
+            this.Controls.Add(this.textBoxBuscarPorNome);
+            this.Controls.Add(this.labelNome);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonCadastrar);
@@ -153,6 +169,7 @@
             this.Text = "ResponsavelListagemForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,5 +184,7 @@
         private DataGridViewTextBoxColumn ColumnIdade;
         private DataGridViewTextBoxColumn ColumnCpf;
         private DataGridViewTextBoxColumn ColumnTelefone;
+        private Label labelNome;
+        private TextBox textBoxBuscarPorNome;
     }
 }
