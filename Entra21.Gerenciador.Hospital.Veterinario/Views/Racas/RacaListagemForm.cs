@@ -110,5 +110,15 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
                 MessageBox.Show("Raça removida com sucesso!", "Aviso", MessageBoxButtons.OK);
             }
         }
+
+        private void textBoxNomeParaFiltrar_KeyUp(object sender, KeyEventArgs e)
+        {
+            PreencherDataGridViewComRacas();
+        }
+
+        private void textBoxEspecieParaFiltrar_KeyUp(object sender, KeyEventArgs e)
+        {
+            PreencherDataGridViewComRacas();
+        }
     }
 }

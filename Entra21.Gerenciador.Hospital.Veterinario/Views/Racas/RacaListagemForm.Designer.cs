@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridViewRacas = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Espécie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonApagar = new System.Windows.Forms.Button();
             this.ButtonCadastrar = new System.Windows.Forms.Button();
             this.ButtonEditar = new System.Windows.Forms.Button();
@@ -36,9 +39,6 @@
             this.textBoxNomeParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelEspecieParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxEspecieParaFiltrar = new System.Windows.Forms.TextBox();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Espécie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +56,16 @@
             this.dataGridViewRacas.Name = "dataGridViewRacas";
             this.dataGridViewRacas.ReadOnly = true;
             this.dataGridViewRacas.RowTemplate.Height = 25;
+            this.dataGridViewRacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRacas.Size = new System.Drawing.Size(811, 387);
             this.dataGridViewRacas.TabIndex = 0;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
             // 
             // Nome
             // 
@@ -116,6 +124,7 @@
             this.textBoxNomeParaFiltrar.Name = "textBoxNomeParaFiltrar";
             this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(131, 23);
             this.textBoxNomeParaFiltrar.TabIndex = 5;
+            this.textBoxNomeParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxNomeParaFiltrar_KeyUp);
             // 
             // labelEspecieParaFiltrar
             // 
@@ -132,27 +141,7 @@
             this.textBoxEspecieParaFiltrar.Name = "textBoxEspecieParaFiltrar";
             this.textBoxEspecieParaFiltrar.Size = new System.Drawing.Size(131, 23);
             this.textBoxEspecieParaFiltrar.TabIndex = 5;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 300;
-            // 
-            // Espécie
-            // 
-            this.Espécie.HeaderText = "Espécie";
-            this.Espécie.Name = "Espécie";
-            this.Espécie.ReadOnly = true;
-            this.Espécie.Width = 300;
+            this.textBoxEspecieParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxEspecieParaFiltrar_KeyUp);
             // 
             // RacaListagemForm
             // 

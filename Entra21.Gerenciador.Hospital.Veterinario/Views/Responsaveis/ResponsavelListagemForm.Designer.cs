@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonCadastrar = new System.Windows.Forms.Button();
+            this.buttonApagar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIdade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.buttonApagar = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,36 +61,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(556, 444);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            // 
-            // ColumnIdade
-            // 
-            this.ColumnIdade.HeaderText = "Idade";
-            this.ColumnIdade.Name = "ColumnIdade";
-            this.ColumnIdade.ReadOnly = true;
-            // 
-            // ColumnCpf
-            // 
-            this.ColumnCpf.HeaderText = "Cpf";
-            this.ColumnCpf.Name = "ColumnCpf";
-            this.ColumnCpf.ReadOnly = true;
-            // 
-            // ColumnTelefone
-            // 
-            this.ColumnTelefone.HeaderText = "Telefone";
-            this.ColumnTelefone.Name = "ColumnTelefone";
-            this.ColumnTelefone.ReadOnly = true;
             // 
             // buttonCadastrar
             // 
@@ -136,6 +106,37 @@
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnIdade
+            // 
+            this.ColumnIdade.HeaderText = "Idade";
+            this.ColumnIdade.Name = "ColumnIdade";
+            this.ColumnIdade.ReadOnly = true;
+            // 
+            // ColumnCpf
+            // 
+            this.ColumnCpf.HeaderText = "Cpf";
+            this.ColumnCpf.Name = "ColumnCpf";
+            this.ColumnCpf.ReadOnly = true;
+            // 
+            // ColumnTelefone
+            // 
+            this.ColumnTelefone.HeaderText = "Telefone";
+            this.ColumnTelefone.Name = "ColumnTelefone";
+            this.ColumnTelefone.ReadOnly = true;
+            // 
             // ResponsavelListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -148,6 +149,7 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ResponsavelListagemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResponsavelListagemForm";
             this.Load += new System.EventHandler(this.ResponsavelListagemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

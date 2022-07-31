@@ -23,19 +23,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
             List<Models.Consulta> consultas;
 
-            //if (nomeVeterinarioParaFiltrar == "" && nomePetParaFiltrar == "")
-            //{
-            //    consultas = _consultaService.ObterTodos();
-            //}
-            //else if (nomePetParaFiltrar == "")
-            //{
-            //    consultas = _consultaService.ObterPorVeterinario(nomeVeterinarioParaFiltrar);
-            //}
-            //else
-            //{
-            //    consultas = _consultaService.ObterPorPet(nomePetParaFiltrar);
-            //}
-
             if (nomeVeterinarioParaFiltrar != "")
             {
                 consultas = _consultaService.ObterPorVeterinario(nomeVeterinarioParaFiltrar);

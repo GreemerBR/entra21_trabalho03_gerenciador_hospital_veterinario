@@ -25,17 +25,16 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"INSERT INTO pets (id_responsaveis, id_racas, nome, idade, peso, altura, genero) 
-VALUES (@ID_RESPONSAVEIS, @ID_RACAS, @NOME, @IDADE, @PESO, @ALTURA, @GENERO);";
+            comando.CommandText = @"INSERT INTO pets (nome, idade, peso, altura, genero, id_responsaveis, id_racas) 
+VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
 
-            comando.Parameters.AddWithValue("@ID_RESPONSAVEIS", pet.Responsavel.Id);
-            comando.Parameters.AddWithValue("@ID_RACAS", pet.Raca.Id);
             comando.Parameters.AddWithValue("@NOME", pet.Nome);
             comando.Parameters.AddWithValue("@IDADE", pet.Idade);
             comando.Parameters.AddWithValue("@PESO", pet.Peso);
             comando.Parameters.AddWithValue("@ALTURA", pet.Altura);
             comando.Parameters.AddWithValue("@GENERO", pet.Genero);
-
+            comando.Parameters.AddWithValue("@ID_RESPONSAVEIS", pet.Responsavel.Id);
+            comando.Parameters.AddWithValue("@ID_RACAS", pet.Raca.Id);
 
             comando.ExecuteNonQuery();
 

@@ -27,6 +27,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             comando.Connection.Close();
         }
+
         public void Editar(Raca raca)
         {
             var conexao = new Conexao().Conectar();
@@ -42,6 +43,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             comando.Connection.Close();
         }
+
         public void Apagar(int id)
         {
             var conexao = new Conexao().Conectar();
@@ -56,29 +58,37 @@ namespace Entra21.Gerenciador.Hospital.Vet.Services
 
             comando.Connection.Close();
         }
+
         public Raca ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();
+
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id,especie, nome FROM raca WHERE id = @ID";
+
+            comando.CommandText = "SELECT id, especie, nome FROM racas WHERE id = @ID";
+           
             comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
+
             dataTable.Load(comando.ExecuteReader());
+
             if (dataTable.Rows.Count == 0)
                 return null;
 
             var registro = dataTable.Rows[0];
+
             var raca = new Raca();
+
             raca.Id = Convert.ToInt32(registro["id"]);
             raca.Especie = registro["especie"].ToString();
             raca.Nome = registro["nome"].ToString();
-
             
             conexao.Close();
 
             return raca;
         }
+
         public List<Raca> ObterTodos()
         {
             var conexao = new Conexao().Conectar();

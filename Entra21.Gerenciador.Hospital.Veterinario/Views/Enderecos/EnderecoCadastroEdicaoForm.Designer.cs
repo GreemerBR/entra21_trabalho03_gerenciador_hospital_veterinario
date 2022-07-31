@@ -185,6 +185,7 @@
             this.Controls.Add(this.labelLogradouro);
             this.Controls.Add(this.labelCep);
             this.Name = "EnderecoCadastroEdicaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EnderecoCadastroEdicaoForm";
             this.ResumeLayout(false);
             this.PerformLayout();

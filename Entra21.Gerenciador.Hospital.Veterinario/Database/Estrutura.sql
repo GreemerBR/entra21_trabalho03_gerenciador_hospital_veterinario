@@ -31,8 +31,8 @@ CREATE TABLE pets(
 	id_responsaveis INTEGER NOT NULL,
 	id_racas INTEGER NOT NULL,
 	
-	FOREIGN KEY(id_racas) REFERENCES racas(id),
-	FOREIGN KEY(id_responsaveis) REFERENCES responsaveis(id));
+	FOREIGN KEY(id_responsaveis) REFERENCES responsaveis(id),
+	FOREIGN KEY(id_racas) REFERENCES racas(id));
 
 CREATE TABLE consultas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
