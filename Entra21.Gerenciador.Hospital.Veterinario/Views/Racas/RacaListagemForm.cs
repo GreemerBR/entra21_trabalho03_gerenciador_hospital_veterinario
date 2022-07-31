@@ -54,8 +54,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Racas
 
         private void ButtonCadastrar_Click(object sender, EventArgs e)
         {
-            var racaCadastroEdicaoForm =
-               new RacaCadastroEdicaoForm();
+            var racaCadastroEdicaoForm = new RacaCadastroEdicaoForm();
 
             racaCadastroEdicaoForm.ShowDialog();
 

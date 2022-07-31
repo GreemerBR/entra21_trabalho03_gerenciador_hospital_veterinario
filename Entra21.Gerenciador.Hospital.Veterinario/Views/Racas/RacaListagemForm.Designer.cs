@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewRacas = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Espécie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonApagar = new System.Windows.Forms.Button();
             this.ButtonCadastrar = new System.Windows.Forms.Button();
             this.ButtonEditar = new System.Windows.Forms.Button();
@@ -38,6 +36,9 @@
             this.textBoxNomeParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelEspecieParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxEspecieParaFiltrar = new System.Windows.Forms.TextBox();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Espécie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.dataGridViewRacas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRacas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
             this.Nome,
             this.Espécie});
             this.dataGridViewRacas.Location = new System.Drawing.Point(15, 45);
@@ -131,6 +133,27 @@
             this.textBoxEspecieParaFiltrar.Size = new System.Drawing.Size(131, 23);
             this.textBoxEspecieParaFiltrar.TabIndex = 5;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 300;
+            // 
+            // Espécie
+            // 
+            this.Espécie.HeaderText = "Espécie";
+            this.Espécie.Name = "Espécie";
+            this.Espécie.ReadOnly = true;
+            this.Espécie.Width = 300;
+            // 
             // RacaListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -157,8 +180,6 @@
         #endregion
 
         private DataGridView dataGridViewRacas;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn Espécie;
         private Button ButtonApagar;
         private Button ButtonCadastrar;
         private Button ButtonEditar;
@@ -166,5 +187,8 @@
         private TextBox textBoxNomeParaFiltrar;
         private Label labelEspecieParaFiltrar;
         private TextBox textBoxEspecieParaFiltrar;
+        private DataGridViewTextBoxColumn ColumnId;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn Espécie;
     }
 }
