@@ -39,12 +39,12 @@
             this.labelRaca = new System.Windows.Forms.Label();
             this.comboBoxResponsavel = new System.Windows.Forms.ComboBox();
             this.labelResponsavel = new System.Windows.Forms.Label();
-            this.textBoxPeso = new System.Windows.Forms.TextBox();
-            this.textBoxAltura = new System.Windows.Forms.TextBox();
-            this.textBoxIdade = new System.Windows.Forms.TextBox();
             this.labelGenero = new System.Windows.Forms.Label();
             this.radioButtonFenimino = new System.Windows.Forms.RadioButton();
             this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
+            this.maskedTextBoxPeso = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxAltura = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxIdade = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // LabelNome
@@ -146,27 +146,6 @@
             this.labelResponsavel.TabIndex = 17;
             this.labelResponsavel.Text = "Responsavel";
             // 
-            // textBoxPeso
-            // 
-            this.textBoxPeso.Location = new System.Drawing.Point(12, 82);
-            this.textBoxPeso.Name = "textBoxPeso";
-            this.textBoxPeso.Size = new System.Drawing.Size(53, 23);
-            this.textBoxPeso.TabIndex = 20;
-            // 
-            // textBoxAltura
-            // 
-            this.textBoxAltura.Location = new System.Drawing.Point(83, 82);
-            this.textBoxAltura.Name = "textBoxAltura";
-            this.textBoxAltura.Size = new System.Drawing.Size(53, 23);
-            this.textBoxAltura.TabIndex = 20;
-            // 
-            // textBoxIdade
-            // 
-            this.textBoxIdade.Location = new System.Drawing.Point(161, 82);
-            this.textBoxIdade.Name = "textBoxIdade";
-            this.textBoxIdade.Size = new System.Drawing.Size(53, 23);
-            this.textBoxIdade.TabIndex = 20;
-            // 
             // labelGenero
             // 
             this.labelGenero.AutoSize = true;
@@ -198,17 +177,41 @@
             this.radioButtonMasculino.Text = "Masculino";
             this.radioButtonMasculino.UseVisualStyleBackColor = true;
             // 
+            // maskedTextBoxPeso
+            // 
+            this.maskedTextBoxPeso.Location = new System.Drawing.Point(12, 82);
+            this.maskedTextBoxPeso.Mask = "999,99";
+            this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
+            this.maskedTextBoxPeso.Size = new System.Drawing.Size(45, 23);
+            this.maskedTextBoxPeso.TabIndex = 24;
+            // 
+            // maskedTextBoxAltura
+            // 
+            this.maskedTextBoxAltura.Location = new System.Drawing.Point(83, 82);
+            this.maskedTextBoxAltura.Mask = "9,99";
+            this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
+            this.maskedTextBoxAltura.Size = new System.Drawing.Size(45, 23);
+            this.maskedTextBoxAltura.TabIndex = 25;
+            // 
+            // maskedTextBoxIdade
+            // 
+            this.maskedTextBoxIdade.Location = new System.Drawing.Point(161, 82);
+            this.maskedTextBoxIdade.Mask = "99";
+            this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
+            this.maskedTextBoxIdade.Size = new System.Drawing.Size(45, 23);
+            this.maskedTextBoxIdade.TabIndex = 26;
+            // 
             // PetCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(231, 400);
+            this.Controls.Add(this.maskedTextBoxIdade);
+            this.Controls.Add(this.maskedTextBoxAltura);
+            this.Controls.Add(this.maskedTextBoxPeso);
             this.Controls.Add(this.radioButtonMasculino);
             this.Controls.Add(this.radioButtonFenimino);
             this.Controls.Add(this.labelGenero);
-            this.Controls.Add(this.textBoxIdade);
-            this.Controls.Add(this.textBoxAltura);
-            this.Controls.Add(this.textBoxPeso);
             this.Controls.Add(this.labelResponsavel);
             this.Controls.Add(this.comboBoxResponsavel);
             this.Controls.Add(this.labelRaca);
@@ -241,11 +244,11 @@
         private Label labelRaca;
         private ComboBox comboBoxResponsavel;
         private Label labelResponsavel;
-        private TextBox textBoxPeso;
-        private TextBox textBoxAltura;
-        private TextBox textBoxIdade;
         private Label labelGenero;
         private RadioButton radioButtonFenimino;
         private RadioButton radioButtonMasculino;
+        private MaskedTextBox maskedTextBoxPeso;
+        private MaskedTextBox maskedTextBoxAltura;
+        private MaskedTextBox maskedTextBoxIdade;
     }
 }

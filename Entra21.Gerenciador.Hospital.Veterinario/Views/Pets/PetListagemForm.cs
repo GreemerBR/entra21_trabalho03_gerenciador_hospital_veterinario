@@ -50,7 +50,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
                     pet.Genero,
                     pet.Peso,
                     pet.Altura,
-                    pet.Raca,
+                    pet.Raca.Nome,
                     pet.Responsavel.Nome
                 });
             }
@@ -108,8 +108,9 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            var petForm = new PetCadastroEdicaoForm();
-            petForm.ShowDialog();
+            var petCadastroEdicaoForm = new PetCadastroEdicaoForm();
+
+            petCadastroEdicaoForm.ShowDialog();
 
             PreencherDataGridViewComPets();
         }

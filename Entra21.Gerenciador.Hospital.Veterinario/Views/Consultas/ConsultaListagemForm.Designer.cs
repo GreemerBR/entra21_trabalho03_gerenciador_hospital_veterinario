@@ -39,11 +39,9 @@
             this.textBoxVeterinarioParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelPetParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxPetParaFiltrar = new System.Windows.Forms.TextBox();
-            this.labelDataParaFiltrar = new System.Windows.Forms.Label();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.maskedTextBoxDataParaFiltrar = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,15 +137,6 @@
             this.textBoxPetParaFiltrar.TabIndex = 2;
             this.textBoxPetParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPetParaFiltrar_KeyUp);
             // 
-            // labelDataParaFiltrar
-            // 
-            this.labelDataParaFiltrar.AutoSize = true;
-            this.labelDataParaFiltrar.Location = new System.Drawing.Point(350, 9);
-            this.labelDataParaFiltrar.Name = "labelDataParaFiltrar";
-            this.labelDataParaFiltrar.Size = new System.Drawing.Size(105, 15);
-            this.labelDataParaFiltrar.TabIndex = 1;
-            this.labelDataParaFiltrar.Text = "Pesquisar por Data";
-            // 
             // buttonApagar
             // 
             this.buttonApagar.Location = new System.Drawing.Point(551, 25);
@@ -178,24 +167,14 @@
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
-            // maskedTextBoxDataParaFiltrar
-            // 
-            this.maskedTextBoxDataParaFiltrar.Location = new System.Drawing.Point(350, 27);
-            this.maskedTextBoxDataParaFiltrar.Mask = "00/00/0000";
-            this.maskedTextBoxDataParaFiltrar.Name = "maskedTextBoxDataParaFiltrar";
-            this.maskedTextBoxDataParaFiltrar.Size = new System.Drawing.Size(105, 23);
-            this.maskedTextBoxDataParaFiltrar.TabIndex = 4;
-            // 
             // ConsultaListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 444);
-            this.Controls.Add(this.maskedTextBoxDataParaFiltrar);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonApagar);
-            this.Controls.Add(this.labelDataParaFiltrar);
             this.Controls.Add(this.textBoxPetParaFiltrar);
             this.Controls.Add(this.labelPetParaFiltrar);
             this.Controls.Add(this.textBoxVeterinarioParaFiltrar);
@@ -218,7 +197,6 @@
         private TextBox textBoxVeterinarioParaFiltrar;
         private Label labelPetParaFiltrar;
         private TextBox textBoxPetParaFiltrar;
-        private Label labelDataParaFiltrar;
         private Button buttonApagar;
         private Button buttonEditar;
         private Button buttonCadastrar;
@@ -228,6 +206,5 @@
         private DataGridViewTextBoxColumn ColumnData;
         private DataGridViewTextBoxColumn ColumnHora;
         private DataGridViewTextBoxColumn ColumnObservacao;
-        private MaskedTextBox maskedTextBoxDataParaFiltrar;
     }
 }

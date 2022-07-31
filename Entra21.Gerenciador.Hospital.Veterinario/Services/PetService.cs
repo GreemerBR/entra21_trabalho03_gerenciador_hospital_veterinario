@@ -47,10 +47,10 @@ VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"UPDATE pets SET @ID_RACA=id_raca, @NOME=nome, @IDADE=idade,@PESO=peso,@ALTURA=altura,@GENERO=genero WHERE id = @ID";
-
+            comando.CommandText = @"UPDATE pets SET id_racas = @ID_RACAS, nome=@NOME, idade=@IDADE,peso=@PESO,altura=@ALTURA,genero=@GENERO WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", pet.Id);
             comando.Parameters.AddWithValue("@ID_RESPONSAVEIS", pet.Responsavel.Id);
-            comando.Parameters.AddWithValue("@ID_RACA", pet.Raca.Id);
+            comando.Parameters.AddWithValue("@ID_RACAS", pet.Raca.Id);
             comando.Parameters.AddWithValue("@NOME", pet.Nome);
             comando.Parameters.AddWithValue("@IDADE", pet.Idade);
             comando.Parameters.AddWithValue("@PESO", pet.Peso);
@@ -60,6 +60,8 @@ VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
 
             comando.ExecuteNonQuery();
 
+
+
             comando.Connection.Close();
         }
 
@@ -67,7 +69,7 @@ VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = "SELECT id, id_responsaveis,id_raca, nome, idade, peso, altura, genero FROM pet WHERE id = @ID";
+            comando.CommandText = "SELECT id, id_responsaveis,id_racas, nome, idade, peso, altura, genero FROM pets WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var dataTable = new DataTable();
@@ -82,11 +84,11 @@ VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
             pet.Nome = registro["nome"].ToString();
             pet.Idade = Convert.ToInt32(registro["idade"]);
             pet.Genero = Convert.ToChar(registro["genero"]);
-            pet.Peso = Convert.ToDouble(registro["peso"]);
-            pet.Altura = Convert.ToDouble(registro["altura"]);
+            pet.Peso = Convert.ToDecimal(registro["peso"]);
+            pet.Altura = Convert.ToDecimal(registro["altura"]);
 
             pet.Raca = new Raca();
-            pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
+            pet.Raca.Id = Convert.ToInt32(registro["id_racas"]);
 
             pet.Responsavel = new Responsavel();
             pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
@@ -117,9 +119,9 @@ rc.nome AS 'nome_raca'
 FROM pets AS p
 INNER JOIN responsaveis AS rp ON(p.id_responsaveis = rp.id)
 INNER JOIN racas AS rc ON(p.id_racas = rc.id)
-WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
+WHERE p.nome LIKE @NOME";
 
-            comando.Parameters.AddWithValue("@NOME_RESPONSAVEL", $"%{nomePet}%");
+            comando.Parameters.AddWithValue("@NOME", $"%{nomePet}%");
 
             var tabelaEmMemoria = new DataTable();
 
@@ -136,16 +138,18 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
                 pet.Genero = Convert.ToChar(registro["genero"]);
-                pet.Peso = Convert.ToDouble(registro["peso"]);
-                pet.Altura = Convert.ToDouble(registro["altura"]);
+                pet.Peso = Convert.ToDecimal(registro["peso"]);
+                pet.Altura = Convert.ToDecimal(registro["altura"]);
 
                 pet.Raca = new Raca();
                 pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
+                pet.Raca.Nome = registro["nome_raca"].ToString();
 
                 pet.Responsavel = new Responsavel();
                 pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
+                pet.Responsavel.Nome = registro["nome_responsavel"].ToString();
+
+                pets.Add(pet);
             }
 
             comando.Connection.Close();
@@ -173,7 +177,7 @@ rc.nome AS 'nome_raca'
 FROM pets AS p
 INNER JOIN responsaveis AS rp ON(p.id_responsaveis = rp.id)
 INNER JOIN racas AS rc ON(p.id_racas = rc.id)
-WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
+WHERE rp.nome LIKE @NOME_RESPONSAVEL";
 
             comando.Parameters.AddWithValue("@NOME_RESPONSAVEL", $"%{nomeResponsavel}%");
 
@@ -192,16 +196,18 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
                 pet.Genero = Convert.ToChar(registro["genero"]);
-                pet.Peso = Convert.ToDouble(registro["peso"]);
-                pet.Altura = Convert.ToDouble(registro["altura"]);
+                pet.Peso = Convert.ToDecimal(registro["peso"]);
+                pet.Altura = Convert.ToDecimal(registro["altura"]);
 
                 pet.Raca = new Raca();
                 pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
+                pet.Raca.Nome = registro["nome_raca"].ToString();
 
                 pet.Responsavel = new Responsavel();
                 pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
+                pet.Responsavel.Nome = registro["nome_responsavel"].ToString();
+
+                pets.Add(pet);
             }
 
             comando.Connection.Close();
@@ -245,16 +251,18 @@ INNER JOIN racas AS rc ON(p.id_racas = rc.id)";
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
                 pet.Genero = Convert.ToChar(registro["genero"]);
-                pet.Peso = Convert.ToDouble(registro["peso"]);
-                pet.Altura = Convert.ToDouble(registro["altura"]);
+                pet.Peso = Convert.ToDecimal(registro["peso"]);
+                pet.Altura = Convert.ToDecimal(registro["altura"]);
 
                 pet.Raca = new Raca();
                 pet.Raca.Id = Convert.ToInt32(registro["id_raca"]);
-                pet.Raca.Nome = registro["nome"].ToString();
+                pet.Raca.Nome = registro["nome_raca"].ToString();
 
                 pet.Responsavel = new Responsavel();
                 pet.Responsavel.Id = Convert.ToInt32(registro["id_responsaveis"]);
-                pet.Responsavel.Nome = registro["nome"].ToString();
+                pet.Responsavel.Nome = registro["nome_responsavel"].ToString();
+
+                pets.Add(pet);
             }
 
             comando.Connection.Close();
