@@ -45,6 +45,7 @@
             // 
             this.dataGridViewRacas.AllowUserToAddRows = false;
             this.dataGridViewRacas.AllowUserToDeleteRows = false;
+            this.dataGridViewRacas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRacas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
@@ -53,7 +54,7 @@
             this.dataGridViewRacas.Name = "dataGridViewRacas";
             this.dataGridViewRacas.ReadOnly = true;
             this.dataGridViewRacas.RowTemplate.Height = 25;
-            this.dataGridViewRacas.Size = new System.Drawing.Size(644, 311);
+            this.dataGridViewRacas.Size = new System.Drawing.Size(811, 387);
             this.dataGridViewRacas.TabIndex = 0;
             // 
             // Nome
@@ -61,14 +62,12 @@
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
-            this.Nome.Width = 300;
             // 
             // Espécie
             // 
             this.Espécie.HeaderText = "Espécie";
             this.Espécie.Name = "Espécie";
             this.Espécie.ReadOnly = true;
-            this.Espécie.Width = 300;
             // 
             // ButtonApagar
             // 
@@ -136,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 367);
+            this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.textBoxEspecieParaFiltrar);
             this.Controls.Add(this.textBoxNomeParaFiltrar);
             this.Controls.Add(this.labelEspecieParaFiltrar);
@@ -145,6 +144,7 @@
             this.Controls.Add(this.ButtonCadastrar);
             this.Controls.Add(this.ButtonApagar);
             this.Controls.Add(this.dataGridViewRacas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RacaListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista das Raças";

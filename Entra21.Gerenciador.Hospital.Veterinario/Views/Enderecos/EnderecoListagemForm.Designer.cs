@@ -46,6 +46,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -55,12 +56,12 @@
             this.ColumnCidade,
             this.ColumnUnidadeFederetiva,
             this.ColumnResponsavel});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(744, 465);
+            this.dataGridView1.Size = new System.Drawing.Size(814, 365);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -107,7 +108,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(762, 12);
+            this.buttonCadastrar.Location = new System.Drawing.Point(12, 21);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(95, 40);
             this.buttonCadastrar.TabIndex = 1;
@@ -117,7 +118,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(762, 58);
+            this.buttonEditar.Location = new System.Drawing.Point(113, 21);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(95, 40);
             this.buttonEditar.TabIndex = 2;
@@ -127,7 +128,7 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(762, 104);
+            this.buttonApagar.Location = new System.Drawing.Point(214, 21);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(95, 40);
             this.buttonApagar.TabIndex = 3;
@@ -139,11 +140,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 489);
+            this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EnderecoListagemForm";
             this.Text = "EnderecoListagemForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

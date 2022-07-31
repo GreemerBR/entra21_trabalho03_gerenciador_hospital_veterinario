@@ -51,6 +51,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.textBoxNome,
@@ -60,11 +62,11 @@
             this.maskedTextBoxAltura,
             this.comboBoxRaca,
             this.comboBoxResponsavel});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 42);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(973, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(734, 386);
             this.dataGridView1.TabIndex = 0;
             // 
             // textBoxNome
@@ -72,7 +74,6 @@
             this.textBoxNome.HeaderText = "Nome";
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.ReadOnly = true;
-            this.textBoxNome.Width = 200;
             // 
             // maskedTextBoxIdade
             // 
@@ -85,39 +86,34 @@
             this.ColumnGenero.HeaderText = "Gênero";
             this.ColumnGenero.Name = "ColumnGenero";
             this.ColumnGenero.ReadOnly = true;
-            this.ColumnGenero.Width = 150;
             // 
             // maskedTextBoxPeso
             // 
             this.maskedTextBoxPeso.HeaderText = "Peso";
             this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
             this.maskedTextBoxPeso.ReadOnly = true;
-            this.maskedTextBoxPeso.Width = 120;
             // 
             // maskedTextBoxAltura
             // 
             this.maskedTextBoxAltura.HeaderText = "Altura";
             this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
             this.maskedTextBoxAltura.ReadOnly = true;
-            this.maskedTextBoxAltura.Width = 120;
             // 
             // comboBoxRaca
             // 
             this.comboBoxRaca.HeaderText = "Raça";
             this.comboBoxRaca.Name = "comboBoxRaca";
             this.comboBoxRaca.ReadOnly = true;
-            this.comboBoxRaca.Width = 120;
             // 
             // comboBoxResponsavel
             // 
             this.comboBoxResponsavel.HeaderText = "Responsavel";
             this.comboBoxResponsavel.Name = "comboBoxResponsavel";
             this.comboBoxResponsavel.ReadOnly = true;
-            this.comboBoxResponsavel.Width = 120;
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(748, 13);
+            this.buttonApagar.Location = new System.Drawing.Point(751, 75);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(75, 23);
             this.buttonApagar.TabIndex = 1;
@@ -127,7 +123,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(910, 13);
+            this.buttonCadastrar.Location = new System.Drawing.Point(751, 17);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(75, 23);
             this.buttonCadastrar.TabIndex = 2;
@@ -137,7 +133,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(829, 13);
+            this.buttonEditar.Location = new System.Drawing.Point(751, 46);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 3;
@@ -191,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 387);
+            this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.labelNomeReponsavelParaFiltrar);
             this.Controls.Add(this.labelNomePetParaFiltrar);
             this.Controls.Add(this.labelFiltrar);
@@ -201,6 +197,7 @@
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PetListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listagem de Pets";

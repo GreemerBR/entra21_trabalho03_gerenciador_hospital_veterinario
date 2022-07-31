@@ -8,44 +8,70 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 {
     public partial class MenuForm : Form
     {
+        private Form frmAtivo;
+
         public MenuForm()
         {
             InitializeComponent();
         }
-        private void buttonEndereco_Click(object sender, EventArgs e)
+        private void FormShow(Form frm)
         {
-            var enderecoForm = new EnderecoListagemForm();
-            enderecoForm.ShowDialog();
+            ActiveFormClose();
+            frmAtivo = frm;
+            frm.TopLevel = false;
+            panelAbas.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
-        private void buttonResponsavel_Click(object sender, EventArgs e)
+        private void ActiveFormClose()
         {
-            var responsavelForm = new ResponsavelListagemForm();
-            responsavelForm.ShowDialog();
+            if (frmAtivo != null)
+                frmAtivo.Close();
         }
 
-        private void buttonVeterinario_Click(object sender, EventArgs e)
+        private void ActiveButton(Button frmAtivo)
         {
-            var veterinarioForm = new VeterinarioListagemForm();
-            veterinarioForm.ShowDialog();
+            foreach (Control ctrl in panelMenu.Controls)
+                ctrl.BackColor = Color.DarkBlue;
+
+            frmAtivo.BackColor = Color.Red;
         }
 
-        private void buttonConsulta_Click(object sender, EventArgs e)
+        private void buttonConsulta_Click_1(object sender, EventArgs e)
         {
-            var consultaForm = new ConsultaListagemForm();
-            consultaForm.ShowDialog();
+            ActiveButton(buttonConsulta);
+            FormShow(new ConsultaListagemForm());
         }
 
-        private void buttonPet_Click(object sender, EventArgs e)
+        private void buttonRaca_Click_1(object sender, EventArgs e)
         {
-            var petForm = new PetListagemForm();
-            petForm.ShowDialog();
+            ActiveButton(buttonRaca);
+            FormShow(new RacaListagemForm());
         }
 
-        private void buttonRaca_Click(object sender, EventArgs e)
+        private void buttonEndereco_Click_1(object sender, EventArgs e)
         {
-            var racaForm = new RacaListagemForm();
-            racaForm.ShowDialog();
+            ActiveButton(buttonEndereco);
+            FormShow(new EnderecoListagemForm());
+        }
+
+        private void buttonResponsavel_Click_1(object sender, EventArgs e)
+        {
+            ActiveButton(buttonResponsavel);
+            FormShow(new ResponsavelListagemForm());
+        }
+
+        private void buttonPet_Click_1(object sender, EventArgs e)
+        {
+            ActiveButton(buttonPet);
+            FormShow(new PetListagemForm());
+        }
+
+        private void buttonVeterinario_Click_1(object sender, EventArgs e)
+        {
+            ActiveButton(buttonVeterinario);
+            FormShow(new VeterinarioListagemForm());
         }
     }
 }

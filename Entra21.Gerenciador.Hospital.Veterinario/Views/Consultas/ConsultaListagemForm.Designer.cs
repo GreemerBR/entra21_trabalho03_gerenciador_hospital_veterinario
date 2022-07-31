@@ -51,6 +51,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -64,7 +65,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 382);
+            this.dataGridView1.Size = new System.Drawing.Size(814, 376);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -79,35 +80,30 @@
             this.ColumnVeterinario.HeaderText = "Veterinário(a)";
             this.ColumnVeterinario.Name = "ColumnVeterinario";
             this.ColumnVeterinario.ReadOnly = true;
-            this.ColumnVeterinario.Width = 250;
             // 
             // ColumnPet
             // 
             this.ColumnPet.HeaderText = "PET";
             this.ColumnPet.Name = "ColumnPet";
             this.ColumnPet.ReadOnly = true;
-            this.ColumnPet.Width = 150;
             // 
             // ColumnData
             // 
             this.ColumnData.HeaderText = "Data";
             this.ColumnData.Name = "ColumnData";
             this.ColumnData.ReadOnly = true;
-            this.ColumnData.Width = 75;
             // 
             // ColumnHora
             // 
             this.ColumnHora.HeaderText = "Hora";
             this.ColumnHora.Name = "ColumnHora";
             this.ColumnHora.ReadOnly = true;
-            this.ColumnHora.Width = 58;
             // 
             // ColumnObservacao
             // 
             this.ColumnObservacao.HeaderText = "Observação";
             this.ColumnObservacao.Name = "ColumnObservacao";
             this.ColumnObservacao.ReadOnly = true;
-            this.ColumnObservacao.Width = 200;
             // 
             // labelVeterinarioParaFiltrar
             // 
@@ -194,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.maskedTextBoxDataParaFiltrar);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonEditar);
@@ -205,6 +201,7 @@
             this.Controls.Add(this.textBoxVeterinarioParaFiltrar);
             this.Controls.Add(this.labelVeterinarioParaFiltrar);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConsultaListagemForm";
             this.Text = "Lista de Consultas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

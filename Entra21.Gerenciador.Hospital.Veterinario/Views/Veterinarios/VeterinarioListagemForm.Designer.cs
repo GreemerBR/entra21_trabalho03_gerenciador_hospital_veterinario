@@ -51,6 +51,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -66,7 +67,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(944, 394);
+            this.dataGridView1.Size = new System.Drawing.Size(814, 388);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -81,35 +82,30 @@
             this.ColumnNome.HeaderText = "Nome";
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
-            this.ColumnNome.Width = 280;
             // 
             // ColumnEspecialidade
             // 
             this.ColumnEspecialidade.HeaderText = "Especialidades";
             this.ColumnEspecialidade.Name = "ColumnEspecialidade";
             this.ColumnEspecialidade.ReadOnly = true;
-            this.ColumnEspecialidade.Width = 260;
             // 
             // ColumnCrmvNumero
             // 
             this.ColumnCrmvNumero.HeaderText = "N° CRMV";
             this.ColumnCrmvNumero.Name = "ColumnCrmvNumero";
             this.ColumnCrmvNumero.ReadOnly = true;
-            this.ColumnCrmvNumero.Width = 80;
             // 
             // ColumnCrmvEstado
             // 
             this.ColumnCrmvEstado.HeaderText = "UF";
             this.ColumnCrmvEstado.Name = "ColumnCrmvEstado";
             this.ColumnCrmvEstado.ReadOnly = true;
-            this.ColumnCrmvEstado.Width = 30;
             // 
             // ColumnIdade
             // 
             this.ColumnIdade.HeaderText = "Idade";
             this.ColumnIdade.Name = "ColumnIdade";
             this.ColumnIdade.ReadOnly = true;
-            this.ColumnIdade.Width = 50;
             // 
             // ColumnCpf
             // 
@@ -125,7 +121,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(881, 12);
+            this.buttonCadastrar.Location = new System.Drawing.Point(737, 16);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(75, 23);
             this.buttonCadastrar.TabIndex = 1;
@@ -135,7 +131,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(800, 12);
+            this.buttonEditar.Location = new System.Drawing.Point(656, 16);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 1;
@@ -145,7 +141,7 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(719, 12);
+            this.buttonApagar.Location = new System.Drawing.Point(575, 16);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(75, 23);
             this.buttonApagar.TabIndex = 1;
@@ -156,7 +152,7 @@
             // labelNomeParaFiltrar
             // 
             this.labelNomeParaFiltrar.AutoSize = true;
-            this.labelNomeParaFiltrar.Location = new System.Drawing.Point(14, 15);
+            this.labelNomeParaFiltrar.Location = new System.Drawing.Point(12, 15);
             this.labelNomeParaFiltrar.Name = "labelNomeParaFiltrar";
             this.labelNomeParaFiltrar.Size = new System.Drawing.Size(119, 15);
             this.labelNomeParaFiltrar.TabIndex = 2;
@@ -166,14 +162,14 @@
             // 
             this.textBoxNomeParaFiltrar.Location = new System.Drawing.Point(139, 12);
             this.textBoxNomeParaFiltrar.Name = "textBoxNomeParaFiltrar";
-            this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(278, 23);
+            this.textBoxNomeParaFiltrar.Size = new System.Drawing.Size(169, 23);
             this.textBoxNomeParaFiltrar.TabIndex = 3;
             this.textBoxNomeParaFiltrar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxNomeParaFiltrar_KeyUp);
             // 
             // labelEspecialidadeParaFiltrar
             // 
             this.labelEspecialidadeParaFiltrar.AutoSize = true;
-            this.labelEspecialidadeParaFiltrar.Location = new System.Drawing.Point(427, 16);
+            this.labelEspecialidadeParaFiltrar.Location = new System.Drawing.Point(314, 15);
             this.labelEspecialidadeParaFiltrar.Name = "labelEspecialidadeParaFiltrar";
             this.labelEspecialidadeParaFiltrar.Size = new System.Drawing.Size(81, 15);
             this.labelEspecialidadeParaFiltrar.TabIndex = 2;
@@ -181,7 +177,7 @@
             // 
             // textBoxEspecialidadeParaFiltrar
             // 
-            this.textBoxEspecialidadeParaFiltrar.Location = new System.Drawing.Point(514, 12);
+            this.textBoxEspecialidadeParaFiltrar.Location = new System.Drawing.Point(401, 12);
             this.textBoxEspecialidadeParaFiltrar.Name = "textBoxEspecialidadeParaFiltrar";
             this.textBoxEspecialidadeParaFiltrar.Size = new System.Drawing.Size(168, 23);
             this.textBoxEspecialidadeParaFiltrar.TabIndex = 3;
@@ -191,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 450);
+            this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.textBoxEspecialidadeParaFiltrar);
             this.Controls.Add(this.labelEspecialidadeParaFiltrar);
             this.Controls.Add(this.textBoxNomeParaFiltrar);
@@ -200,6 +196,7 @@
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VeterinarioListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Veterinários(as)";
