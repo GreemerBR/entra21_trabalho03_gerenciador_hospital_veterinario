@@ -94,19 +94,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-
-            var pesoTexto = textBoxPeso.Text.Trim().Replace(",","").Replace(".", "").ToString();
-            var peso = Convert.ToDouble($"{pesoTexto.Substring(0,(pesoTexto.Length - 2))}.{pesoTexto.Substring((pesoTexto.Length - 1), 2)}");
-
+            var peso = Convert.ToDouble(textBoxPeso.Text.Trim().Replace(",","."));          
             var idade = Convert.ToInt32(textBoxIdade.Text.Trim());
-
-            var alturaTexto = textBoxAltura.Text.Trim().Replace(",", "").Replace(".", "").ToString();
-            var altura = Convert.ToDouble($"{alturaTexto.Substring(0, (alturaTexto.Length - 2))}.{alturaTexto.Substring((alturaTexto.Length - 1),2)}");
-
+            var altura = Convert.ToDouble(textBoxAltura.Text.Trim().Replace(",", "."));
             var raca = comboBoxRaca.SelectedItem as Raca;
-
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
-
             char genero;
             if (radioButtonFenimino.Checked == true)
             {
