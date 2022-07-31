@@ -90,13 +90,17 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             var peso = Convert.ToDouble(maskedTextBoxPeso.Text);
             var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
             var altura = Convert.ToDouble(maskedTextBoxAltura.Text);
-            var genero= groupBoxGenero.Text;
+            var raca = comboBoxRaca.SelectedItem as Raca;
+            var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
+            var genero= Convert.ToChar(groupBoxGenero.Text.Substring(0,1));
             
             var pet = new Pet();
             pet.Nome = nome;
             pet.Peso = peso;
             pet.Idade = idade;
             pet.Altura = altura;
+            pet.Raca = raca;
+            pet.Responsavel = responsavel;
             pet.Genero = genero;
             
             var petService = new PetService();

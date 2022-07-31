@@ -24,8 +24,8 @@ CREATE TABLE pets(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100) NOT NULL,
 	idade TINYINT NOT NULL,
-	peso DECIMAL(5,2) NOT NULL,
-	altura DECIMAL(3,2) NOT NULL,
+	peso DECIMAL(8,2) NOT NULL,
+	altura DECIMAL(8,2) NOT NULL,
 	genero CHAR NOT NULL,
 	
 	id_responsaveis INTEGER NOT NULL,
@@ -64,3 +64,12 @@ SELECT * FROM racas;
 SELECT * FROM pets;
 SELECT * FROM responsaveis;
 SELECT * FROM enderecos;
+
+DROP TABLE veterinarios;
+DROP TABLE consultas;
+DROP TABLE racas;
+DROP TABLE pets;
+DROP TABLE responsaveis;
+DROP TABLE endereco;
+
+ALTER TABLE pets ALTER COLUMN altura DECIMAL(3,2);

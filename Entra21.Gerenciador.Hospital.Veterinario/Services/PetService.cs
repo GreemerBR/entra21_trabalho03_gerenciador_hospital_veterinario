@@ -81,7 +81,7 @@ VALUES (@NOME, @IDADE, @PESO, @ALTURA, @GENERO, @ID_RESPONSAVEIS, @ID_RACAS);";
             pet.Id = Convert.ToInt32(registro["id"]);
             pet.Nome = registro["nome"].ToString();
             pet.Idade = Convert.ToInt32(registro["idade"]);
-            pet.Genero = registro["genero"].ToString();
+            pet.Genero = Convert.ToChar(registro["genero"]);
             pet.Peso = Convert.ToDouble(registro["peso"]);
             pet.Altura = Convert.ToDouble(registro["altura"]);
 
@@ -135,7 +135,7 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
                 pet.Id = Convert.ToInt32(registro["id"]);
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
-                pet.Genero = registro["genero"].ToString();
+                pet.Genero = Convert.ToChar(registro["genero"]);
                 pet.Peso = Convert.ToDouble(registro["peso"]);
                 pet.Altura = Convert.ToDouble(registro["altura"]);
 
@@ -191,7 +191,7 @@ WHERE nome_responsavel LIKE @NOME_RESPONSAVEL";
                 pet.Id = Convert.ToInt32(registro["id"]);
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
-                pet.Genero = registro["genero"].ToString();
+                pet.Genero = Convert.ToChar(registro["genero"]);
                 pet.Peso = Convert.ToDouble(registro["peso"]);
                 pet.Altura = Convert.ToDouble(registro["altura"]);
 
@@ -244,7 +244,7 @@ INNER JOIN racas AS rc ON(p.id_racas = rc.id)";
                 pet.Id = Convert.ToInt32(registro["id"]);
                 pet.Nome = registro["nome"].ToString();
                 pet.Idade = Convert.ToInt32(registro["idade"]);
-                pet.Genero = registro["genero"].ToString();
+                pet.Genero = Convert.ToChar(registro["genero"]);
                 pet.Peso = Convert.ToDouble(registro["peso"]);
                 pet.Altura = Convert.ToDouble(registro["altura"]);
 

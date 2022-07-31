@@ -87,9 +87,14 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Veterinarios
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há nenhum(a) veterinário(a) cadastrado!", "ERRO", MessageBoxButtons.OK);
+                return;
+            }
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um(a) veterinário(a) para editar o cadastro!", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Selecione um(a) veterinário(a) para editar o cadastro!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 

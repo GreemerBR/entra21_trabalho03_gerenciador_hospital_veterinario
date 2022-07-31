@@ -113,7 +113,7 @@
             // maskedTextBoxCpf
             // 
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(12, 115);
-            this.maskedTextBoxCpf.Mask = "999.999.999-99";
+            this.maskedTextBoxCpf.Mask = "999,999,999-99";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(158, 23);
             this.maskedTextBoxCpf.TabIndex = 10;

@@ -4,23 +4,20 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 {
     public partial class ResponsavelListagemForm : Form
     {
-        private ResponsavelService responsavelService;
+        private readonly ResponsavelService _responsavelService;
 
         public ResponsavelListagemForm()
         {
             InitializeComponent();
 
-            responsavelService = new ResponsavelService();
-        }
+            _responsavelService = new ResponsavelService();
 
-        private void ResponsavelListagemForm_Load(object sender, EventArgs e)
-        {
             AtualizarRegistrosDataGriedView();
         }
 
         private void AtualizarRegistrosDataGriedView()
         {
-            var responsaveis = responsavelService.ObterTodos();
+            var responsaveis = _responsavelService.ObterTodos();
 
             dataGridView1.Rows.Clear();
 
@@ -51,26 +48,44 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            var id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um(a) responsável para apagar o cadastro!", "ERRO", MessageBoxButtons.OK);
+                return;
+            }
 
-            responsavelService.Apagar(id);
+            var resposta = MessageBox.Show("Deseja apagar o(a) responsável?", "Aviso", MessageBoxButtons.YesNo);
 
-            AtualizarRegistrosDataGriedView();
+            if (resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("O(a) responsável permanece na lista!", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
 
-            MessageBox.Show("Registro apagado com sucessp");
+                var linhaSelecionada = dataGridView1.SelectedRows[0];
+
+                var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+                _responsavelService.Apagar(id);
+
+                AtualizarRegistrosDataGriedView();
+
+                MessageBox.Show("responsável removido(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Cadastre algum responsavel");
+                MessageBox.Show("Não há nenhum(a) responsável cadastrado!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione algum registro");
+                MessageBox.Show("Selecione um(a) responsável para editar o cadastro!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 
@@ -78,9 +93,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
             var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-            var responsavel = responsavelService.ObterPorId(id);
+            var responsavel = _responsavelService.ObterPorId(id);
 
             var responsavelForm = new ResponsavelCadastroEdicaoForm(responsavel);
+            
             responsavelForm.ShowDialog();
 
             AtualizarRegistrosDataGriedView();

@@ -94,7 +94,7 @@
             // maskedTextBoxIdade
             // 
             this.maskedTextBoxIdade.Location = new System.Drawing.Point(148, 86);
-            this.maskedTextBoxIdade.Mask = "00";
+            this.maskedTextBoxIdade.Mask = "99";
             this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
             this.maskedTextBoxIdade.Size = new System.Drawing.Size(66, 23);
             this.maskedTextBoxIdade.TabIndex = 6;
@@ -102,7 +102,7 @@
             // maskedTextBoxAltura
             // 
             this.maskedTextBoxAltura.Location = new System.Drawing.Point(81, 86);
-            this.maskedTextBoxAltura.Mask = "0,00";
+            this.maskedTextBoxAltura.Mask = "9,99";
             this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
             this.maskedTextBoxAltura.Size = new System.Drawing.Size(47, 23);
             this.maskedTextBoxAltura.TabIndex = 7;
@@ -110,7 +110,7 @@
             // maskedTextBoxPeso
             // 
             this.maskedTextBoxPeso.Location = new System.Drawing.Point(12, 86);
-            this.maskedTextBoxPeso.Mask = "000,00";
+            this.maskedTextBoxPeso.Mask = "999,99";
             this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
             this.maskedTextBoxPeso.Size = new System.Drawing.Size(47, 23);
             this.maskedTextBoxPeso.TabIndex = 8;

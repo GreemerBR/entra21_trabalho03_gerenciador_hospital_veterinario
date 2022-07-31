@@ -5,16 +5,18 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 {
     public partial class ResponsavelCadastroEdicaoForm : Form
     {
-        private int idEdicao = -1;
+        private readonly int _idParaEditar;
 
         public ResponsavelCadastroEdicaoForm()
         {
             InitializeComponent();
+
+            _idParaEditar = -1;
         }
 
         public ResponsavelCadastroEdicaoForm(Responsavel responsavel) : this()
         {
-            idEdicao = responsavel.Id;
+            _idParaEditar = responsavel.Id;
 
             textBoxNome.Text = responsavel.Nome;
 
@@ -40,21 +42,21 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
             var responsavelService = new ResponsavelService();
 
-            if(idEdicao == -1)
+            if(_idParaEditar == -1)
             {
                 responsavelService.Cadastrar(responsavel);
 
-                MessageBox.Show("Responsavel cadastrado com sucesso");
+                MessageBox.Show("Responsável cadastrado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
 
                 Close();
 
                 return;
             }
 
-            responsavel.Id = idEdicao;
+            responsavel.Id = _idParaEditar;
             responsavelService.Editar(responsavel);
 
-            MessageBox.Show("Responsavel alterado com sucesso!!");
+            MessageBox.Show("Cadastro do(a) responsável editado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
 
             Close();
         }
