@@ -33,7 +33,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
         private void ActiveButton(Button frmAtivo)
         {
             foreach (Control ctrl in panelMenu.Controls)
-                ctrl.BackColor = Color.DarkBlue;
+                ctrl.BackColor = Color.Navy;
 
             frmAtivo.BackColor = Color.Red;
         }
