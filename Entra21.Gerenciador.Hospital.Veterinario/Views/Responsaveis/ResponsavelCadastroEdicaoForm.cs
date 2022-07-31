@@ -29,36 +29,43 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            var nome = textBoxNome.Text.Trim();
-            var idade = Convert.ToInt32(textBoxIdade.Text.Trim());
-            var cpf = maskedTextBoxCpf.Text;
-            var telefone = maskedTextBoxTelefone.Text;
-
-            var responsavel = new Responsavel();
-            responsavel.Nome = nome;
-            responsavel.Idade = idade;
-            responsavel.Cpf = cpf;
-            responsavel.Telefone = telefone;
-
-            var responsavelService = new ResponsavelService();
-
-            if(_idParaEditar == -1)
+            try
             {
-                responsavelService.Cadastrar(responsavel);
+                var nome = textBoxNome.Text.Trim();
+                var idade = Convert.ToInt32(textBoxIdade.Text.Trim());
+                var cpf = maskedTextBoxCpf.Text;
+                var telefone = maskedTextBoxTelefone.Text;
 
-                MessageBox.Show("Responsável cadastrado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
+                var responsavel = new Responsavel();
+                responsavel.Nome = nome;
+                responsavel.Idade = idade;
+                responsavel.Cpf = cpf;
+                responsavel.Telefone = telefone;
+
+                var responsavelService = new ResponsavelService();
+
+                if (_idParaEditar == -1)
+                {
+                    responsavelService.Cadastrar(responsavel);
+
+                    MessageBox.Show("Responsável cadastrado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
+
+                    Close();
+
+                    return;
+                }
+
+                responsavel.Id = _idParaEditar;
+                responsavelService.Editar(responsavel);
+
+                MessageBox.Show("Cadastro do(a) responsável editado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
 
                 Close();
-
-                return;
             }
-
-            responsavel.Id = _idParaEditar;
-            responsavelService.Editar(responsavel);
-
-            MessageBox.Show("Cadastro do(a) responsável editado(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
-
-            Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show("Algum dado esta invalido!!!");
+            }
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
