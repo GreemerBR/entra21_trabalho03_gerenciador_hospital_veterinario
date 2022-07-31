@@ -23,13 +23,20 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             textBoxNome.Text = pet.Nome;
 
-            maskedTextBoxPeso.Text = pet.Peso.ToString();
+            textBoxPeso.Text = pet.Peso.ToString();
 
-            maskedTextBoxIdade.Text = pet.Idade.ToString();
+            textBoxIdade.Text = pet.Idade.ToString();
 
-            maskedTextBoxAltura.Text = pet.Altura.ToString();
+            textBoxAltura.Text = pet.Altura.ToString();
 
-            groupBoxGenero.Text = pet.Genero.ToString();
+            if (pet.Genero.ToString() == "F")
+            {
+                radioButtonFenimino.Checked = true;
+            }
+            else
+            {
+                radioButtonMasculino.Checked = true;
+            }
 
             for (int i = 0; i < comboBoxResponsavel.Items.Count; i++)
             {
@@ -87,12 +94,28 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-            var peso = Convert.ToDouble(maskedTextBoxPeso.Text);
-            var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
-            var altura = Convert.ToDouble(maskedTextBoxAltura.Text);
+
+            var pesoTexto = textBoxPeso.Text.Trim().Replace(",","").Replace(".", "").ToString();
+            var peso = Convert.ToDouble($"{pesoTexto.Substring(0,(pesoTexto.Length - 2))}.{pesoTexto.Substring((pesoTexto.Length - 1), 2)}");
+
+            var idade = Convert.ToInt32(textBoxIdade.Text.Trim());
+
+            var alturaTexto = textBoxAltura.Text.Trim().Replace(",", "").Replace(".", "").ToString();
+            var altura = Convert.ToDouble($"{alturaTexto.Substring(0, (alturaTexto.Length - 2))}.{alturaTexto.Substring((alturaTexto.Length - 1),2)}");
+
             var raca = comboBoxRaca.SelectedItem as Raca;
+
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
-            var genero= Convert.ToChar(groupBoxGenero.Text.Substring(0,1));
+
+            char genero;
+            if (radioButtonFenimino.Checked == true)
+            {
+                genero = 'F';
+            }
+            else
+            {
+                genero = 'M';
+            }            
             
             var pet = new Pet();
             pet.Nome = nome;
@@ -148,35 +171,79 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
                 return false;
             }
 
-            if (maskedTextBoxPeso.Text == string.Empty)
+            if (textBoxPeso.Text.Trim().Length <3)
             {
-                MessageBox.Show("O peso do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("O peso do Pet deve ser informado com duas casas decimais", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxPeso.Focus();
+                textBoxPeso.Focus();
 
                 return false;
             }
 
-            if (maskedTextBoxIdade.Text == string.Empty)
+            if (textBoxIdade.Text.Trim().Length < 1)
             {
-                MessageBox.Show("A idade do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("A idade do Pet deve ser informada em anos!", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxIdade.Focus();
+                textBoxIdade.Focus();
 
                 return false;
             }
 
-            if (maskedTextBoxAltura.Text == string.Empty)
+            if (textBoxAltura.Text.Trim().Length < 3)
             {
-                MessageBox.Show("A Altura do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("A Altura do Pet deve ser informado com duas casas decimais!", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxAltura.Focus();
+                textBoxAltura.Focus();
 
                 return false;
+            }
+
+            for (var i = 0; i < textBoxPeso.Text.Length; i++)
+            {
+                var carater = textBoxPeso.Text.Substring(i, 1);
+
+                if (carater != "0" && carater != "1" && carater != "2" && carater != "3" && carater != "4" && carater != "5" && carater != "6"
+                    && carater != "7" && carater != "8" && carater != "9" && carater != "." && carater != ",")
+                {
+                    MessageBox.Show("O peso do Pet deve conter apenas números. Utilize vírgula para separar as casas decimais.", "ERRO", MessageBoxButtons.OK);
+
+                    textBoxPeso.Focus();
+
+                    return false;
+                }
+            }
+
+            for (var i = 0; i < textBoxAltura.Text.Length; i++)
+            {
+                var carater = textBoxPeso.Text.Substring(i, 1);
+
+                if (carater != "0" && carater != "1" && carater != "2" && carater != "3" && carater != "4" && carater != "5" && carater != "6"
+                    && carater != "7" && carater != "8" && carater != "9" && carater != "." && carater != ",")
+                {
+                    MessageBox.Show("A altura do Pet deve conter apenas números. Utilize vírgula para separar as casas decimais.", "ERRO", MessageBoxButtons.OK);
+
+                    textBoxPeso.Focus();
+
+                    return false;
+                }
+            }
+
+            for (var i = 0; i < textBoxIdade.Text.Length; i++)
+            {
+                var carater = textBoxIdade.Text.Substring(i, 1);
+
+                if (carater != "0" && carater != "1" && carater != "2" && carater != "3" && carater != "4" && carater != "5" && carater != "6"
+                    && carater != "7" && carater != "8" && carater != "9" && carater != "." && carater != ",")
+                {
+                    MessageBox.Show("A idade do Pet deve conter apenas números", "ERRO", MessageBoxButtons.OK);
+
+                    textBoxPeso.Focus();
+
+                    return false;
+                }
             }
 
             return true;
         }
-    }
-    
+    }    
 }

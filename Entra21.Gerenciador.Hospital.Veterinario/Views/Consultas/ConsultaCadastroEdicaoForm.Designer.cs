@@ -34,12 +34,12 @@
             this.comboBoxPet = new System.Windows.Forms.ComboBox();
             this.dateTimePickerData = new System.Windows.Forms.DateTimePicker();
             this.labelData = new System.Windows.Forms.Label();
-            this.dateTimePickerHorario = new System.Windows.Forms.DateTimePicker();
             this.labelHorario = new System.Windows.Forms.Label();
             this.labelObservacao = new System.Windows.Forms.Label();
             this.richTextBoxObbservacao = new System.Windows.Forms.RichTextBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.maskedTextBoxHorario = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // labelVeterinario
@@ -96,20 +96,10 @@
             this.labelData.TabIndex = 0;
             this.labelData.Text = "Data";
             // 
-            // dateTimePickerHorario
-            // 
-            this.dateTimePickerHorario.CustomFormat = "";
-            this.dateTimePickerHorario.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHorario.Location = new System.Drawing.Point(298, 145);
-            this.dateTimePickerHorario.Name = "dateTimePickerHorario";
-            this.dateTimePickerHorario.Size = new System.Drawing.Size(57, 23);
-            this.dateTimePickerHorario.TabIndex = 3;
-            this.dateTimePickerHorario.Value = new System.DateTime(2022, 7, 28, 20, 0, 0, 0);
-            // 
             // labelHorario
             // 
             this.labelHorario.AutoSize = true;
-            this.labelHorario.Location = new System.Drawing.Point(298, 127);
+            this.labelHorario.Location = new System.Drawing.Point(280, 127);
             this.labelHorario.Name = "labelHorario";
             this.labelHorario.Size = new System.Drawing.Size(47, 15);
             this.labelHorario.TabIndex = 0;
@@ -152,15 +142,24 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // maskedTextBoxHorario
+            // 
+            this.maskedTextBoxHorario.Location = new System.Drawing.Point(280, 148);
+            this.maskedTextBoxHorario.Mask = "00:00";
+            this.maskedTextBoxHorario.Name = "maskedTextBoxHorario";
+            this.maskedTextBoxHorario.Size = new System.Drawing.Size(75, 23);
+            this.maskedTextBoxHorario.TabIndex = 6;
+            this.maskedTextBoxHorario.ValidatingType = typeof(System.DateTime);
+            // 
             // ConsultaCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 368);
+            this.Controls.Add(this.maskedTextBoxHorario);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.richTextBoxObbservacao);
-            this.Controls.Add(this.dateTimePickerHorario);
             this.Controls.Add(this.dateTimePickerData);
             this.Controls.Add(this.comboBoxPet);
             this.Controls.Add(this.comboBoxVeterinario);
@@ -186,11 +185,11 @@
         private ComboBox comboBoxPet;
         private DateTimePicker dateTimePickerData;
         private Label labelData;
-        private DateTimePicker dateTimePickerHorario;
         private Label labelHorario;
         private Label labelObservacao;
         private RichTextBox richTextBoxObbservacao;
         private Button buttonSalvar;
         private Button buttonCancelar;
+        private MaskedTextBox maskedTextBoxHorario;
     }
 }

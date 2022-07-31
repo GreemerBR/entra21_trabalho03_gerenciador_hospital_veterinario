@@ -36,14 +36,14 @@
             this.buttonRaca = new System.Windows.Forms.Button();
             this.buttonConsulta = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelHome = new System.Windows.Forms.Label();
             this.panelAbas = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -186,6 +186,16 @@
             this.panel2.Size = new System.Drawing.Size(183, 98);
             this.panel2.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Entra21.Gerenciador.Hospital.Vet.Properties.Resources.rMn0Jho3_4x_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.IndianRed;
@@ -204,9 +214,9 @@
             this.labelHome.ForeColor = System.Drawing.Color.White;
             this.labelHome.Location = new System.Drawing.Point(400, 36);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(73, 30);
+            this.labelHome.Size = new System.Drawing.Size(69, 30);
             this.labelHome.TabIndex = 0;
-            this.labelHome.Text = "Home";
+            this.labelHome.Text = "Vet Et";
             // 
             // panelAbas
             // 
@@ -215,16 +225,6 @@
             this.panelAbas.Name = "panelAbas";
             this.panelAbas.Size = new System.Drawing.Size(838, 444);
             this.panelAbas.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Entra21.Gerenciador.Hospital.Vet.Properties.Resources.rMn0Jho3_4x_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // MenuForm
             // 
@@ -239,9 +239,9 @@
             this.Text = "Menu";
             this.panelMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

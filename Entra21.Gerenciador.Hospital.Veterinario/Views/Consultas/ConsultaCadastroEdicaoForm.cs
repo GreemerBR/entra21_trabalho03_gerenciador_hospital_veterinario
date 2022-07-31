@@ -20,8 +20,8 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
         private void ConsultaCadastroEdicaoForm_Load(object sender, EventArgs e)
         {
-            dateTimePickerHorario.CustomFormat = "HH:mm";
-            dateTimePickerHorario.Format = DateTimePickerFormat.Custom;
+            //dateTimePickerHorario.CustomFormat = "HH:mm";
+            //dateTimePickerHorario.Format = DateTimePickerFormat.Custom;
 
             dateTimePickerData.CustomFormat = "dd/MM/yyyy";
             dateTimePickerData.Format = DateTimePickerFormat.Custom;
@@ -35,7 +35,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
             dateTimePickerData.Text = data;
 
             var hora = consulta.DataHora.ToString("HH:mm");
-            dateTimePickerHorario.Text = hora;
+            maskedTextBoxHorario.Text = hora;
 
             richTextBoxObbservacao.Text = consulta.Observacao;
 
@@ -95,10 +95,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
             var veterinario = comboBoxVeterinario.SelectedItem as Veterinario;
             var pet = comboBoxPet.SelectedItem as Pet;
-            var data = dateTimePickerData.Value.Date.ToString("dd/MM/yyyy");
-            var hora = dateTimePickerHorario.Value.Hour.ToString("HH:mm");
-            var dataHora = Convert.ToDateTime($"{data} {hora}");
-            var observacao = richTextBoxObbservacao.Text.Trim();          
+            var data = Convert.ToDateTime(dateTimePickerData.Value.Date);
+            var hora = Convert.ToDateTime(maskedTextBoxHorario.Text);
+            var dataHora = data.Date + hora.TimeOfDay;
+            var observacao = richTextBoxObbservacao.Text.Trim();
 
             var consulta = new Consulta();
             consulta.Veterinario = veterinario;
@@ -161,7 +161,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
                 return false;
             }
 
-            if (dateTimePickerHorario.Text == string.Empty)
+            if (maskedTextBoxHorario.Text == string.Empty)
             {
                 MessageBox.Show("A hora da consulta deve ser informada!", "ERRO", MessageBoxButtons.OK);
 
