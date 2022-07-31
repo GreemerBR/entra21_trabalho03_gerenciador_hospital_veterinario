@@ -100,16 +100,16 @@
             // 
             this.dateTimePickerHorario.CustomFormat = "";
             this.dateTimePickerHorario.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHorario.Location = new System.Drawing.Point(287, 145);
+            this.dateTimePickerHorario.Location = new System.Drawing.Point(298, 145);
             this.dateTimePickerHorario.Name = "dateTimePickerHorario";
-            this.dateTimePickerHorario.Size = new System.Drawing.Size(68, 23);
+            this.dateTimePickerHorario.Size = new System.Drawing.Size(57, 23);
             this.dateTimePickerHorario.TabIndex = 3;
             this.dateTimePickerHorario.Value = new System.DateTime(2022, 7, 28, 20, 0, 0, 0);
             // 
             // labelHorario
             // 
             this.labelHorario.AutoSize = true;
-            this.labelHorario.Location = new System.Drawing.Point(287, 127);
+            this.labelHorario.Location = new System.Drawing.Point(298, 127);
             this.labelHorario.Name = "labelHorario";
             this.labelHorario.Size = new System.Drawing.Size(47, 15);
             this.labelHorario.TabIndex = 0;

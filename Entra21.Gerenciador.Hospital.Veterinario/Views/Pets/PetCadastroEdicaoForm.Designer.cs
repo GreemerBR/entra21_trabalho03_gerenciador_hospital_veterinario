@@ -159,6 +159,7 @@
             // 
             // comboBoxRaca
             // 
+            this.comboBoxRaca.DisplayMember = "Nome";
             this.comboBoxRaca.FormattingEnabled = true;
             this.comboBoxRaca.Location = new System.Drawing.Point(12, 139);
             this.comboBoxRaca.Name = "comboBoxRaca";
@@ -176,6 +177,7 @@
             // 
             // comboBoxResponsavel
             // 
+            this.comboBoxResponsavel.DisplayMember = "Nome";
             this.comboBoxResponsavel.FormattingEnabled = true;
             this.comboBoxResponsavel.Location = new System.Drawing.Point(12, 195);
             this.comboBoxResponsavel.Name = "comboBoxResponsavel";

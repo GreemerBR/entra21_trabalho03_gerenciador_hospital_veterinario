@@ -9,6 +9,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Models
         public double Peso { get; set; }
         public double Altura { get; set; }
         public string Genero { get; set; }
+
         public Responsavel Responsavel { get; set; }
         public Raca Raca { get; set; }
     }
