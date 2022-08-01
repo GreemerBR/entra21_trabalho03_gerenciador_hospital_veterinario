@@ -195,6 +195,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panelTitulo
             // 
@@ -220,6 +221,7 @@
             // 
             // panelAbas
             // 
+            this.panelAbas.BackColor = System.Drawing.Color.Lavender;
             this.panelAbas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAbas.Location = new System.Drawing.Point(183, 98);
             this.panelAbas.Name = "panelAbas";

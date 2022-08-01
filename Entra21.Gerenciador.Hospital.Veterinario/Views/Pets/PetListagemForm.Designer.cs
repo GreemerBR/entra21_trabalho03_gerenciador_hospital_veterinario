@@ -54,6 +54,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -64,12 +66,12 @@
             this.maskedTextBoxAltura,
             this.comboBoxRaca,
             this.comboBoxResponsavel});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 70);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(734, 386);
+            this.dataGridView1.Size = new System.Drawing.Size(815, 362);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnId
@@ -123,37 +125,46 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(751, 75);
+            this.buttonApagar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApagar.ForeColor = System.Drawing.Color.White;
+            this.buttonApagar.Location = new System.Drawing.Point(174, 6);
             this.buttonApagar.Name = "buttonApagar";
-            this.buttonApagar.Size = new System.Drawing.Size(75, 23);
+            this.buttonApagar.Size = new System.Drawing.Size(75, 32);
             this.buttonApagar.TabIndex = 1;
             this.buttonApagar.Text = "Apagar";
-            this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.UseVisualStyleBackColor = false;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(751, 17);
+            this.buttonCadastrar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCadastrar.ForeColor = System.Drawing.Color.White;
+            this.buttonCadastrar.Location = new System.Drawing.Point(12, 6);
             this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCadastrar.Size = new System.Drawing.Size(75, 32);
             this.buttonCadastrar.TabIndex = 2;
             this.buttonCadastrar.Text = "Cadastrar";
-            this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.UseVisualStyleBackColor = false;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(751, 46);
+            this.buttonEditar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
+            this.buttonEditar.Location = new System.Drawing.Point(93, 6);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.Size = new System.Drawing.Size(75, 32);
             this.buttonEditar.TabIndex = 3;
             this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // textBoxNomePetParaFiltrar
             // 
-            this.textBoxNomePetParaFiltrar.Location = new System.Drawing.Point(79, 12);
+            this.textBoxNomePetParaFiltrar.Location = new System.Drawing.Point(82, 41);
             this.textBoxNomePetParaFiltrar.Name = "textBoxNomePetParaFiltrar";
             this.textBoxNomePetParaFiltrar.Size = new System.Drawing.Size(244, 23);
             this.textBoxNomePetParaFiltrar.TabIndex = 4;
@@ -170,7 +181,7 @@
             // labelNomePetParaFiltrar
             // 
             this.labelNomePetParaFiltrar.AutoSize = true;
-            this.labelNomePetParaFiltrar.Location = new System.Drawing.Point(11, 17);
+            this.labelNomePetParaFiltrar.Location = new System.Drawing.Point(11, 46);
             this.labelNomePetParaFiltrar.Name = "labelNomePetParaFiltrar";
             this.labelNomePetParaFiltrar.Size = new System.Drawing.Size(65, 15);
             this.labelNomePetParaFiltrar.TabIndex = 6;
@@ -178,7 +189,7 @@
             // 
             // textBoxNomeResponsavelParaFiltrar
             // 
-            this.textBoxNomeResponsavelParaFiltrar.Location = new System.Drawing.Point(457, 12);
+            this.textBoxNomeResponsavelParaFiltrar.Location = new System.Drawing.Point(449, 41);
             this.textBoxNomeResponsavelParaFiltrar.Name = "textBoxNomeResponsavelParaFiltrar";
             this.textBoxNomeResponsavelParaFiltrar.Size = new System.Drawing.Size(244, 23);
             this.textBoxNomeResponsavelParaFiltrar.TabIndex = 4;
@@ -187,7 +198,7 @@
             // labelNomeReponsavelParaFiltrar
             // 
             this.labelNomeReponsavelParaFiltrar.AutoSize = true;
-            this.labelNomeReponsavelParaFiltrar.Location = new System.Drawing.Point(340, 17);
+            this.labelNomeReponsavelParaFiltrar.Location = new System.Drawing.Point(332, 46);
             this.labelNomeReponsavelParaFiltrar.Name = "labelNomeReponsavelParaFiltrar";
             this.labelNomeReponsavelParaFiltrar.Size = new System.Drawing.Size(111, 15);
             this.labelNomeReponsavelParaFiltrar.TabIndex = 6;
@@ -197,6 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.labelNomeReponsavelParaFiltrar);
             this.Controls.Add(this.labelNomePetParaFiltrar);

@@ -73,5 +73,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
             ActiveButton(buttonVeterinario);
             FormShow(new VeterinarioListagemForm());
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ActiveFormClose();
+        }
     }
 }

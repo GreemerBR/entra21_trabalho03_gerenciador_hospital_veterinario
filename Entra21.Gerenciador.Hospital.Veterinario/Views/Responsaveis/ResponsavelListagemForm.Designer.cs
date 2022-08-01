@@ -48,6 +48,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -96,9 +97,10 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonCadastrar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCadastrar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadastrar.ForeColor = System.Drawing.Color.Black;
+            this.buttonCadastrar.ForeColor = System.Drawing.Color.White;
             this.buttonCadastrar.Location = new System.Drawing.Point(12, 12);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(90, 34);
@@ -109,9 +111,10 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonApagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonApagar.ForeColor = System.Drawing.Color.Black;
+            this.buttonApagar.ForeColor = System.Drawing.Color.White;
             this.buttonApagar.Location = new System.Drawing.Point(204, 12);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(90, 36);
@@ -122,9 +125,10 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEditar.ForeColor = System.Drawing.Color.Black;
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(108, 12);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(90, 36);
@@ -145,6 +149,8 @@
             // 
             // textBoxBuscarPorNome
             // 
+            this.textBoxBuscarPorNome.BackColor = System.Drawing.Color.White;
+            this.textBoxBuscarPorNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBuscarPorNome.Location = new System.Drawing.Point(607, 18);
             this.textBoxBuscarPorNome.Name = "textBoxBuscarPorNome";
             this.textBoxBuscarPorNome.Size = new System.Drawing.Size(219, 23);
@@ -155,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.textBoxBuscarPorNome);
             this.Controls.Add(this.labelNome);

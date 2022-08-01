@@ -49,6 +49,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -111,32 +113,41 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(12, 21);
+            this.buttonCadastrar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCadastrar.ForeColor = System.Drawing.Color.White;
+            this.buttonCadastrar.Location = new System.Drawing.Point(12, 12);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(95, 40);
             this.buttonCadastrar.TabIndex = 1;
             this.buttonCadastrar.Text = "Cadastrar";
-            this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.UseVisualStyleBackColor = false;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(113, 21);
+            this.buttonEditar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
+            this.buttonEditar.Location = new System.Drawing.Point(113, 12);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(95, 40);
             this.buttonEditar.TabIndex = 2;
             this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(214, 21);
+            this.buttonApagar.BackColor = System.Drawing.Color.Tomato;
+            this.buttonApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApagar.ForeColor = System.Drawing.Color.White;
+            this.buttonApagar.Location = new System.Drawing.Point(214, 12);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(95, 40);
             this.buttonApagar.TabIndex = 3;
             this.buttonApagar.Text = "Apagar";
-            this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.UseVisualStyleBackColor = false;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // labelBairro
@@ -160,6 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(838, 444);
             this.Controls.Add(this.labelBairro);
             this.Controls.Add(this.textBoxBuscarBairro);
