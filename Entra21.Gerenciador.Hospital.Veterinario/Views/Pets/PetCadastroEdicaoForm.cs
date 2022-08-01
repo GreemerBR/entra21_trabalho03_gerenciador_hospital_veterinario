@@ -23,11 +23,11 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
 
             textBoxNome.Text = pet.Nome;
 
-            maskedTextBoxPeso.Text = pet.Peso.ToString();
+            textBoxPeso.Text = pet.Peso.ToString("N2");
 
-            maskedTextBoxIdade.Text = pet.Idade.ToString();
+            textBoxIdade.Text = pet.Idade.ToString();
 
-            maskedTextBoxAltura.Text = pet.Altura.ToString();
+            textBoxAltura.Text = pet.Altura.ToString("N2");
 
             if (pet.Genero == 'M')
             {
@@ -94,9 +94,9 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-            var peso = Convert.ToDecimal(maskedTextBoxPeso.Text)/100;
-            var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
-            var altura = Convert.ToDecimal(maskedTextBoxAltura.Text)/100;
+            var peso = Convert.ToDecimal(textBoxPeso.Text.Replace(",", "."))/100;
+            var idade = Convert.ToInt32(textBoxIdade.Text);
+            var altura = Convert.ToDecimal(textBoxAltura.Text.Replace(",", "."))/100;
             var raca = comboBoxRaca.SelectedItem as Raca;
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
             char genero;
@@ -165,31 +165,76 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
                 return false;
             }
 
-            if (maskedTextBoxPeso.Text == string.Empty)
+            if (textBoxPeso.Text.Trim().Length < 3 || textBoxPeso.Text.Trim().Length > 5)
             {
-                MessageBox.Show("O peso do Pet deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+                MessageBox.Show("O peso do Pet deve ser preenchido com no mínimo 3 caracteres (x,xx)!", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxPeso.Focus();
+                textBoxPeso.Focus();
 
                 return false;
             }
 
-            if (maskedTextBoxIdade.Text == string.Empty)
+            for (var i = 0; i < textBoxPeso.Text.Length; i++)
             {
-                MessageBox.Show("A idade do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
+                if (textBoxPeso.Text.Substring(i, 1) != "0" && textBoxPeso.Text.Substring(i, 1) != "1" && textBoxPeso.Text.Substring(i, 1) != "2" &&
+                    textBoxPeso.Text.Substring(i, 1) != "3" && textBoxPeso.Text.Substring(i, 1) != "4" && textBoxPeso.Text.Substring(i, 1) != "5" &&
+                    textBoxPeso.Text.Substring(i, 1) != "6" && textBoxPeso.Text.Substring(i, 1) != "7" && textBoxPeso.Text.Substring(i, 1) != "8" &&
+                    textBoxPeso.Text.Substring(i, 1) != "9" && textBoxPeso.Text.Substring(i, 1) != "," && textBoxPeso.Text.Substring(i, 1) != ".")
+                {
+                    MessageBox.Show("O peso do Pet deve ser informado utilizando números! Você pode usar . ou , para separar as casas decimais.", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxIdade.Focus();
+                    textBoxPeso.Focus();
+
+                    return false;
+                }
+            }
+
+            if (textBoxIdade.Text.Trim().Length < 1 || textBoxIdade.Text.Trim().Length > 2)
+            {
+                MessageBox.Show("A idade do Pet deve ser preenchido com no mínimo 1 caracter. Sempre em anos!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxIdade.Focus();
 
                 return false;
             }
 
-            if (maskedTextBoxAltura.Text == string.Empty)
+            for (var i = 0; i < textBoxIdade.Text.Length; i++)
             {
-                MessageBox.Show("A Altura do Pet deve ser preenchida!", "ERRO", MessageBoxButtons.OK);
+                if (textBoxIdade.Text.Substring(i, 1) != "0" && textBoxIdade.Text.Substring(i, 1) != "1" && textBoxIdade.Text.Substring(i, 1) != "2" &&
+                    textBoxIdade.Text.Substring(i, 1) != "3" && textBoxIdade.Text.Substring(i, 1) != "4" && textBoxIdade.Text.Substring(i, 1) != "5" &&
+                    textBoxIdade.Text.Substring(i, 1) != "6" && textBoxIdade.Text.Substring(i, 1) != "7" && textBoxIdade.Text.Substring(i, 1) != "8" &&
+                    textBoxIdade.Text.Substring(i, 1) != "9")
+                {
+                    MessageBox.Show("A idade do Pet deve ser informado utilizando números!", "ERRO", MessageBoxButtons.OK);
 
-                maskedTextBoxAltura.Focus();
+                    textBoxIdade.Focus();
+
+                    return false;
+                }
+            }
+
+            if (textBoxAltura.Text.Trim().Length < 3 || textBoxAltura.Text.Trim().Length > 5)
+            {
+                MessageBox.Show("A altura do Pet deve ser preenchida com 3 caracteres (x,xx)!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxAltura.Focus();
 
                 return false;
+            }
+
+            for (var i = 0; i < textBoxAltura.Text.Length; i++)
+            {
+                if (textBoxAltura.Text.Substring(i, 1) != "0" && textBoxAltura.Text.Substring(i, 1) != "1" && textBoxAltura.Text.Substring(i, 1) != "2" &&
+                    textBoxAltura.Text.Substring(i, 1) != "3" && textBoxAltura.Text.Substring(i, 1) != "4" && textBoxAltura.Text.Substring(i, 1) != "5" &&
+                    textBoxAltura.Text.Substring(i, 1) != "6" && textBoxAltura.Text.Substring(i, 1) != "7" && textBoxAltura.Text.Substring(i, 1) != "8" &&
+                    textBoxAltura.Text.Substring(i, 1) != "9" && textBoxAltura.Text.Substring(i, 1) != "," && textBoxAltura.Text.Substring(i, 1) != ".")
+                {
+                    MessageBox.Show("A altura do Pet deve ser informado utilizando números! Você pode usar . ou , para separar as casas decimais.", "ERRO", MessageBoxButtons.OK);
+
+                    textBoxAltura.Focus();
+
+                    return false;
+                }
             }
 
             return true;

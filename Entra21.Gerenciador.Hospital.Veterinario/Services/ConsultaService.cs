@@ -80,7 +80,7 @@ id_veterinarios = @ID_VETERINARIOS, id_pets = @ID_PETS WHERE id = @ID";
             var consulta = new Consulta();
 
             consulta.Id = Convert.ToInt32(registro["id"]);
-            consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]).Date;
+            consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]);
             consulta.Observacao = registro["observacao"].ToString();
 
             consulta.Veterinario = new Veterinario();
@@ -127,7 +127,7 @@ WHERE p.nome LIKE @NOME_PET";
                 var consulta = new Consulta();
 
                 consulta.Id = Convert.ToInt32(registro["id"]);
-                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]).Date;
+                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]);
                 consulta.Observacao = registro["observacao"].ToString();
 
                 consulta.Veterinario = new Veterinario();
@@ -179,7 +179,7 @@ WHERE v.nome LIKE @NOME_VETERINARIO";
                 var consulta = new Consulta();
 
                 consulta.Id = Convert.ToInt32(registro["id"]);
-                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]).Date;
+                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]);
                 consulta.Observacao = registro["observacao"].ToString();
 
                 consulta.Veterinario = new Veterinario();
@@ -228,7 +228,7 @@ INNER JOIN pets AS p ON(c.id_pets = p.id)";
                 var consulta = new Consulta();
 
                 consulta.Id = Convert.ToInt32(registro["id"]);
-                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]).Date;
+                consulta.DataHora = Convert.ToDateTime(registro["data_hora_consulta"]);
                 consulta.Observacao = registro["observacao"].ToString();
 
                 consulta.Veterinario = new Veterinario();
