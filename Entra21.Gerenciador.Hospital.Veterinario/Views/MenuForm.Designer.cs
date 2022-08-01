@@ -40,7 +40,6 @@
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelHome = new System.Windows.Forms.Label();
             this.panelAbas = new System.Windows.Forms.Panel();
-            this.buttonEquipe = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +49,6 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Navy;
-            this.panelMenu.Controls.Add(this.buttonEquipe);
             this.panelMenu.Controls.Add(this.buttonVeterinario);
             this.panelMenu.Controls.Add(this.buttonPet);
             this.panelMenu.Controls.Add(this.buttonResponsavel);
@@ -230,19 +228,6 @@
             this.panelAbas.Size = new System.Drawing.Size(838, 444);
             this.panelAbas.TabIndex = 3;
             // 
-            // buttonEquipe
-            // 
-            this.buttonEquipe.FlatAppearance.BorderSize = 0;
-            this.buttonEquipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEquipe.ForeColor = System.Drawing.Color.White;
-            this.buttonEquipe.Location = new System.Drawing.Point(3, 513);
-            this.buttonEquipe.Name = "buttonEquipe";
-            this.buttonEquipe.Size = new System.Drawing.Size(55, 26);
-            this.buttonEquipe.TabIndex = 0;
-            this.buttonEquipe.Text = "Equipe";
-            this.buttonEquipe.UseVisualStyleBackColor = true;
-            this.buttonEquipe.Click += new System.EventHandler(this.buttonEquipe_Click);
-            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -276,6 +261,5 @@
         private Label labelHome;
         private Panel panelAbas;
         private PictureBox pictureBox1;
-        private Button buttonEquipe;
     }
 }
