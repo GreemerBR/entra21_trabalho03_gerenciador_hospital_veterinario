@@ -81,7 +81,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
                 AtualizarRegistrosDataGriedView();
 
-                MessageBox.Show("responsável removido(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Responsável removido(a) com sucesso!", "Aviso", MessageBoxButtons.OK);
             }
         }
 

@@ -48,7 +48,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
                     consulta.Veterinario.Nome,
                     consulta.Pet.Nome,
                     consulta.DataHora.ToString("dd/MM/yyyy"),
-                    consulta.DataHora.ToString("hh:MM"),
+                    consulta.DataHora.ToString("HH:MM"),
                     consulta.Observacao
                 });
             }

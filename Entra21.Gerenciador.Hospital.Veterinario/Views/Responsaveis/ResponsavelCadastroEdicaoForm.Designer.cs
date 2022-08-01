@@ -35,9 +35,9 @@
             this.labelCpf = new System.Windows.Forms.Label();
             this.labelTelefone = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.textBoxIdade = new System.Windows.Forms.TextBox();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxIdade = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // buttonCancelar
@@ -103,13 +103,6 @@
             this.textBoxNome.Size = new System.Drawing.Size(158, 23);
             this.textBoxNome.TabIndex = 6;
             // 
-            // textBoxIdade
-            // 
-            this.textBoxIdade.Location = new System.Drawing.Point(12, 71);
-            this.textBoxIdade.Name = "textBoxIdade";
-            this.textBoxIdade.Size = new System.Drawing.Size(158, 23);
-            this.textBoxIdade.TabIndex = 7;
-            // 
             // maskedTextBoxCpf
             // 
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(12, 115);
@@ -126,14 +119,22 @@
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(158, 23);
             this.maskedTextBoxTelefone.TabIndex = 13;
             // 
+            // maskedTextBoxIdade
+            // 
+            this.maskedTextBoxIdade.Location = new System.Drawing.Point(14, 71);
+            this.maskedTextBoxIdade.Mask = "99";
+            this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
+            this.maskedTextBoxIdade.Size = new System.Drawing.Size(154, 23);
+            this.maskedTextBoxIdade.TabIndex = 14;
+            // 
             // ResponsavelCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(189, 226);
+            this.Controls.Add(this.maskedTextBoxIdade);
             this.Controls.Add(this.maskedTextBoxTelefone);
             this.Controls.Add(this.maskedTextBoxCpf);
-            this.Controls.Add(this.textBoxIdade);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.labelTelefone);
             this.Controls.Add(this.labelCpf);
@@ -158,8 +159,8 @@
         private Label labelCpf;
         private Label labelTelefone;
         private TextBox textBoxNome;
-        private TextBox textBoxIdade;
         private MaskedTextBox maskedTextBoxCpf;
         private MaskedTextBox maskedTextBoxTelefone;
+        private MaskedTextBox maskedTextBoxIdade;
     }
 }

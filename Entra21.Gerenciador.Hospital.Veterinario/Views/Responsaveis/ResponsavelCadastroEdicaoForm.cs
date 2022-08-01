@@ -20,7 +20,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
 
             textBoxNome.Text = responsavel.Nome;
 
-            textBoxIdade.Text = responsavel.Idade.ToString();
+            maskedTextBoxIdade.Text = responsavel.Idade.ToString();
 
             maskedTextBoxCpf.Text = responsavel.Cpf;
 
@@ -31,8 +31,13 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
         {
             try
             {
+                if (CamposValidos() == false)
+                {
+                    return;
+                }
+
                 var nome = textBoxNome.Text.Trim();
-                var idade = Convert.ToInt32(textBoxIdade.Text.Trim());
+                var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
                 var cpf = maskedTextBoxCpf.Text;
                 var telefone = maskedTextBoxTelefone.Text;
 
@@ -71,6 +76,48 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool CamposValidos()
+        {
+            if (textBoxNome.Text.Trim().Length < 6)
+            {
+                MessageBox.Show("O nome do(a) responsável precisa ter ao menos 6 caracteres!", "ERRO", MessageBoxButtons.OK);
+
+                textBoxNome.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxTelefone.Text == string.Empty)
+            {
+                MessageBox.Show("O número de telefone do(a) Responsável deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxTelefone.Focus();
+
+                return false;
+            }
+            
+
+            if (maskedTextBoxCpf.Text == string.Empty)
+            {
+                MessageBox.Show("O CPF do(a) Responsável deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxCpf.Focus();
+
+                return false;
+            }
+
+            if (maskedTextBoxIdade.Text == string.Empty)
+            {
+                MessageBox.Show("A idade do(a) Responsável deve ser preenchido!", "ERRO", MessageBoxButtons.OK);
+
+                maskedTextBoxIdade.Focus();
+
+                return false;
+            }            
+
+            return true;
         }
     }
 }

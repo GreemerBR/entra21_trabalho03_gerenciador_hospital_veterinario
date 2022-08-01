@@ -59,28 +59,43 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um registro");
+                MessageBox.Show("Selecione um endereço para apagar o cadastro!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 
-            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var resposta = MessageBox.Show("Deseja apagar o endereço?", "Aviso", MessageBoxButtons.YesNo);
 
-            var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            if (resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("O endereço permanece na lista!", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
 
-            _enderecoService.Apagar(id);
+                var linhaSelecionada = dataGridView1.SelectedRows[0];
 
-            PreencherDataGriedViewComEndereco();
+                var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-            MessageBox.Show("registro removido com sucesso");
+                _enderecoService.Apagar(id);
+
+                PreencherDataGriedViewComEndereco();
+
+                MessageBox.Show("Endereço removido com sucesso!", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Selecione algum registro");
+                MessageBox.Show("Não há nenhum endereço cadastrado!", "ERRO", MessageBoxButtons.OK);
+                return;
+            }
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um endereço para editar o cadastro!", "ERRO", MessageBoxButtons.OK);
                 return;
             }
 

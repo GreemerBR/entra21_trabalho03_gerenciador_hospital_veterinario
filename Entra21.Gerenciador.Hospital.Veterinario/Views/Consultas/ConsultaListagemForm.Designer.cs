@@ -30,6 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelVeterinarioParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxVeterinarioParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelPetParaFiltrar = new System.Windows.Forms.Label();
@@ -37,12 +43,6 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +68,46 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(814, 376);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Código";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
+            // ColumnVeterinario
+            // 
+            this.ColumnVeterinario.HeaderText = "Veterinário(a)";
+            this.ColumnVeterinario.Name = "ColumnVeterinario";
+            this.ColumnVeterinario.ReadOnly = true;
+            // 
+            // ColumnPet
+            // 
+            this.ColumnPet.HeaderText = "PET";
+            this.ColumnPet.Name = "ColumnPet";
+            this.ColumnPet.ReadOnly = true;
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.HeaderText = "Data";
+            this.ColumnData.Name = "ColumnData";
+            this.ColumnData.ReadOnly = true;
+            // 
+            // ColumnHora
+            // 
+            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ColumnHora.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnHora.HeaderText = "Hora";
+            this.ColumnHora.Name = "ColumnHora";
+            this.ColumnHora.ReadOnly = true;
+            // 
+            // ColumnObservacao
+            // 
+            this.ColumnObservacao.HeaderText = "Observação";
+            this.ColumnObservacao.Name = "ColumnObservacao";
+            this.ColumnObservacao.ReadOnly = true;
             // 
             // labelVeterinarioParaFiltrar
             // 
@@ -141,46 +181,6 @@
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = false;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Código";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
-            // 
-            // ColumnVeterinario
-            // 
-            this.ColumnVeterinario.HeaderText = "Veterinário(a)";
-            this.ColumnVeterinario.Name = "ColumnVeterinario";
-            this.ColumnVeterinario.ReadOnly = true;
-            // 
-            // ColumnPet
-            // 
-            this.ColumnPet.HeaderText = "PET";
-            this.ColumnPet.Name = "ColumnPet";
-            this.ColumnPet.ReadOnly = true;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.HeaderText = "Data";
-            this.ColumnData.Name = "ColumnData";
-            this.ColumnData.ReadOnly = true;
-            // 
-            // ColumnHora
-            // 
-            dataGridViewCellStyle1.Format = "t";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ColumnHora.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnHora.HeaderText = "Hora";
-            this.ColumnHora.Name = "ColumnHora";
-            this.ColumnHora.ReadOnly = true;
-            // 
-            // ColumnObservacao
-            // 
-            this.ColumnObservacao.HeaderText = "Observação";
-            this.ColumnObservacao.Name = "ColumnObservacao";
-            this.ColumnObservacao.ReadOnly = true;
             // 
             // ConsultaListagemForm
             // 

@@ -56,9 +56,18 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
         {
             try
             {
+                if (maskedTextBoxCep.Text == string.Empty)
+                {
+                    MessageBox.Show("O CEP deve ser informado!", "ERRO", MessageBoxButtons.OK);
+
+                    maskedTextBoxCep.Focus();
+                    return;
+                }
+
                 if (comboBoxResponsavel.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Selecione um responsavel");
+                    MessageBox.Show("Selecione um(a) Responsável!", "ERRO", MessageBoxButtons.OK);
+                    comboBoxResponsavel.DroppedDown = true;
                     return;
                 }
 
@@ -81,20 +90,20 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Enderecos
                 if (_idParaEditar == -1)
                 {
                     enderecoSevice.Cadastrar(endereco);
-                    MessageBox.Show("Endereco cadastrado com sucesso");
+                    MessageBox.Show("Endereco cadastrado com sucesso", "Aviso", MessageBoxButtons.OK);
                     Close();
                 }
                 else
                 {
                     endereco.Id = _idParaEditar; ;
                     enderecoSevice.Editar(endereco);
-                    MessageBox.Show("Endereco alterado com sucesso");
+                    MessageBox.Show("Endereco editado com sucesso", "Aviso", MessageBoxButtons.OK);
                     Close();
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Algum dado esta invalido!!!");
+                MessageBox.Show("Algum dado esta inválido!", "ERRO", MessageBoxButtons.OK);
             }
         }
 

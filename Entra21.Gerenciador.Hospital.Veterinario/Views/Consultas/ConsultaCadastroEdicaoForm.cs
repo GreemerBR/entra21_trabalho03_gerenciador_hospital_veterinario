@@ -20,9 +20,6 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
 
         private void ConsultaCadastroEdicaoForm_Load(object sender, EventArgs e)
         {
-            //dateTimePickerHorario.CustomFormat = "HH:mm";
-            //dateTimePickerHorario.Format = DateTimePickerFormat.Custom;
-
             dateTimePickerData.CustomFormat = "dd/MM/yyyy";
             dateTimePickerData.Format = DateTimePickerFormat.Custom;
         }
@@ -165,7 +162,7 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Consultas
             {
                 MessageBox.Show("A hora da consulta deve ser informada!", "ERRO", MessageBoxButtons.OK);
 
-                dateTimePickerData.Focus();
+                maskedTextBoxHorario.Focus();
 
                 return false;
             }
