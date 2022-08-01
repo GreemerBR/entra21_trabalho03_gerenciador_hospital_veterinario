@@ -78,5 +78,10 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views
         {
             ActiveFormClose();
         }
+
+        private void buttonEquipe_Click(object sender, EventArgs e)
+        {
+            FormShow(new Participantes());
+        }
     }
 }
