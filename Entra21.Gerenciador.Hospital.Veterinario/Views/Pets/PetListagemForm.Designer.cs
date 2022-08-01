@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maskedTextBoxIdade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maskedTextBoxPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maskedTextBoxAltura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBoxRaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBoxResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
@@ -45,6 +39,14 @@
             this.labelNomePetParaFiltrar = new System.Windows.Forms.Label();
             this.textBoxNomeResponsavelParaFiltrar = new System.Windows.Forms.TextBox();
             this.labelNomeReponsavelParaFiltrar = new System.Windows.Forms.Label();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maskedTextBoxIdade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maskedTextBoxPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maskedTextBoxAltura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxRaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,55 +75,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 362);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            this.ColumnId.Visible = false;
-            // 
-            // textBoxNome
-            // 
-            this.textBoxNome.HeaderText = "Nome";
-            this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.ReadOnly = true;
-            // 
-            // maskedTextBoxIdade
-            // 
-            this.maskedTextBoxIdade.HeaderText = "Idade";
-            this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
-            this.maskedTextBoxIdade.ReadOnly = true;
-            // 
-            // ColumnGenero
-            // 
-            this.ColumnGenero.HeaderText = "Gênero";
-            this.ColumnGenero.Name = "ColumnGenero";
-            this.ColumnGenero.ReadOnly = true;
-            // 
-            // maskedTextBoxPeso
-            // 
-            this.maskedTextBoxPeso.HeaderText = "Peso";
-            this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
-            this.maskedTextBoxPeso.ReadOnly = true;
-            // 
-            // maskedTextBoxAltura
-            // 
-            this.maskedTextBoxAltura.HeaderText = "Altura";
-            this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
-            this.maskedTextBoxAltura.ReadOnly = true;
-            // 
-            // comboBoxRaca
-            // 
-            this.comboBoxRaca.HeaderText = "Raça";
-            this.comboBoxRaca.Name = "comboBoxRaca";
-            this.comboBoxRaca.ReadOnly = true;
-            // 
-            // comboBoxResponsavel
-            // 
-            this.comboBoxResponsavel.HeaderText = "Responsavel";
-            this.comboBoxResponsavel.Name = "comboBoxResponsavel";
-            this.comboBoxResponsavel.ReadOnly = true;
             // 
             // buttonApagar
             // 
@@ -203,6 +156,61 @@
             this.labelNomeReponsavelParaFiltrar.Size = new System.Drawing.Size(111, 15);
             this.labelNomeReponsavelParaFiltrar.TabIndex = 6;
             this.labelNomeReponsavelParaFiltrar.Text = "Nome Responsável:";
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            this.ColumnId.Visible = false;
+            // 
+            // textBoxNome
+            // 
+            this.textBoxNome.HeaderText = "Nome";
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.ReadOnly = true;
+            // 
+            // maskedTextBoxIdade
+            // 
+            this.maskedTextBoxIdade.HeaderText = "Idade";
+            this.maskedTextBoxIdade.Name = "maskedTextBoxIdade";
+            this.maskedTextBoxIdade.ReadOnly = true;
+            // 
+            // ColumnGenero
+            // 
+            this.ColumnGenero.HeaderText = "Gênero";
+            this.ColumnGenero.Name = "ColumnGenero";
+            this.ColumnGenero.ReadOnly = true;
+            // 
+            // maskedTextBoxPeso
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.maskedTextBoxPeso.DefaultCellStyle = dataGridViewCellStyle1;
+            this.maskedTextBoxPeso.HeaderText = "Peso";
+            this.maskedTextBoxPeso.Name = "maskedTextBoxPeso";
+            this.maskedTextBoxPeso.ReadOnly = true;
+            // 
+            // maskedTextBoxAltura
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.maskedTextBoxAltura.DefaultCellStyle = dataGridViewCellStyle2;
+            this.maskedTextBoxAltura.HeaderText = "Altura";
+            this.maskedTextBoxAltura.Name = "maskedTextBoxAltura";
+            this.maskedTextBoxAltura.ReadOnly = true;
+            // 
+            // comboBoxRaca
+            // 
+            this.comboBoxRaca.HeaderText = "Raça";
+            this.comboBoxRaca.Name = "comboBoxRaca";
+            this.comboBoxRaca.ReadOnly = true;
+            // 
+            // comboBoxResponsavel
+            // 
+            this.comboBoxResponsavel.HeaderText = "Responsavel";
+            this.comboBoxResponsavel.Name = "comboBoxResponsavel";
+            this.comboBoxResponsavel.ReadOnly = true;
             // 
             // PetListagemForm
             // 

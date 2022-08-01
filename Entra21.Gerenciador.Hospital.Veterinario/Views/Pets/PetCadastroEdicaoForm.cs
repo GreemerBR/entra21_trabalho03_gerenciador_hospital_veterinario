@@ -94,9 +94,9 @@ namespace Entra21.Gerenciador.Hospital.Vet.Views.Pets
             }
 
             var nome = textBoxNome.Text.Trim();
-            var peso = Convert.ToDecimal(maskedTextBoxPeso.Text);
+            var peso = Convert.ToDecimal(maskedTextBoxPeso.Text)/100;
             var idade = Convert.ToInt32(maskedTextBoxIdade.Text);
-            var altura = Convert.ToDecimal(maskedTextBoxAltura.Text);
+            var altura = Convert.ToDecimal(maskedTextBoxAltura.Text)/100;
             var raca = comboBoxRaca.SelectedItem as Raca;
             var responsavel = comboBoxResponsavel.SelectedItem as Responsavel;
             char genero;
