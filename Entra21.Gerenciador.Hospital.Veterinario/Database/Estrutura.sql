@@ -37,7 +37,7 @@ CREATE TABLE pets(
 CREATE TABLE consultas(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	data_hora_consulta DATETIME2 NOT NULL,
-	observação TEXT,
+	observacao TEXT,
 
 	id_veterinarios INTEGER NOT NULL,
 	id_pets INTEGER NOT NULL,

@@ -124,19 +124,28 @@
   <data name="avatar-de-perfil (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\avatar-de-perfil (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="localizacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\localizacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="animais-de-estimacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\animais-de-estimacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="consulta-medica (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\consulta-medica (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="localizacao (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\localizacao (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rMn0Jho3_4x-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\rMn0Jho3_4x-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhatsApp_Image_2022-06-14_at_14.47.03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\WhatsApp_Image_2022-06-14_at_14.47.03.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhatsApp Image 2022-07-31 at 21.16.06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\WhatsApp Image 2022-07-31 at 21.16.06.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="veterinario (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\veterinario (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rMn0Jho3_4x-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\rMn0Jho3_4x-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="187116119_699917651185470_6690800124867537692_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\187116119_699917651185470_6690800124867537692_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

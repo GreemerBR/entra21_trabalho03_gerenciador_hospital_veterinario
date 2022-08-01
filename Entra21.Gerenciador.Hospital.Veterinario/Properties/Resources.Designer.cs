@@ -63,6 +63,16 @@ namespace Entra21.Gerenciador.Hospital.Vet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _187116119_699917651185470_6690800124867537692_n {
+            get {
+                object obj = ResourceManager.GetObject("187116119_699917651185470_6690800124867537692_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap animais_de_estimacao__1_ {
             get {
                 object obj = ResourceManager.GetObject("animais-de-estimacao (1)", resourceCulture);
@@ -126,6 +136,26 @@ namespace Entra21.Gerenciador.Hospital.Vet.Properties {
         internal static System.Drawing.Bitmap veterinario__1_ {
             get {
                 object obj = ResourceManager.GetObject("veterinario (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2022_06_14_at_14_47_03 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2022-06-14_at_14.47.03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2022_07_31_at_21_16_06 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2022-07-31 at 21.16.06", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
